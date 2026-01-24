@@ -109,8 +109,8 @@ const CoursesPage = () => {
     <div className="min-h-screen pt-20 pb-20 px-4">
       {/* Hero Section */}
       <div className="relative rounded-3xl overflow-hidden mb-16 h-[40vh] min-h-[400px]">
-        <img src="https://images.unsplash.com/photo-1624388611710-bdf95023d1c2" alt="Professional Courses" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-slate-900/80 to-teal-900/60 backdrop-blur-sm flex items-center justify-center">
+        <img src="/rainbowbrain.png" alt="Professional Courses" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-900/90 via-slate-900/80 to-cyan-900/60 backdrop-blur-sm flex items-center justify-center">
           <div className="text-center p-6 max-w-3xl">
             <motion.h1 initial={{
               opacity: 0,
@@ -120,7 +120,7 @@ const CoursesPage = () => {
               y: 0
             }} transition={{
               duration: 0.6
-            }} className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-teal-300 via-sky-300 to-cyan-300 bg-clip-text text-transparent">
+            }} className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-violet-300 via-cyan-300 to-purple-300 bg-clip-text text-transparent">
               Professional Development
             </motion.h1>
             <motion.p initial={{
@@ -141,10 +141,10 @@ const CoursesPage = () => {
           {courses.map((course, index) => <motion.div key={index} variants={itemVariants} whileHover={{
             scale: 1.02,
             y: -5
-          }} className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+          }} className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 transition-all duration-300">
             <div className="p-6 flex-grow flex flex-col">
               <div className="flex justify-between items-start mb-4">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-teal-500/20 to-sky-500/20 text-teal-300 border border-teal-500/30">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 text-violet-300 border border-violet-500/30">
                   {course.level}
                 </span>
                 <span className="text-xs text-white/60 flex items-center gap-1">
@@ -153,8 +153,8 @@ const CoursesPage = () => {
                 </span>
               </div>
 
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-500/20 to-cyan-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <course.icon className="w-6 h-6 text-teal-300" />
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <course.icon className="w-6 h-6 text-violet-300" />
               </div>
 
               <h3 className="text-xl font-bold text-white mb-2">{course.title}</h3>
@@ -165,7 +165,7 @@ const CoursesPage = () => {
                   Instructor: <span className="text-white/80">{course.instructor}</span>
                 </div>
                 <Button
-                  className="w-full backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border-0 shadow-lg shadow-violet-900/20 transition-all duration-300 hover:shadow-violet-500/40"
                   onClick={() => handleEnrollClick(course.enrollmentLink)}
                 >
                   Enroll Now

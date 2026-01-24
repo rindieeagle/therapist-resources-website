@@ -39,7 +39,7 @@ const Header = () => {
               className="flex items-center gap-2"
             >
               <img
-                src="https://horizons-cdn.hostinger.com/3a008976-8773-4a6b-b312-6bad53146b92/3ced519d4edbaa36f541863fa979a0d2.png"
+                src="/logo.png"
                 alt="Therapist Resources Logo"
                 className="h-10 w-auto"
               />

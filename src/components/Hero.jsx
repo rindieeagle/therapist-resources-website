@@ -53,7 +53,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-2xl md:text-3xl italic bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent"
+                className="text-2xl md:text-3xl italic bg-gradient-to-r from-cyan-200 via-sky-300 to-teal-200 bg-clip-text text-transparent font-medium"
               >
                 Therapist + Tech Nerd
               </motion.p>
@@ -76,7 +76,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 backdrop-blur-xl bg-cyan-500/20 text-white rounded-full font-semibold border border-cyan-500/30 shadow-lg hover:shadow-cyan-500/20 hover:bg-cyan-500/30 transition-all duration-300"
+                  className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-semibold shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
                   onClick={() => document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Explore Resources

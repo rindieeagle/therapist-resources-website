@@ -129,7 +129,7 @@ const WebAppsPage = () => {
                   <div className="pt-6 border-t border-white/5">
                     <Button
                       onClick={(e) => handleAppClick(e, app.title)}
-                      className={`w-full py-6 text-lg font-medium backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white shadow-lg transition-all duration-300`}
+                      className={`w-full py-6 text-lg font-medium bg-gradient-to-r ${app.gradient} hover:opacity-90 text-white border-0 shadow-lg transition-all duration-300 hover:shadow-cyan-500/40`}
                     >
                       {app.buttonText}
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

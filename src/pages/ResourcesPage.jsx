@@ -81,7 +81,7 @@ const ResourcesPage = () => {
         {/* Hero Section */}
         <div className="relative rounded-3xl overflow-hidden mb-16 h-[40vh] min-h-[400px]">
           <img
-            src="https://images.unsplash.com/photo-1675270714610-11a5cadcc7b3"
+            src="/4FDE6D24-82D6-4F5C-9A06-F63B88DD6BAF.png"
             alt="Therapy Resources"
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -137,7 +137,7 @@ const ResourcesPage = () => {
                   <p className="text-white/70 text-sm leading-relaxed mb-6">{resource.description}</p>
 
                   <div className="mt-auto pt-4 border-t border-white/10">
-                    <Button className="w-full backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 text-white shadow-lg transition-all duration-300">
+                    <Button className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:shadow-cyan-500/40">
                       View Details
                     </Button>
                   </div>

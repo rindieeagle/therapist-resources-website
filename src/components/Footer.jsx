@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Mail, Heart } from 'lucide-react';
+import { Linkedin, Mail, Heart, Facebook } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-              <img src="https://horizons-cdn.hostinger.com/3a008976-8773-4a6b-b312-6bad53146b92/3ced519d4edbaa36f541863fa979a0d2.png" alt="Therapist Resources" className="h-10 w-auto" />
+              <img src="/logo.png" alt="Therapist Resources" className="h-10 w-auto" />
             </div>
             <p className="text-white/80 text-sm font-medium drop-shadow-sm">Professional resources and courses for therapists designed by Rindie Eagle, MA, LPCC</p>
           </div>
@@ -41,7 +41,7 @@ const Footer = () => {
             <h3 className="text-white font-bold mb-4 text-lg drop-shadow-md">Connect</h3>
             <div className="flex gap-4 justify-center md:justify-end mb-4">
               <motion.a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/rindieeagle"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, rotate: 5 }}
@@ -51,7 +51,17 @@ const Footer = () => {
                 <Linkedin className="w-5 h-5" />
               </motion.a>
               <motion.a
-                href="mailto:contact@therapistresources.com"
+                href="https://www.facebook.com/rindieresources"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-sky-500/50 backdrop-blur-sm border border-white/10 shadow-lg transition-all duration-300"
+              >
+                <Facebook className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="https://rindieme.formaloo.me/contact"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 whileTap={{ scale: 0.9 }}
                 className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-teal-500/50 backdrop-blur-sm border border-white/10 shadow-lg transition-all duration-300"
@@ -60,7 +70,7 @@ const Footer = () => {
               </motion.a>
             </div>
             <p className="text-white/80 text-sm font-medium drop-shadow-sm">
-              contact@therapistresources.com
+              rindie@therapistresources.com
             </p>
           </div>
         </div>
