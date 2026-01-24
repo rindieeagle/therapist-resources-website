@@ -11,7 +11,7 @@ const apps = [
     title: "Caseload Calculator",
     description: "Calculate your ideal caseload based on your income goals, business expenses, and desired work-life balance. Stop guessing and start planning for a sustainable practice.",
     icon: Calculator,
-    gradient: "from-purple-500 via-indigo-500 to-blue-500",
+    gradient: "from-teal-500 via-cyan-500 to-sky-500",
     buttonText: "Launch Calculator",
     link: "#"
   },
@@ -19,7 +19,7 @@ const apps = [
     title: "Attract Your Ideal Client",
     description: "A comprehensive mini-course and interactive workbook designed to help you clarify your niche and speak directly to the clients you do your best work with.",
     icon: Magnet,
-    gradient: "from-pink-500 via-rose-500 to-orange-500",
+    gradient: "from-sky-500 via-blue-500 to-indigo-500",
     buttonText: "Start Mini-Course",
     link: "#"
   },
@@ -69,10 +69,10 @@ const WebAppsPage = () => {
         <title>Web Apps & Tools | Rindie Eagle</title>
         <meta name="description" content="Interactive clinical tools and web applications for therapists. Streamline your practice with our Caseload Calculator and Behavioral Definition Builder." />
       </Helmet>
-      
+
       <div className="min-h-screen pt-20 pb-20 px-4 relative">
         {/* Background Decorations */}
-        <div className="absolute top-20 left-10 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-20 left-10 w-64 h-64 bg-teal-500/20 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] pointer-events-none" />
 
         {/* Hero Section */}
@@ -87,11 +87,11 @@ const WebAppsPage = () => {
               <Sparkles className="w-4 h-4" />
               Interactive Clinical Tools
             </span>
-            <h1 className="text-5xl md:text-7xl font-bold font-playfair mb-8 bg-gradient-to-r from-white via-cyan-100 to-purple-200 bg-clip-text text-transparent drop-shadow-lg">
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-white via-cyan-100 to-sky-200 bg-clip-text text-transparent drop-shadow-lg">
               Smart Tools for <br /> Modern Therapists
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Web-based applications designed to streamline your administrative tasks 
+              Web-based applications designed to streamline your administrative tasks
               and enhance your clinical effectiveness without the headache.
             </p>
           </motion.div>
@@ -99,7 +99,7 @@ const WebAppsPage = () => {
 
         {/* Cards Grid */}
         <div className="container mx-auto max-w-7xl">
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -110,26 +110,26 @@ const WebAppsPage = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, translateY: -5 }}
-                className="group relative flex flex-col h-full bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-2xl transition-all duration-300"
               >
                 {/* Gradient Top Border/Glow */}
                 <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${app.gradient}`} />
                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${app.gradient} opacity-20 blur-[50px] group-hover:opacity-30 transition-opacity duration-500`} />
-                
+
                 <div className="p-8 flex-grow flex flex-col relative z-10">
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${app.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <app.icon className="w-7 h-7 text-white" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4 font-playfair">{app.title}</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">{app.title}</h3>
                   <p className="text-white/70 leading-relaxed mb-8 flex-grow">
                     {app.description}
                   </p>
-                  
+
                   <div className="pt-6 border-t border-white/5">
-                    <Button 
+                    <Button
                       onClick={(e) => handleAppClick(e, app.title)}
-                      className={`w-full py-6 text-lg font-medium bg-gradient-to-r ${app.gradient} hover:opacity-90 transition-opacity text-white border-0 shadow-lg`}
+                      className={`w-full py-6 text-lg font-medium bg-gradient-to-r ${app.gradient} hover:opacity-90 text-white border-0 shadow-lg transition-all duration-300 hover:shadow-cyan-500/40`}
                     >
                       {app.buttonText}
                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -28,10 +28,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md bg-white/10"
-      style={{
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
-      }}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-white/5 border-b border-white/10"
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -41,12 +38,12 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2"
             >
-              <img 
-                src="https://horizons-cdn.hostinger.com/3a008976-8773-4a6b-b312-6bad53146b92/3ced519d4edbaa36f541863fa979a0d2.png"
+              <img
+                src="/logo.png"
                 alt="Therapist Resources Logo"
                 className="h-10 w-auto"
               />
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent font-playfair">
+              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
                 Therapist Resources
               </span>
             </motion.div>
@@ -57,7 +54,7 @@ const Header = () => {
             {navItems.map((item) => {
               const isHash = item.path.startsWith('#');
               const isExternal = item.path.startsWith('http');
-              
+
               if (isExternal) {
                 return (
                   <motion.a
@@ -89,9 +86,8 @@ const Header = () => {
                   <motion.span
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`transition-colors duration-300 font-medium ${
-                      location.pathname === item.path ? 'text-cyan-300' : 'text-white/90 hover:text-cyan-300'
-                    }`}
+                    className={`transition-colors duration-300 font-medium ${location.pathname === item.path ? 'text-cyan-300' : 'text-white/90 hover:text-cyan-300'
+                      }`}
                   >
                     {item.name}
                   </motion.span>
@@ -119,7 +115,7 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-4 backdrop-blur-md bg-white/10 rounded-lg p-4 border border-white/10"
+              className="md:hidden mt-4 backdrop-blur-xl bg-white/5 rounded-3xl p-4 border border-white/10"
             >
               {navItems.map((item) => {
                 const isHash = item.path.startsWith('#');
@@ -159,9 +155,8 @@ const Header = () => {
                   >
                     <motion.div
                       whileTap={{ scale: 0.95 }}
-                      className={`block py-3 transition-colors duration-300 font-medium ${
-                        location.pathname === item.path ? 'text-cyan-300' : 'text-white/90 hover:text-cyan-300'
-                      }`}
+                      className={`block py-3 transition-colors duration-300 font-medium ${location.pathname === item.path ? 'text-cyan-300' : 'text-white/90 hover:text-cyan-300'
+                        }`}
                     >
                       {item.name}
                     </motion.div>

@@ -76,26 +76,26 @@ const ResourcesPage = () => {
         <title>Therapy Resources | Rindie Eagle</title>
         <meta name="description" content="Explore a comprehensive collection of therapy resources, handouts, and clinical tools." />
       </Helmet>
-      
+
       <div className="min-h-screen pt-20 pb-20 px-4">
         {/* Hero Section */}
         <div className="relative rounded-3xl overflow-hidden mb-16 h-[40vh] min-h-[400px]">
-          <img 
-            src="https://images.unsplash.com/photo-1675270714610-11a5cadcc7b3" 
+          <img
+            src="/4FDE6D24-82D6-4F5C-9A06-F63B88DD6BAF.png"
             alt="Therapy Resources"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-purple-900/80 to-slate-900/60 backdrop-blur-sm flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-teal-900/80 to-slate-900/60 backdrop-blur-sm flex items-center justify-center">
             <div className="text-center p-6 max-w-3xl">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl font-bold font-playfair mb-6 bg-gradient-to-r from-cyan-300 via-purple-300 to-teal-300 bg-clip-text text-transparent"
+                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent"
               >
                 Therapy Resources
               </motion.h1>
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -109,7 +109,7 @@ const ResourcesPage = () => {
 
         {/* Resources Grid */}
         <div className="container mx-auto max-w-7xl">
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -120,7 +120,7 @@ const ResourcesPage = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative flex flex-col h-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300"
+                className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300"
               >
                 <div className="p-6 flex-grow flex flex-col">
                   <div className="mb-4">
@@ -128,16 +128,16 @@ const ResourcesPage = () => {
                       {resource.type}
                     </span>
                   </div>
-                  
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-teal-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <resource.icon className="w-6 h-6 text-cyan-300" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2 font-playfair">{resource.title}</h3>
+                  <h3 className="text-xl font-bold text-white mb-2">{resource.title}</h3>
                   <p className="text-white/70 text-sm leading-relaxed mb-6">{resource.description}</p>
-                  
+
                   <div className="mt-auto pt-4 border-t border-white/10">
-                    <Button className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white border-0 shadow-lg shadow-cyan-900/20">
+                    <Button className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:shadow-cyan-500/40">
                       View Details
                     </Button>
                   </div>

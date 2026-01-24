@@ -40,7 +40,7 @@ const ResourcesShowcase = () => {
       icon: GraduationCap, // Changed icon to GraduationCap
       title: 'Courses', // Changed title to Courses
       description: ( // Updated description
-    
+
         <>
           Ready-to-use courses designed for therapists. Includes:
           <ul className="list-disc list-inside mt-2 text-white/70">
@@ -51,7 +51,7 @@ const ResourcesShowcase = () => {
           <p className="mt-2">Each course is crafted to integrate seamlessly into your therapeutic practice.</p>
         </>
       ),
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-teal-500 to-emerald-500',
       link: '/courses' // Add link property for navigation
     },
     {
@@ -81,7 +81,7 @@ const ResourcesShowcase = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white font-playfair mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Professional Resources
           </h2>
           <p className="text-xl text-cyan-300 max-w-3xl mx-auto">
@@ -103,16 +103,16 @@ const ResourcesShowcase = () => {
                 animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border border-white/20 shadow-xl hover:shadow-2xl hover:border-white/30 transition-all duration-300 group"
+                className="backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl rounded-3xl p-8 transition-all hover:bg-white/10 hover:border-white/20 group"
               >
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${resource.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <Icon className="w-8 h-8 text-white" />
                 </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-4 font-playfair">
+
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {resource.title}
                 </h3>
-                
+
                 <p className="text-white/80 leading-relaxed min-h-[120px]"> {/* Added min-h for consistent card height */}
                   {resource.description}
                 </p>
@@ -137,7 +137,7 @@ const ResourcesShowcase = () => {
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 text-center backdrop-blur-md bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl p-8 border border-white/20"
+          className="mt-16 text-center backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/10 shadow-cyan-500/10"
         >
           <p className="text-xl md:text-2xl text-white font-semibold mb-2">
             Ready to Use, Right Away
