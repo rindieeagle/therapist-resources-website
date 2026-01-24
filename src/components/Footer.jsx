@@ -15,9 +15,8 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-              <img src="/logo.png" alt="Therapist Resources" className="h-10 w-auto" />
+              <img src="/logo.png" alt="Therapist Resources" className="h-32 w-auto" />
             </div>
-            <p className="text-white/80 text-sm font-medium drop-shadow-sm">Professional resources and courses for therapists designed by Rindie Eagle, MA, LPCC</p>
           </div>
 
           {/* Quick Links */}
@@ -84,6 +83,12 @@ const Footer = () => {
             <span className="hidden sm:inline">for therapists everywhere.</span>
           </p>
           <p className="text-white/50 text-xs mt-2 font-medium">All rights reserved. Professional resources designed by Rindie Eagle MA, LPCC</p>
+
+          <div className="flex justify-center gap-6 mt-4 text-xs font-medium text-white/50">
+            <a href="https://reagleeagle.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors">Privacy Policy</a>
+            <a href="https://reagleeagle.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors">Terms and Conditions</a>
+            <a href="https://reagleeagle.com/cookies" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors">Cookie Policy</a>
+          </div>
         </div>
       </div>
     </footer>
