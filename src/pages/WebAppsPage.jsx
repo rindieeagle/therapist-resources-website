@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Calculator, Magnet, Puzzle, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
-import { useToast } from '@/components/ui/use-toast';
 
 const apps = [
   {
@@ -13,7 +12,7 @@ const apps = [
     icon: Calculator,
     gradient: "from-teal-500 via-cyan-500 to-sky-500",
     buttonText: "Launch Calculator",
-    link: "#"
+    link: "https://encourage.outgrow.us/caseloadcalc"
   },
   {
     title: "Attract Your Ideal Client",
@@ -21,7 +20,7 @@ const apps = [
     icon: Magnet,
     gradient: "from-sky-500 via-blue-500 to-indigo-500",
     buttonText: "Start Mini-Course",
-    link: "#"
+    link: "https://share.minicoursegenerator.com/attract-your-ideal-client-638138860996532035/1"
   },
   {
     title: "Behavioral Definition Builder",
@@ -29,7 +28,7 @@ const apps = [
     icon: Puzzle,
     gradient: "from-cyan-500 via-teal-500 to-emerald-500",
     buttonText: "Build Definition",
-    link: "#"
+    link: "https://bdb.therapistresources.com/"
   }
 ];
 
@@ -53,16 +52,6 @@ const itemVariants = {
 };
 
 const WebAppsPage = () => {
-  const { toast } = useToast();
-
-  const handleAppClick = (e, appTitle) => {
-    e.preventDefault();
-    toast({
-      title: "Coming Soon!",
-      description: `The ${appTitle} is currently being updated. Check back soon!`,
-    });
-  };
-
   return (
     <>
       <Helmet>
@@ -128,11 +117,13 @@ const WebAppsPage = () => {
 
                   <div className="pt-6 border-t border-white/5">
                     <Button
-                      onClick={(e) => handleAppClick(e, app.title)}
+                      asChild
                       className={`w-full py-6 text-lg font-medium bg-gradient-to-r ${app.gradient} hover:opacity-90 text-white border-0 shadow-lg transition-all duration-300 hover:shadow-cyan-500/40`}
                     >
-                      {app.buttonText}
-                      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <a href={app.link} target="_blank" rel="noopener noreferrer">
+                        {app.buttonText}
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </a>
                     </Button>
                   </div>
                 </div>

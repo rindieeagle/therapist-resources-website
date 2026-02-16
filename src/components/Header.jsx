@@ -19,7 +19,7 @@ const Header = () => {
     { name: 'Resources', path: '/resources' },
     { name: 'Courses', path: '/courses' },
     { name: 'Web Apps', path: '/web-apps' },
-    { name: 'Shop', path: 'https://www.skill.encouragementink.com' },
+    { name: 'Shop', path: 'https://reagleeagle.gumroad.com/?section=SoACiIzAf7Uk2VwpGfH5Xg%3D%3D' },
     { name: 'Contact', path: '#contact' }
   ];
 
