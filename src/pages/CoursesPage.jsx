@@ -11,7 +11,7 @@ const courses = [{
   level: "Intermediate",
   icon: ShieldAlert,
   duration: "2 Hours",
-  enrollmentLink: "https://unfold.unlikefraction.com/unfoldx/2a7d9617-0cd5-42f7-a165-6ab3f339fcc2"
+  enrollmentLink: "https://www.45d.ai/45x/2a7d9617-0cd5-42f7-a165-6ab3f339fcc2"
 }, {
   title: "Befriending Your Nervous System",
   description: "This course is for people who are done trying to “calm down” and ready to understand what their body is actually doing.",
@@ -19,7 +19,7 @@ const courses = [{
   level: "Beginner",
   icon: Brain,
   duration: "1.5 Hours",
-  enrollmentLink: "https://unfold.unlikefraction.com/unfoldx/49a77eb1-4f8b-4453-b011-61c8d8558018?course=nervous-system"
+  enrollmentLink: "https://www.45d.ai/45x/49a77eb1-4f8b-4453-b011-61c8d8558018"
 }, {
   title: "Guide to Motivation",
   description: "Learn to effectively integrate mindfulness practices into your clinical work.",
@@ -27,7 +27,7 @@ const courses = [{
   level: "Beginner",
   icon: Sparkles,
   duration: "1 Hours",
-  enrollmentLink: "https://unfold.unlikefraction.com/unfoldx/a02310ff-e048-4d41-b75c-7b3e03751eaa"
+  enrollmentLink: "https://www.45d.ai/45x/a02310ff-e048-4d41-b75c-7b3e03751eaa"
 }, /*{
   title: "Group Therapy Techniques",
   description: "Strategies for facilitating dynamic and effective therapy groups.",
