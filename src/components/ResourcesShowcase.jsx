@@ -29,13 +29,14 @@ const ResourcesShowcase = () => {
   }, []);
 
   const resources = [
-    {
-      icon: FileText,
-      title: 'Session-Ready Resources',
-      description: 'Professionally designed worksheets, activities, and therapeutic materials ready to use in your next session. No preparation time needed.',
-      gradient: 'from-cyan-500 to-blue-500',
-      link: '/resources' // Add link property for navigation
-    },
+    // Hidden for now
+    // {
+    //   icon: FileText,
+    //   title: 'Session-Ready Resources',
+    //   description: 'Professionally designed worksheets, activities, and therapeutic materials ready to use in your next session. No preparation time needed.',
+    //   gradient: 'from-cyan-500 to-blue-500',
+    //   link: '/resources' // Add link property for navigation
+    // },
     {
       icon: GraduationCap, // Changed icon to GraduationCap
       title: 'Courses', // Changed title to Courses

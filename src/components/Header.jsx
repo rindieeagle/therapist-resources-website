@@ -16,7 +16,7 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', path: '/' },
-    { name: 'Resources', path: '/resources' },
+    // { name: 'Resources', path: '/resources' }, // Hidden for now
     { name: 'Courses', path: '/courses' },
     { name: 'Web Apps', path: '/web-apps' },
     { name: 'Shop', path: 'https://reagleeagle.gumroad.com/?section=SoACiIzAf7Uk2VwpGfH5Xg%3D%3D' },

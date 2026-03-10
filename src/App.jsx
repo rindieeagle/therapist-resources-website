@@ -27,7 +27,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
+            {/* <Route path="/resources" element={<ResourcesPage />} /> */}{/* Hidden for now */}
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/web-apps" element={<WebAppsPage />} />
           </Routes>
