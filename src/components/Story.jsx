@@ -47,16 +47,17 @@ const Story = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* My Journey Block */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8 }}
-            className="backdrop-blur-xl bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl space-y-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="backdrop-blur-xl bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl space-y-8 will-change-transform"
+            style={{ transform: 'translateZ(0)' }}
           >
             {/* Story text */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-4"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6">
@@ -69,10 +70,10 @@ const Story = () => {
 
             {/* Quote section */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-teal-500 to-cyan-500"
+              initial={{ opacity: 0, x: -30 }}
+              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-teal-500 to-cyan-500 will-change-transform"
               style={{
                 borderImage: 'linear-gradient(to bottom, #9D4EDD, #00D9FF) 1'
               }}
@@ -92,7 +93,7 @@ const Story = () => {
             <motion.p
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="text-lg text-white/80 leading-relaxed text-center"
             >
               This quote perfectly encapsulates my approach to therapy and resource development. Combining empathy with evidence-based practices to create tools that truly serve clinicians and their clients.
@@ -101,10 +102,11 @@ const Story = () => {
 
           {/* Embedded Landing Page Block */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="backdrop-blur-xl bg-white/5 rounded-[2rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="backdrop-blur-xl bg-white/5 rounded-[2rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden will-change-transform"
+            style={{ transform: 'translateZ(0)' }}
           >
             {/* Header section with background */}
             <div 

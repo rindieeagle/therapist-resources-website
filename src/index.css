@@ -79,6 +79,17 @@
   }
 }
 
+/* GPU acceleration for smooth animations */
+@layer base {
+  .backdrop-blur-xl,
+  .backdrop-blur-md {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
 /* Custom glass morphism utility classes */
 .glass {
   background: rgba(255, 255, 255, 0.1);
