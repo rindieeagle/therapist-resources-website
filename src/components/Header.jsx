@@ -41,9 +41,9 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="Therapist Resources Logo"
-                className="h-10 w-auto"
+                className="h-8 sm:h-10 w-auto"
               />
-              <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+              <span className="hidden sm:inline text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
                 Therapist Resources
               </span>
             </motion.div>

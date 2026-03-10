@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import HomePage from '@/components/HomePage';
-import ResourcesPage from '@/pages/ResourcesPage';
+// import ResourcesPage from '@/pages/ResourcesPage'; // Hidden for now
 import CoursesPage from '@/pages/CoursesPage';
 import WebAppsPage from '@/pages/WebAppsPage';
 import Footer from '@/components/Footer';
