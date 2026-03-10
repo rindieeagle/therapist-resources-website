@@ -6,7 +6,6 @@ import { Quote } from 'lucide-react';
 const Story = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
-  const embedRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,17 +26,6 @@ const Story = () => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
-
-  // Load the ConvertKit embed script
-  useEffect(() => {
-    if (embedRef.current && !embedRef.current.querySelector('script')) {
-      const script = document.createElement('script');
-      script.src = 'https://encouragement.kit.com/a6d2274808/index.js';
-      script.async = true;
-      script.setAttribute('data-uid', 'a6d2274808');
-      embedRef.current.appendChild(script);
-    }
   }, []);
 
   return (
@@ -105,7 +93,11 @@ const Story = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="backdrop-blur-xl bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl flex items-center justify-center"
           >
-            <div ref={embedRef} className="w-full" />
+            <iframe
+              src="https://mailchi.mp/encouragementink/join-the-modern-therapist"
+              className="w-full h-[500px] border-0 rounded-xl"
+              title="Join The Modern Therapist Newsletter"
+            />
           </motion.div>
         </div>
       </div>
