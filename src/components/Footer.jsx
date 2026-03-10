@@ -11,11 +11,11 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
-          <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-              <img src="/logo.png" alt="Therapist Resources" className="h-32 w-auto" />
+          <div className="text-center sm:text-left sm:col-span-2 md:col-span-1">
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-4">
+              <img src="/logo.png" alt="Therapist Resources" className="h-20 sm:h-24 md:h-32 w-auto" />
             </div>
           </div>
 
@@ -36,9 +36,9 @@ const Footer = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="text-center md:text-right">
+          <div className="text-center sm:text-right md:text-right">
             <h3 className="text-white font-bold mb-4 text-lg drop-shadow-md">Connect</h3>
-            <div className="flex gap-4 justify-center md:justify-end mb-4">
+            <div className="flex gap-4 justify-center sm:justify-end mb-4">
               <motion.a
                 href="https://www.linkedin.com/in/rindieeagle"
                 target="_blank"
@@ -76,15 +76,17 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="pt-8 border-t border-white/20 text-center">
-          <p className="text-white/70 text-sm flex items-center justify-center gap-2 font-medium">
+          <p className="text-white/70 text-sm flex flex-wrap items-center justify-center gap-1 sm:gap-2 font-medium">
             <span>© {currentYear} Therapist Resources & Encouragement Ink.</span>
-            <span className="hidden sm:inline">Made with</span>
-            <Heart className="w-4 h-4 text-pink-400 fill-pink-400 inline sm:inline drop-shadow-md" />
-            <span className="hidden sm:inline">for therapists everywhere.</span>
+            <span className="flex items-center gap-1">
+              <span className="hidden xs:inline sm:inline">Made with</span>
+              <Heart className="w-4 h-4 text-pink-400 fill-pink-400 drop-shadow-md" />
+              <span className="hidden xs:inline sm:inline">for therapists everywhere.</span>
+            </span>
           </p>
           <p className="text-white/50 text-xs mt-2 font-medium">All rights reserved. Professional resources designed by Rindie Eagle MA, LPCC</p>
 
-          <div className="flex justify-center gap-6 mt-4 text-xs font-medium text-white/50">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-xs font-medium text-white/50">
             <a href="https://reagleeagle.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors">Privacy Policy</a>
             <a href="https://reagleeagle.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors">Terms and Conditions</a>
             <a href="https://reagleeagle.com/cookies" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-300 transition-colors">Cookie Policy</a>

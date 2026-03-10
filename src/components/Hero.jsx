@@ -71,12 +71,12 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1 }}
-                className="flex gap-4 justify-center md:justify-start flex-wrap"
+                className="flex gap-3 sm:gap-4 justify-center md:justify-start flex-wrap"
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-semibold shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                  className="px-6 sm:px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-semibold shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-sm sm:text-base"
                   onClick={() => document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Explore Resources
@@ -84,7 +84,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 backdrop-blur-xl bg-white/5 text-white rounded-full font-semibold border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  className="px-6 sm:px-8 py-3 backdrop-blur-xl bg-white/5 text-white rounded-full font-semibold border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-sm sm:text-base"
                   onClick={() => document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   View Courses

@@ -12,18 +12,18 @@ const CallToAction = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="backdrop-blur-md bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-teal-500/20 rounded-3xl p-12 md:p-16 border border-white/20 shadow-2xl text-center"
+          className="backdrop-blur-md bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-teal-500/20 rounded-3xl p-8 sm:p-12 md:p-16 border border-white/20 shadow-2xl text-center"
         >
-          <div className="pt-8">
+          <div className="pt-4 sm:pt-8">
             <p className="text-white/80 mb-4">Connect with me</p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <motion.a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 217, 255, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold shadow-lg hover:from-cyan-400 hover:to-teal-400 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold shadow-lg hover:from-cyan-400 hover:to-teal-400 transition-all duration-300 text-sm sm:text-base"
               >
                 <Linkedin className="w-5 h-5" />
                 Follow on LinkedIn
@@ -34,7 +34,7 @@ const CallToAction = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 217, 255, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold shadow-lg hover:from-cyan-400 hover:to-teal-400 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold shadow-lg hover:from-cyan-400 hover:to-teal-400 transition-all duration-300 text-sm sm:text-base"
               >
                 <Facebook className="w-5 h-5" />
                 Follow on Facebook

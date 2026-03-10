@@ -108,26 +108,26 @@ const Story = () => {
           >
             {/* Header section with background */}
             <div 
-              className="relative p-8 md:p-10 text-center"
+              className="relative p-6 sm:p-8 md:p-10 text-center"
               style={{
                 background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/laptop-bg.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
                 Join the Modern Therapist
               </h2>
-              <p className="text-white/90 text-base md:text-lg mb-6 leading-relaxed">
+              <p className="text-white/90 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 leading-relaxed">
                 Bi-monthly field notes on AI, tech, and workflows that actually reduce your workload and generate income.
               </p>
-              <p className="text-xl md:text-2xl font-bold text-white">
+              <p className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                 Get 5 prompts for creating psychoeducational handouts for clients - FREE!
               </p>
             </div>
             
             {/* Form section */}
-            <div ref={formRef} id="mc_embed_shell" className="w-full p-8 md:p-10">
+            <div ref={formRef} id="mc_embed_shell" className="w-full p-6 sm:p-8 md:p-10">
               <div id="mc_embed_signup" className="w-full">
                 <form
                   action="https://reagleeagle.us4.list-manage.com/subscribe/post?u=6a56fdf5ad057aa9d119505c9&amp;id=ad2a6e89da&amp;f_id=005640e8f0"
