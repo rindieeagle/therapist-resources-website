@@ -47,11 +47,10 @@ const Story = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* My Journey Block */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="backdrop-blur-xl bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl space-y-8 will-change-transform"
-            style={{ transform: 'translateZ(0)' }}
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="backdrop-blur-xl bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl space-y-8"
           >
             {/* Story text */}
             <motion.div
@@ -70,10 +69,10 @@ const Story = () => {
 
             {/* Quote section */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-              transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-teal-500 to-cyan-500 will-change-transform"
+              initial={{ opacity: 0 }}
+              animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-teal-500 to-cyan-500"
               style={{
                 borderImage: 'linear-gradient(to bottom, #9D4EDD, #00D9FF) 1'
               }}
@@ -102,11 +101,10 @@ const Story = () => {
 
           {/* Embedded Landing Page Block */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="backdrop-blur-xl bg-white/5 rounded-[2rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden will-change-transform"
-            style={{ transform: 'translateZ(0)' }}
+            initial={{ opacity: 0 }}
+            animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="backdrop-blur-xl bg-white/5 rounded-[2rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header section with background */}
             <div 

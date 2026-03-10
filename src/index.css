@@ -90,6 +90,29 @@
   }
 }
 
+/* Reduce backdrop-blur on mobile for better animation performance */
+@media (max-width: 768px) {
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: blur(8px) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(4px) !important;
+    backdrop-filter: blur(4px) !important;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Custom glass morphism utility classes */
 .glass {
   background: rgba(255, 255, 255, 0.1);
