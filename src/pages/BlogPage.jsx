@@ -6,14 +6,29 @@ export default function BlogPage() {
   const [error, setError] = useState(null);
 
   // YOUR ACTUAL WORDPRESS API URL
-  // The "?_embed" part is a WordPress trick that forces the API to include 
+  // The "?_embed" part is a WordPress trick that forces the API to include
   // the Featured Image and Author data in the same request!
-  const API_URL = 'https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed';
+  // status=publish,future includes both published and scheduled posts
+  const API_URL = 'https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed&status=publish,future';
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(API_URL);
+        // For scheduled posts, you need authentication
+        // Option 1: Use Application Password (WordPress > Users > Your Profile > Application Passwords)
+        // Store these in environment variables, NOT in the code!
+        const username = import.meta.env.VITE_WP_USERNAME; // Your WordPress username
+        const appPassword = import.meta.env.VITE_WP_APP_PASSWORD; // Generated app password
+
+        const headers = {};
+
+        // Only add auth if credentials are available
+        if (username && appPassword) {
+          const credentials = btoa(`${username}:${appPassword}`);
+          headers['Authorization'] = `Basic ${credentials}`;
+        }
+
+        const response = await fetch(API_URL, { headers });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
