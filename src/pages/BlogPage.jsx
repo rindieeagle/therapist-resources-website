@@ -5,25 +5,24 @@ export default function BlogPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // YOUR ACTUAL WORDPRESS API URL
-  // The "?_embed" part is a WordPress trick that forces the API to include
-  // the Featured Image and Author data in the same request!
-  // status=publish,future includes both published and scheduled posts
-  const API_URL = 'https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed&status=publish,future';
-
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         // For scheduled posts, you need authentication
-        // Option 1: Use Application Password (WordPress > Users > Your Profile > Application Passwords)
         // Store these in environment variables, NOT in the code!
-        const username = import.meta.env.VITE_WP_USERNAME; // Your WordPress username
-        const appPassword = import.meta.env.VITE_WP_APP_PASSWORD; // Generated app password
+        const username = import.meta.env.VITE_WP_USERNAME;
+        const appPassword = import.meta.env.VITE_WP_APP_PASSWORD;
+
+        // In production (no auth): only fetch published posts
+        // In dev (with credentials): fetch published + scheduled posts
+        const hasAuth = username && appPassword;
+        const status = hasAuth ? 'publish,future' : 'publish';
+        const API_URL = `https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed&status=${status}`;
 
         const headers = {};
 
         // Only add auth if credentials are available
-        if (username && appPassword) {
+        if (hasAuth) {
           const credentials = btoa(`${username}:${appPassword}`);
           headers['Authorization'] = `Basic ${credentials}`;
         }
@@ -125,7 +124,7 @@ export default function BlogPage() {
                 </div>
 
                 {/* Author footer */}
-                <div className="mt-auto pt-4 border-t border-white/10 flex items-center mt-6">
+                <div className="mt-auto pt-4 border-t border-white/10 flex items-center">
                   <div className="text-sm font-medium text-white/90">
                     By <span className="text-cyan-300">{authorName}</span>
                   </div>
