@@ -5,6 +5,14 @@ import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
 
 const courses = [{
+  title: "Write it Right: SOAP Notes | Interactive Training Course",
+  description: "Stop second-guessing every note. Learn to write concise, audit-ready SOAP notes in under 10 minutes.",
+  instructor: "Rindie Eagle, MA, LPCC",
+  level: "Intermediate",
+  icon: GraduationCap,
+  duration: "1.5 Hours",
+  enrollmentLink: "https://soap.therapistresources.com"
+}, {
   title: "Sleep Hygiene 101",
   description: "What is good sleep hygiene and how to do set up good sleep habits. Perfect for those wanting to know the science behind sleep.",
   instructor: "Rindie Eagle",

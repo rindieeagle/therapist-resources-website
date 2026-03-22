@@ -7,6 +7,7 @@ import HomePage from '@/components/HomePage';
 // import ResourcesPage from '@/pages/ResourcesPage'; // Hidden for now
 import CoursesPage from '@/pages/CoursesPage';
 import WebAppsPage from '@/pages/WebAppsPage';
+import BlogPage from '@/pages/BlogPage';
 import Footer from '@/components/Footer';
 import { Toaster } from '@/components/ui/toaster';
 
@@ -30,6 +31,7 @@ function App() {
             {/* <Route path="/resources" element={<ResourcesPage />} /> */}{/* Hidden for now */}
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/web-apps" element={<WebAppsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
           </Routes>
         </main>
         

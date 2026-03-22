@@ -19,8 +19,9 @@ const Header = () => {
     // { name: 'Resources', path: '/resources' }, // Hidden for now
     { name: 'Courses', path: '/courses' },
     { name: 'Web Apps', path: '/web-apps' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Shop', path: 'https://reagleeagle.gumroad.com/?section=SoACiIzAf7Uk2VwpGfH5Xg%3D%3D' },
-    { name: 'Contact', path: '#contact' }
+    { name: 'Contact', path: 'https://rindieme.formaloo.me/contact' }
   ];
 
   return (
