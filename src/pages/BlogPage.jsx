@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 const POSTS_PER_PAGE = 9;
+const TAGS_PER_PAGE = 15;
 const WP_BASE = 'https://blog.reagleeagle.com/wp-json/wp/v2';
 
 export default function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [tags, setTags] = useState([]);
   const [activeTag, setActiveTag] = useState(null);
+  const [tagSearch, setTagSearch] = useState('');
+  const [tagPage, setTagPage] = useState(1);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [fetchKey, setFetchKey] = useState(0);
 
   const categoryId = import.meta.env.VITE_WP_CATEGORY_THERAPIST_RESOURCES;
 
@@ -24,24 +28,52 @@ export default function BlogPage() {
     return {};
   };
 
-  // Fetch tags on mount
+  // Fetch tags relevant to this category only
   useEffect(() => {
-    const fetchTags = async () => {
+    const fetchCategoryTags = async () => {
       try {
-        const response = await fetch(
-          `${WP_BASE}/tags?per_page=100`,
+        // Step 1: Get all published posts in this category (lightweight, just IDs + tags)
+        const postsRes = await fetch(
+          `${WP_BASE}/posts?status=publish&categories=${categoryId}&per_page=100&_fields=id,tags`,
           { headers: getHeaders() }
         );
-        if (response.ok) {
-          const data = await response.json();
-          setTags(data);
+        if (!postsRes.ok) return;
+
+        const postsData = await postsRes.json();
+
+        // Step 2: Count how often each tag appears across TR posts
+        const tagCounts = {};
+        for (const post of postsData) {
+          for (const tagId of post.tags) {
+            tagCounts[tagId] = (tagCounts[tagId] || 0) + 1;
+          }
         }
+
+        // Step 3: Get all tag IDs sorted by usage
+        const topTagIds = Object.entries(tagCounts)
+          .sort((a, b) => b[1] - a[1])
+          .map(([id]) => id);
+
+        if (topTagIds.length === 0) return;
+
+        // Step 4: Fetch full tag objects for those IDs
+        const tagsRes = await fetch(
+          `${WP_BASE}/tags?include=${topTagIds.join(',')}&per_page=100`,
+          { headers: getHeaders() }
+        );
+        if (!tagsRes.ok) return;
+
+        const tagsData = await tagsRes.json();
+
+        // Sort by TR-specific usage count (most used first)
+        tagsData.sort((a, b) => (tagCounts[b.id] || 0) - (tagCounts[a.id] || 0));
+        setTags(tagsData);
       } catch (err) {
         console.error('Error fetching tags:', err);
       }
     };
-    fetchTags();
-  }, []);
+    fetchCategoryTags();
+  }, [categoryId]);
 
   // Fetch posts when page or activeTag changes
   useEffect(() => {
@@ -72,44 +104,97 @@ export default function BlogPage() {
     };
 
     fetchPosts();
-  }, [page, activeTag, categoryId]);
+  }, [page, activeTag, categoryId, fetchKey]);
 
   const handleTagClick = (tagId) => {
     setActiveTag(tagId === activeTag ? null : tagId);
     setPage(1);
   };
 
-  // Tag list component (reused in sidebar and mobile)
-  const TagList = ({ horizontal }) => (
-    <div className={horizontal
-      ? 'flex gap-2 overflow-x-auto pb-2 scrollbar-hide'
-      : 'flex flex-col gap-1'
-    }>
-      <button
-        onClick={() => { setActiveTag(null); setPage(1); }}
-        className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
-          activeTag === null
-            ? 'text-cyan-400 font-semibold bg-white/10'
-            : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
-        }`}
-      >
-        All
-      </button>
-      {tags.map((tag) => (
-        <button
-          key={tag.id}
-          onClick={() => handleTagClick(tag.id)}
-          className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap text-left ${
-            activeTag === tag.id
-              ? 'text-cyan-400 font-semibold bg-white/10'
-              : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
-          }`}
-        >
-          {tag.name}
-        </button>
-      ))}
-    </div>
+  const handleShowAll = () => {
+    setActiveTag(null);
+    setPage(1);
+    setFetchKey((k) => k + 1);
+  };
+
+  // Filter tags by search, then paginate
+  const filteredTags = tags.filter((tag) =>
+    tag.name.toLowerCase().includes(tagSearch.toLowerCase())
   );
+  const isSearching = tagSearch.length > 0;
+  const totalTagPages = Math.ceil(filteredTags.length / TAGS_PER_PAGE);
+  const paginatedTags = isSearching
+    ? filteredTags
+    : filteredTags.slice((tagPage - 1) * TAGS_PER_PAGE, tagPage * TAGS_PER_PAGE);
+
+  // Tag list component (reused in sidebar and mobile)
+  const TagList = ({ horizontal }) => {
+    const displayTags = horizontal ? tags.slice(0, TAGS_PER_PAGE) : paginatedTags;
+
+    return (
+      <div>
+        <div className={horizontal
+          ? 'flex gap-2 overflow-x-auto pb-2 scrollbar-hide'
+          : 'flex flex-col gap-1'
+        }>
+          <button
+            onClick={handleShowAll}
+            className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap shrink-0 ${
+              activeTag === null
+                ? 'text-cyan-400 font-semibold bg-white/10'
+                : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
+            }`}
+          >
+            All Posts
+          </button>
+          {displayTags.map((tag) => (
+            <button
+              key={tag.id}
+              onClick={() => handleTagClick(tag.id)}
+              className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap text-left shrink-0 ${
+                activeTag === tag.id
+                  ? 'text-cyan-400 font-semibold bg-white/10'
+                  : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
+              }`}
+            >
+              {tag.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Tag pagination (desktop sidebar only, hidden when searching) */}
+        {!horizontal && !isSearching && totalTagPages > 1 && (
+          <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+            <button
+              onClick={() => setTagPage((p) => Math.max(1, p - 1))}
+              disabled={tagPage === 1}
+              className={`text-sm px-2 py-1 rounded-lg transition-colors ${
+                tagPage === 1
+                  ? 'text-white/20 cursor-not-allowed'
+                  : 'text-cyan-400 hover:bg-white/5'
+              }`}
+            >
+              ←
+            </button>
+            <span className="text-xs text-white/50">
+              {tagPage} of {totalTagPages}
+            </span>
+            <button
+              onClick={() => setTagPage((p) => Math.min(totalTagPages, p + 1))}
+              disabled={tagPage === totalTagPages}
+              className={`text-sm px-2 py-1 rounded-lg transition-colors ${
+                tagPage === totalTagPages
+                  ? 'text-white/20 cursor-not-allowed'
+                  : 'text-cyan-400 hover:bg-white/5'
+              }`}
+            >
+              →
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   if (error) {
     return (
@@ -144,7 +229,14 @@ export default function BlogPage() {
         {tags.length > 0 && (
           <aside className="hidden lg:block">
             <div className="sticky top-28 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4">Topics</h3>
+              <h3 className="text-lg font-bold text-white mb-3">Topics</h3>
+              <input
+                type="text"
+                placeholder="Search topics..."
+                value={tagSearch}
+                onChange={(e) => setTagSearch(e.target.value)}
+                className="w-full px-3 py-2 mb-3 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder-white/40 focus:outline-none focus:border-cyan-400/50 transition-colors"
+              />
               <TagList />
             </div>
           </aside>
