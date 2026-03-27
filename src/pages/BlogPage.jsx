@@ -1,57 +1,115 @@
 import React, { useState, useEffect } from 'react';
 
+const POSTS_PER_PAGE = 9;
+const WP_BASE = 'https://blog.reagleeagle.com/wp-json/wp/v2';
+
 export default function BlogPage() {
   const [posts, setPosts] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [activeTag, setActiveTag] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const categoryId = import.meta.env.VITE_WP_CATEGORY_THERAPIST_RESOURCES;
+
+  // Build auth headers
+  const getHeaders = () => {
+    const username = import.meta.env.VITE_WP_USERNAME;
+    const appPassword = import.meta.env.VITE_WP_APP_PASSWORD;
+    if (username && appPassword) {
+      return { Authorization: `Basic ${btoa(`${username}:${appPassword}`)}` };
+    }
+    return {};
+  };
+
+  // Fetch tags on mount
+  useEffect(() => {
+    const fetchTags = async () => {
+      try {
+        const response = await fetch(
+          `${WP_BASE}/tags?per_page=100`,
+          { headers: getHeaders() }
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setTags(data);
+        }
+      } catch (err) {
+        console.error('Error fetching tags:', err);
+      }
+    };
+    fetchTags();
+  }, []);
+
+  // Fetch posts when page or activeTag changes
   useEffect(() => {
     const fetchPosts = async () => {
+      setLoading(true);
       try {
-        // For scheduled posts, you need authentication
-        // Store these in environment variables, NOT in the code!
-        const username = import.meta.env.VITE_WP_USERNAME;
-        const appPassword = import.meta.env.VITE_WP_APP_PASSWORD;
-
-        // In production (no auth): only fetch published posts
-        // In dev (with credentials): fetch published + scheduled posts
-        const hasAuth = username && appPassword;
-        const status = hasAuth ? 'publish,future' : 'publish';
-        const categoryId = import.meta.env.VITE_WP_CATEGORY_THERAPIST_RESOURCES;
-        const API_URL = `https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed&status=${status}&categories=${categoryId}`;
-
-        const headers = {};
-
-        // Only add auth if credentials are available
-        if (hasAuth) {
-          const credentials = btoa(`${username}:${appPassword}`);
-          headers['Authorization'] = `Basic ${credentials}`;
+        let url = `${WP_BASE}/posts?_embed&status=publish&categories=${categoryId}&per_page=${POSTS_PER_PAGE}&page=${page}`;
+        if (activeTag) {
+          url += `&tags=${activeTag}`;
         }
 
-        const response = await fetch(API_URL, { headers });
+        const response = await fetch(url, { headers: getHeaders() });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
         const data = await response.json();
+        const wpTotalPages = parseInt(response.headers.get('X-WP-TotalPages') || '1', 10);
+
         setPosts(data);
+        setTotalPages(wpTotalPages);
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching posts:", err);
-        setError("Failed to load blog posts.");
+        console.error('Error fetching posts:', err);
+        setError('Failed to load blog posts.');
         setLoading(false);
       }
     };
 
     fetchPosts();
-  }, []);
+  }, [page, activeTag, categoryId]);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-      </div>
-    );
-  }
+  const handleTagClick = (tagId) => {
+    setActiveTag(tagId === activeTag ? null : tagId);
+    setPage(1);
+  };
+
+  // Tag list component (reused in sidebar and mobile)
+  const TagList = ({ horizontal }) => (
+    <div className={horizontal
+      ? 'flex gap-2 overflow-x-auto pb-2 scrollbar-hide'
+      : 'flex flex-col gap-1'
+    }>
+      <button
+        onClick={() => { setActiveTag(null); setPage(1); }}
+        className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
+          activeTag === null
+            ? 'text-cyan-400 font-semibold bg-white/10'
+            : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
+        }`}
+      >
+        All
+      </button>
+      {tags.map((tag) => (
+        <button
+          key={tag.id}
+          onClick={() => handleTagClick(tag.id)}
+          className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap text-left ${
+            activeTag === tag.id
+              ? 'text-cyan-400 font-semibold bg-white/10'
+              : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
+          }`}
+        >
+          {tag.name}
+        </button>
+      ))}
+    </div>
+  );
 
   if (error) {
     return (
@@ -63,6 +121,7 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-32">
+      {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-violet-300 via-cyan-300 to-purple-300 bg-clip-text text-transparent drop-shadow-md pb-2">
           Latest Resources & Articles
@@ -72,71 +131,144 @@ export default function BlogPage() {
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => {
-          // WordPress buries the featured image URL deep inside the _embedded object
-          const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
-          const authorName = post._embedded?.author?.[0]?.name || 'Admin';
+      {/* Mobile tag pills */}
+      {tags.length > 0 && (
+        <div className="lg:hidden mb-8">
+          <TagList horizontal />
+        </div>
+      )}
 
-          return (
-            <article 
-              key={post.id} 
-              className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-1 transition-all duration-300"
-            >
-              {/* Featured Image */}
-              <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 w-full bg-slate-800/50 overflow-hidden relative cursor-pointer">
-                {featuredImage ? (
-                  <img
-                    src={featuredImage}
-                    alt={post.title.rendered}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center text-white/40 space-y-2">
-                    <span className="text-sm font-medium">No Image</span>
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </a>
+      {/* Main layout: sidebar + content */}
+      <div className="lg:grid lg:grid-cols-[240px_1fr] lg:gap-8">
+        {/* Desktop sidebar */}
+        {tags.length > 0 && (
+          <aside className="hidden lg:block">
+            <div className="sticky top-28 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
+              <h3 className="text-lg font-bold text-white mb-4">Topics</h3>
+              <TagList />
+            </div>
+          </aside>
+        )}
 
-              {/* Post Content */}
-              <div className="p-6 flex flex-col flex-1 relative">
-                <p className="text-sm font-semibold text-cyan-400 mb-3 tracking-wide uppercase">
-                  {/* Format the date nicely */}
-                  {new Date(post.date).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })}
-                </p>
+        {/* Posts + pagination */}
+        <div>
+          {loading ? (
+            <div className="flex justify-center items-center min-h-[400px]">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
+          ) : posts.length === 0 ? (
+            <div className="text-center text-white/60 py-20">
+              <p className="text-lg">No posts found.</p>
+            </div>
+          ) : (
+            <>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {posts.map((post) => {
+                  const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
+                  const authorName = post._embedded?.author?.[0]?.name || 'Admin';
 
-                <div className="flex-1">
-                  {/* Title */}
-                  <h3 
-                    className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors leading-tight"
-                    dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                  />
-                  
-                  {/* Excerpt */}
-                  <div 
-                    className="text-white/70 line-clamp-3 text-sm leading-relaxed"
-                    dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                  />
-                </div>
+                  return (
+                    <article
+                      key={post.id}
+                      className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-1 transition-all duration-300"
+                    >
+                      {/* Featured Image */}
+                      <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 w-full bg-slate-800/50 overflow-hidden relative cursor-pointer">
+                        {featuredImage ? (
+                          <img
+                            src={featuredImage}
+                            alt={post.title.rendered}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex flex-col items-center justify-center text-white/40 space-y-2">
+                            <span className="text-sm font-medium">No Image</span>
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                      </a>
 
-                {/* Author footer */}
-                <div className="mt-auto pt-4 border-t border-white/10 flex items-center">
-                  <div className="text-sm font-medium text-white/90">
-                    By <span className="text-cyan-300">{authorName}</span>
-                  </div>
-                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="ml-auto inline-flex items-center text-sm font-medium text-teal-400 hover:text-cyan-300 transition-colors">
-                    Read more →
-                  </a>
-                </div>
+                      {/* Post Content */}
+                      <div className="p-6 flex flex-col flex-1 relative">
+                        <p className="text-sm font-semibold text-cyan-400 mb-3 tracking-wide uppercase">
+                          {new Date(post.date).toLocaleDateString('en-US', {
+                            month: 'long',
+                            day: 'numeric',
+                            year: 'numeric'
+                          })}
+                        </p>
+
+                        <div className="flex-1">
+                          <h3
+                            className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors leading-tight"
+                            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                          />
+                          <div
+                            className="text-white/70 line-clamp-3 text-sm leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                          />
+                        </div>
+
+                        {/* Author footer */}
+                        <div className="mt-auto pt-4 border-t border-white/10 flex items-center">
+                          <div className="text-sm font-medium text-white/90">
+                            By <span className="text-cyan-300">{authorName}</span>
+                          </div>
+                          <a href={post.link} target="_blank" rel="noopener noreferrer" className="ml-auto inline-flex items-center text-sm font-medium text-teal-400 hover:text-cyan-300 transition-colors">
+                            Read more →
+                          </a>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
-            </article>
-          );
-        })}
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 mt-12">
+                  <button
+                    onClick={() => setPage((p) => Math.max(1, p - 1))}
+                    disabled={page === 1}
+                    className={`px-4 py-2 rounded-xl border transition-colors ${
+                      page === 1
+                        ? 'border-white/5 text-white/30 cursor-not-allowed'
+                        : 'border-white/10 bg-white/5 text-cyan-400 hover:bg-white/10'
+                    }`}
+                  >
+                    Previous
+                  </button>
+
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
+                    <button
+                      key={num}
+                      onClick={() => setPage(num)}
+                      className={`w-10 h-10 rounded-xl border transition-colors ${
+                        num === page
+                          ? 'border-cyan-400/50 bg-cyan-400/10 text-cyan-400 font-semibold'
+                          : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-cyan-300'
+                      }`}
+                    >
+                      {num}
+                    </button>
+                  ))}
+
+                  <button
+                    onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                    disabled={page === totalPages}
+                    className={`px-4 py-2 rounded-xl border transition-colors ${
+                      page === totalPages
+                        ? 'border-white/5 text-white/30 cursor-not-allowed'
+                        : 'border-white/10 bg-white/5 text-cyan-400 hover:bg-white/10'
+                    }`}
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
