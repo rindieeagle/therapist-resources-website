@@ -17,7 +17,8 @@ export default function BlogPage() {
         // In dev (with credentials): fetch published + scheduled posts
         const hasAuth = username && appPassword;
         const status = hasAuth ? 'publish,future' : 'publish';
-        const API_URL = `https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed&status=${status}`;
+        const categoryId = import.meta.env.VITE_WP_CATEGORY_THERAPIST_RESOURCES;
+        const API_URL = `https://blog.reagleeagle.com/wp-json/wp/v2/posts?_embed&status=${status}&categories=${categoryId}`;
 
         const headers = {};
 
@@ -83,11 +84,11 @@ export default function BlogPage() {
               className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-1 transition-all duration-300"
             >
               {/* Featured Image */}
-              <div className="h-48 w-full bg-slate-800/50 overflow-hidden relative">
+              <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 w-full bg-slate-800/50 overflow-hidden relative cursor-pointer">
                 {featuredImage ? (
-                  <img 
-                    src={featuredImage} 
-                    alt={post.title.rendered} 
+                  <img
+                    src={featuredImage}
+                    alt={post.title.rendered}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
@@ -96,7 +97,7 @@ export default function BlogPage() {
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </div>
+              </a>
 
               {/* Post Content */}
               <div className="p-6 flex flex-col flex-1 relative">
