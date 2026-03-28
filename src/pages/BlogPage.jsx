@@ -16,7 +16,7 @@ export default function BlogPage() {
   const [error, setError] = useState(null);
   const [fetchKey, setFetchKey] = useState(0);
 
-  const categoryId = import.meta.env.VITE_WP_CATEGORY_THERAPIST_RESOURCES;
+  const categoryId = import.meta.env.VITE_WP_CATEGORY_THERAPIST_RESOURCES || '5';
 
   // Build auth headers
   const getHeaders = () => {
