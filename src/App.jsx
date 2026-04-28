@@ -9,6 +9,7 @@ import CoursesPage from '@/pages/CoursesPage';
 import WebAppsPage from '@/pages/WebAppsPage';
 import BlogPage from '@/pages/BlogPage';
 import Footer from '@/components/Footer';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 import { Toaster } from '@/components/ui/toaster';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-x-hidden">
         {/* Animated gradient overlay */}
         <div className="fixed inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-teal-500/10 animate-gradient pointer-events-none"></div>
-        
+
+        <AnalyticsTracker />
         <Header />
         
         <main>
