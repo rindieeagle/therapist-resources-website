@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile Nav — Therapist Resources</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="stylesheet" href="../mobile.css" />
+  <style>
+    html, body { margin:0; padding:0; background: var(--tr-bg-base); font-family: var(--tr-font-body); color: var(--tr-text); }
+    .frame { max-width: 420px; margin: 24px auto; border: 1px solid var(--tr-border); border-radius: 28px; overflow: hidden; background: var(--tr-surface); box-shadow: var(--tr-shadow-soft); position: relative; height: 720px; }
+    .content { padding: 24px 20px; }
+    .card-eyebrow { font: 600 12px/1 var(--tr-font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--tr-text-60); padding: 16px 20px 0; }
+    .meta { padding: 0 20px 16px; color: var(--tr-text-70); font-size: 14px; line-height: 1.5; }
+    .stub { height: 120px; border-radius: 16px; background: linear-gradient(135deg, rgba(6,182,212,0.10), rgba(196,181,253,0.10)); border: 1px solid var(--tr-border); margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card-eyebrow">Mobile · Navigation</div>
+  <p class="meta">Hamburger expands a right-side drawer with 360px max width. Spring-eased slide, scrim fades in. Tap toggle or scrim to close.</p>
+
+  <div class="frame">
+    <header class="tr-mnav">
+      <div class="tr-mnav__logo">therapistresources</div>
+      <button class="tr-mnav__btn" id="mnavBtn" aria-expanded="false" aria-controls="mdrawer" aria-label="Open menu">
+        <span></span>
+      </button>
+    </header>
+
+    <main class="content">
+      <div class="stub"></div>
+      <div class="stub"></div>
+      <div class="stub"></div>
+    </main>
+
+    <div class="tr-mdrawer" id="mdrawer" data-open="false" aria-hidden="true">
+      <div class="tr-mdrawer__scrim" data-close></div>
+      <aside class="tr-mdrawer__panel" role="dialog" aria-label="Site navigation">
+        <a href="#" class="tr-mdrawer__link">Resources</a>
+        <a href="#" class="tr-mdrawer__link">Courses</a>
+        <a href="#" class="tr-mdrawer__link">Articles</a>
+        <a href="#" class="tr-mdrawer__link">Worksheets</a>
+        <a href="#" class="tr-mdrawer__link">About</a>
+        <div style="margin-top:auto; display:flex; flex-direction:column; gap:10px;">
+          <button class="tr-btn tr-btn--ghost tr-btn--block-mobile">Sign in</button>
+          <button class="tr-btn tr-btn--primary tr-btn--block-mobile">Get started</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('mnavBtn');
+    const drawer = document.getElementById('mdrawer');
+    function setOpen(o){ btn.setAttribute('aria-expanded', String(o)); drawer.setAttribute('data-open', String(o)); drawer.setAttribute('aria-hidden', String(!o)); }
+    btn.addEventListener('click', () => setOpen(drawer.getAttribute('data-open') !== 'true'));
+    drawer.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', () => setOpen(false)));
+  </script>
+</body>
+</html>

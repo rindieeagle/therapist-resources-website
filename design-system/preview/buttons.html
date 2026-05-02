@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Buttons — Light & Dark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--tr-font-body); margin: 0; min-height: 100vh; }
+
+  .stage { display: grid; grid-template-rows: 1fr 1fr; min-height: 100vh; }
+  .pane { padding: 22px 24px 26px; box-sizing: border-box; }
+  .pane.light { background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%); color: #0F2A36; }
+  .pane.dark {
+    background:
+      radial-gradient(at 0% 0%,   rgba( 56, 189, 248, 0.22) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(125, 211, 252, 0.20) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.18) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba( 45, 212, 191, 0.18) 0px, transparent 50%),
+      linear-gradient(135deg, #155e75 0%, #0e7490 50%, #1e3a8a 100%);
+    color: #FFFFFF;
+  }
+  .pane-label {
+    display: inline-block; font-family: var(--tr-font-mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 6px; margin-bottom: 14px;
+  }
+  .pane.light .pane-label { color: #155E75; background: #ECF5FA; border: 1px solid #BFDDE9; }
+  .pane.dark  .pane-label { color: #CFFAFE; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); }
+
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
+  .label { font-size: 11px; font-family: var(--tr-font-mono); width: 78px; }
+  .pane.light .label { color: #5A7785; }    /* AA: 4.7:1 */
+  .pane.dark  .label { color: rgba(255,255,255,0.75); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 11px 24px; border-radius: 9999px;
+    font-weight: 600; font-size: 14px; border: none; cursor: pointer;
+    transition: transform 160ms, box-shadow 160ms, background 160ms;
+  }
+  .btn:focus-visible { outline: 3px solid; outline-offset: 2px; }
+  .pane.light .btn:focus-visible { outline-color: #7DD3FC; }
+  .pane.dark  .btn:focus-visible { outline-color: #FFFFFF; }
+
+  /* Primary CTA — light pane uses deeper peacock for AA on white;
+     dark pane uses brand cyan→sky #06b6d4→#0284c7 from the source DS */
+  .pane.light .primary {
+    background: linear-gradient(90deg, #0E7490, #0284C7);
+    color: #FFFFFF;
+    box-shadow: 0 12px 28px -10px rgba(14,116,144,0.45);
+  }
+  .pane.light .primary.is-hover { transform: translateY(-1px); box-shadow: 0 14px 30px -8px rgba(2,132,199,0.55); }
+  .pane.dark .primary {
+    background: linear-gradient(90deg, #06B6D4, #0284C7);
+    color: #FFFFFF;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  }
+  .pane.dark .primary.is-hover { transform: scale(1.02); box-shadow: 0 10px 25px -5px rgba(6,182,212,0.50); }
+
+  /* Ghost — adapts per pane */
+  .pane.light .ghost   { background: #FFFFFF; color: #0F2A36; border: 1px solid #CBD9E2; }
+  .pane.light .ghost.is-hover { background: #F1F7FA; border-color: #8FA6B2; }
+  .pane.dark .ghost    { background: rgba(255,255,255,0.05); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.10); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  .pane.dark .ghost.is-hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.20); }
+
+  /* Enroll — lavender→indigo, white text both panes */
+  .enroll {
+    background: linear-gradient(90deg, #6D5BBA, #4F46E5);
+    color: #FFFFFF; padding: 11px 22px; border-radius: 12px;
+    box-shadow: 0 8px 20px -6px rgba(79,70,229,0.45);
+  }
+
+  /* Badges */
+  .badge {
+    padding: 5px 11px; border-radius: 9999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    display: inline-flex; align-items: center;
+  }
+  /* light badges */
+  .pane.light .badge--peacock { background: #ECF5FA; color: #155E75; border-color: #BFDDE9; }     /* 7.4:1 */
+  .pane.light .badge--lavender { background: #EFEAFB; color: #4C3B9C; border-color: #D8CDF1; }    /* 7.5:1 */
+  .pane.light .badge--pink    { background: #FDEEF4; color: #BE185D; border-color: #F9C8D9; }    /* 5.5:1 */
+  /* dark badges — source DS exact values */
+  .pane.dark .badge--peacock  {
+    background: linear-gradient(90deg, rgba(56,189,248,0.22), rgba(6,182,212,0.22));
+    color: #7DD3FC;
+    border-color: rgba(56,189,248,0.35);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  .pane.dark .badge--lavender {
+    background: linear-gradient(90deg, rgba(196,181,253,0.32), rgba(125,211,252,0.28));
+    color: #FFFFFF;
+    border-color: rgba(196,181,253,0.50);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  .pane.dark .badge--pink     {
+    background: linear-gradient(90deg, rgba(249,168,212,0.42), rgba(249,168,212,0.28));
+    color: #FFFFFF;
+    border-color: rgba(249,168,212,0.55);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+
+  /* Icon button */
+  .icon-btn {
+    width: 40px; height: 40px; border-radius: 9999px;
+    padding: 0; display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .pane.light .icon-btn { background: #FFFFFF; border: 1px solid #CBD9E2; color: #155E75; }
+  .pane.light .icon-btn:hover { background: #F1F7FA; }
+  .pane.dark  .icon-btn { background: rgba(255,255,255,0.20); border: 1px solid rgba(255,255,255,0.10); color: #FFFFFF; }
+  .pane.dark  .icon-btn:hover { background: rgba(255,255,255,0.28); }
+
+  /* Disabled */
+  .pane.light .btn:disabled, .pane.light .btn[aria-disabled="true"] {
+    background: #E5ECF1; color: #8FA6B2; box-shadow: none; cursor: not-allowed; border-color: #E5ECF1;
+  }
+  .pane.dark .btn:disabled, .pane.dark .btn[aria-disabled="true"] {
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); box-shadow: none; cursor: not-allowed; border-color: rgba(255,255,255,0.12);
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <!-- LIGHT -->
+    <section class="pane light">
+      <span class="pane-label">Light · paper</span>
+      <div class="row"><span class="label">Primary</span>
+        <button class="btn primary" type="button">Explore Resources</button>
+        <button class="btn primary is-hover" type="button">hover</button>
+        <button class="btn primary" type="button" aria-disabled="true" disabled>disabled</button>
+      </div>
+      <div class="row"><span class="label">Ghost</span>
+        <button class="btn ghost" type="button">View Courses</button>
+        <button class="btn ghost is-hover" type="button">hover</button>
+      </div>
+      <div class="row"><span class="label">Enroll</span>
+        <button class="btn enroll" type="button">Enroll Now</button>
+      </div>
+      <div class="row"><span class="label">Badge</span>
+        <span class="badge badge--peacock">Intermediate</span>
+        <span class="badge badge--lavender">Lavender accent</span>
+        <span class="badge badge--pink">New</span>
+      </div>
+      <div class="row"><span class="label">Social</span>
+        <button class="icon-btn" type="button" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></button>
+        <button class="icon-btn" type="button" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg></button>
+      </div>
+    </section>
+
+    <!-- DARK -->
+    <section class="pane dark">
+      <span class="pane-label">Dark · glass</span>
+      <div class="row"><span class="label">Primary</span>
+        <button class="btn primary" type="button">Explore Resources</button>
+        <button class="btn primary is-hover" type="button">hover</button>
+        <button class="btn primary" type="button" aria-disabled="true" disabled>disabled</button>
+      </div>
+      <div class="row"><span class="label">Ghost</span>
+        <button class="btn ghost" type="button">View Courses</button>
+        <button class="btn ghost is-hover" type="button">hover</button>
+      </div>
+      <div class="row"><span class="label">Enroll</span>
+        <button class="btn enroll" type="button">Enroll Now</button>
+      </div>
+      <div class="row"><span class="label">Badge</span>
+        <span class="badge badge--peacock">Intermediate</span>
+        <span class="badge badge--lavender">Lavender accent</span>
+        <span class="badge badge--pink">New</span>
+      </div>
+      <div class="row"><span class="label">Social</span>
+        <button class="icon-btn" type="button" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></button>
+        <button class="icon-btn" type="button" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg></button>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

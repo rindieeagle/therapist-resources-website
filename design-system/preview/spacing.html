@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Spacing Scale</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body {
+    font-family: var(--tr-font-body);
+    background: #FAFBFC; padding: 18px 24px; color: #0F2A36;
+  }
+  .row { display: flex; align-items: center; gap: 14px; padding: 4px 0; }
+  .key { width: 50px; font-family: var(--tr-font-mono); font-size: 12px; color: #6B8A98; }
+  .bar { background: linear-gradient(90deg, #22d3ee, #38bdf8); height: 14px; border-radius: 4px; }
+  .meta { font-size: 11px; color: #A6BAC4; font-family: var(--tr-font-mono); }
+</style>
+</head>
+<body>
+  <div class="row"><span class="key">space-1</span><span class="bar" style="width:4px;"></span><span class="meta">4 px · hairlines</span></div>
+  <div class="row"><span class="key">space-2</span><span class="bar" style="width:8px;"></span><span class="meta">8 px · icon gap</span></div>
+  <div class="row"><span class="key">space-3</span><span class="bar" style="width:12px;"></span><span class="meta">12 px · pill padding</span></div>
+  <div class="row"><span class="key">space-4</span><span class="bar" style="width:16px;"></span><span class="meta">16 px · base</span></div>
+  <div class="row"><span class="key">space-6</span><span class="bar" style="width:24px;"></span><span class="meta">24 px · card padding</span></div>
+  <div class="row"><span class="key">space-8</span><span class="bar" style="width:32px;"></span><span class="meta">32 px · grid gap</span></div>
+  <div class="row"><span class="key">space-12</span><span class="bar" style="width:48px;"></span><span class="meta">48 px · section break</span></div>
+  <div class="row"><span class="key">space-20</span><span class="bar" style="width:80px;"></span><span class="meta">80 px · section padding</span></div>
+</body>
+</html>

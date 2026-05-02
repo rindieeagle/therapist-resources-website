@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Colors — Brand</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body {
+    font-family: var(--tr-font-body);
+    background: #FAFBFC;
+    background-image: radial-gradient(at 8% 0%, rgba(14,116,144,0.06) 0, transparent 55%), radial-gradient(at 92% 100%, rgba(196,181,253,0.08) 0, transparent 55%);
+    padding: 18px;
+    color: var(--tr-text);
+  }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .swatch {
+    border-radius: 12px;
+    height: 84px;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 10px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    color: #0F2A36;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .swatch .name { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.95; }
+  .swatch .hex  { font-size: 11px; font-family: var(--tr-font-mono); opacity: 0.8; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="swatch" style="background:#22d3ee;"><div class="name">Cyan 400</div><div class="hex">#22D3EE</div></div>
+    <div class="swatch" style="background:#06b6d4;"><div class="name">Cyan 500</div><div class="hex">#06B6D4</div></div>
+    <div class="swatch" style="background:#0284c7;"><div class="name">Sky 600</div><div class="hex">#0284C7</div></div>
+    <div class="swatch" style="background:#0ea5e9;"><div class="name">Sky 500</div><div class="hex">#0EA5E9</div></div>
+    <div class="swatch" style="background:#a78bfa; color:#1e1b4b;"><div class="name">Periwinkle 400</div><div class="hex">#A78BFA</div></div>
+    <div class="swatch" style="background:#5eead4; color:#022c22;"><div class="name">Teal 300</div><div class="hex">#5EEAD4</div></div>
+    <div class="swatch" style="background:#38bdf8; color:#0c4a6e;"><div class="name">Sky 400</div><div class="hex">#38BDF8</div></div>
+    <div class="swatch" style="background:#7dd3fc; color:#0c4a6e;"><div class="name">Sky 300 (light)</div><div class="hex">#7DD3FC</div></div>
+    <div class="swatch" style="background:#c4b5fd; color:#1e1b4b;"><div class="name">Lavender 300</div><div class="hex">#C4B5FD</div></div>
+    <div class="swatch" style="background:#f9a8d4; color:#831843;"><div class="name">Pink 300</div><div class="hex">#F9A8D4</div></div>
+  </div>
+</body>
+</html>

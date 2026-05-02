@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Surfaces & Glass</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body {
+    font-family: var(--tr-font-body);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+    padding: 20px;
+    color: var(--tr-text);
+  }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .surface {
+    height: 110px;
+    border-radius: 16px;
+    padding: 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .label { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #4A6B7A; }
+  .name  { font-size: 13px; font-weight: 600; color: #0F2A36; }
+  .meta  { font-size: 11px; font-family: var(--tr-font-mono); color: #6B8A98; }
+
+  .glass-base { background: #FFFFFF; -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); border: 1px solid #E5ECF1; }
+  .glass-mid  { background: #F6FAFC; -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); border: 1px solid #CBD9E2; }
+  .glass-cta  { background: linear-gradient(135deg, rgba(6,182,212,0.20), rgba(20,184,166,0.20)); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.30); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="surface glass-base">
+      <span class="label">Default · cards</span>
+      <div><div class="name">Glass Base</div><div class="meta">white / 5%, blur 24</div></div>
+    </div>
+    <div class="surface glass-mid">
+      <span class="label">Hover · strong</span>
+      <div><div class="name">Glass Mid</div><div class="meta">white / 10%, blur 24</div></div>
+    </div>
+    <div class="surface glass-cta">
+      <span class="label">CTA bands</span>
+      <div><div class="name">Glass + Brand Tint</div><div class="meta">cyan→teal 20%, blur 12</div></div>
+    </div>
+  </div>
+</body>
+</html>

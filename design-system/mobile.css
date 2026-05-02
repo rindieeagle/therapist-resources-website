@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Therapist Resources — Mobile Layer
+   Loaded AFTER colors_and_type.css. Adds:
+   - Responsive type, spacing, touch targets
+   - Hover-only behavior is short-circuited on (pointer: coarse)
+   - Glass kept everywhere (per system decision); no fallback tier
+   - Mobile-native helpers used by preview/mobile-* cards
+   Breakpoints: <640px mobile · 640-1024 tablet · ≥1024 desktop
+   ========================================================================== */
+
+/* ---------- 1. Touch policy ---------------------------------------------- */
+/* On coarse pointers we drop hover lifts, magnetic pulls and decorative
+   hover glows — they have no fingertip equivalent. Press states stay. */
+@media (pointer: coarse) {
+  :root { --tr-magnetic-enabled: 0; }
+  .tr-btn--primary:hover,
+  .tr-btn--ghost:hover {
+    transform: none;
+    box-shadow: var(--tr-shadow-card);
+  }
+  .tr-no-touch-hover:hover { transform: none !important; box-shadow: inherit !important; }
+}
+:root { --tr-magnetic-enabled: 1; }
+
+/* Hit-target safety: any control marked .tr-touch is at least 44px on
+   coarse pointers. Use it on icon buttons, close-x's, social pills, etc. */
+@media (pointer: coarse) {
+  .tr-touch {
+    min-width:  var(--tr-touch-min);
+    min-height: var(--tr-touch-min);
+  }
+}
+
+/* ---------- 2. Mobile type floor (<640px) -------------------------------- */
+@media (max-width: 639.98px) {
+  .tr-display { font-size: clamp(32px, 8vw, 44px); line-height: 1.10; }
+  .tr-h1      { font-size: var(--tr-fs-h1-mobile); }
+  .tr-h2      { font-size: var(--tr-fs-h2-mobile); }
+  .tr-h3      { font-size: var(--tr-fs-h3-mobile); }
+  .tr-eyebrow { font-size: var(--tr-fs-eyebrow-mobile); }
+}
+
+/* ---------- 3. Section padding ------------------------------------------- */
+.tr-section { padding-block: var(--tr-space-section); padding-inline: var(--tr-space-gutter); }
+@media (max-width: 1023.98px) {
+  .tr-section { padding-block: var(--tr-space-section-md); padding-inline: var(--tr-space-gutter-md); }
+}
+@media (max-width: 639.98px) {
+  .tr-section { padding-block: var(--tr-space-section-sm); padding-inline: var(--tr-space-gutter-sm); }
+}
+
+/* ---------- 4. Buttons: touch sizing ------------------------------------- */
+@media (max-width: 639.98px) {
+  .tr-btn {
+    min-height: var(--tr-touch-comfy);
+    padding: 14px 24px;
+    font-size: 16px;          /* prevent iOS auto-zoom */
+  }
+  .tr-btn--block-mobile { display: flex; width: 100%; }
+}
+
+/* ---------- 5. Inputs: touch sizing & no-zoom ---------------------------- */
+@media (max-width: 639.98px) {
+  .tr-input,
+  input.tr-input,
+  textarea.tr-input,
+  select.tr-input {
+    min-height: var(--tr-touch-comfy);
+    font-size: 16px;          /* prevent iOS auto-zoom on focus */
+    padding: 14px 16px;
+    border-radius: var(--tr-radius-md);
+  }
+}
+
+/* ---------- 6. Mobile primitives ----------------------------------------- */
+
+/* 6a. Mobile nav (hamburger + slide-in drawer) */
+.tr-mnav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--tr-border);
+}
+.tr-mnav__logo { font-family: var(--tr-font-display); font-weight: 700; color: var(--tr-text); }
+.tr-mnav__btn  {
+  width: 44px; height: 44px; border: 0; background: transparent;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; border-radius: var(--tr-radius-md);
+}
+.tr-mnav__btn:active { background: var(--tr-bg-tint); }
+.tr-mnav__btn span,
+.tr-mnav__btn span::before,
+.tr-mnav__btn span::after {
+  display: block; width: 22px; height: 2px;
+  background: var(--tr-text); border-radius: 2px;
+  transition: transform 220ms var(--tr-ease-base), opacity 220ms;
+  position: relative;
+}
+.tr-mnav__btn span::before { content: ""; position: absolute; top: -7px; left: 0; right: 0; }
+.tr-mnav__btn span::after  { content: ""; position: absolute; top:  7px; left: 0; right: 0; }
+.tr-mnav__btn[aria-expanded="true"] span { background: transparent; }
+.tr-mnav__btn[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+.tr-mnav__btn[aria-expanded="true"] span::after  { transform: translateY(-7px) rotate(-45deg); }
+
+.tr-mdrawer {
+  position: fixed; inset: 0; z-index: 50;
+  pointer-events: none;
+}
+.tr-mdrawer__scrim {
+  position: absolute; inset: 0;
+  background: rgba(15, 42, 54, 0.4);
+  opacity: 0; transition: opacity 220ms var(--tr-ease-base);
+}
+.tr-mdrawer__panel {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: min(86vw, 360px);
+  background: var(--tr-surface);
+  box-shadow: var(--tr-shadow-card);
+  transform: translateX(100%);
+  transition: transform 280ms cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex; flex-direction: column;
+  padding: 24px 20px 32px;
+}
+.tr-mdrawer[data-open="true"] { pointer-events: auto; }
+.tr-mdrawer[data-open="true"] .tr-mdrawer__scrim { opacity: 1; }
+.tr-mdrawer[data-open="true"] .tr-mdrawer__panel { transform: translateX(0); }
+
+.tr-mdrawer__link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 12px; min-height: 48px;
+  border-radius: var(--tr-radius-md);
+  font-family: var(--tr-font-display);
+  font-weight: 500; font-size: 17px;
+  color: var(--tr-text);
+  text-decoration: none;
+}
+.tr-mdrawer__link:active { background: var(--tr-bg-tint); }
+
+/* 6b. Bottom sheet */
+.tr-msheet {
+  position: fixed; inset: 0; z-index: 60;
+  pointer-events: none;
+}
+.tr-msheet__scrim {
+  position: absolute; inset: 0;
+  background: rgba(15, 42, 54, 0.45);
+  opacity: 0; transition: opacity 240ms var(--tr-ease-base);
+}
+.tr-msheet__panel {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  max-height: 86vh;
+  background: var(--tr-surface);
+  border-top-left-radius: 24px; border-top-right-radius: 24px;
+  box-shadow: 0 -20px 60px -20px rgba(15,42,54,0.30);
+  transform: translateY(100%);
+  transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex; flex-direction: column;
+  padding: 8px 20px 24px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+.tr-msheet[data-open="true"] { pointer-events: auto; }
+.tr-msheet[data-open="true"] .tr-msheet__scrim { opacity: 1; }
+.tr-msheet[data-open="true"] .tr-msheet__panel { transform: translateY(0); }
+.tr-msheet__handle {
+  width: 36px; height: 4px; border-radius: 2px;
+  background: var(--tr-border-hi);
+  margin: 8px auto 16px;
+}
+.tr-msheet__title {
+  font-family: var(--tr-font-display);
+  font-weight: 600; font-size: 18px; margin: 0 0 12px;
+  color: var(--tr-text);
+}
+
+/* 6c. Sticky mobile CTA bar */
+.tr-mctabar {
+  position: sticky; bottom: 0;
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--tr-border);
+  z-index: 20;
+}
+.tr-mctabar__price {
+  display: flex; flex-direction: column; min-width: 0;
+}
+.tr-mctabar__price strong {
+  font-family: var(--tr-font-display);
+  font-weight: 700; font-size: 18px; color: var(--tr-text);
+}
+.tr-mctabar__price span {
+  font-size: 12px; color: var(--tr-text-60);
+}
+.tr-mctabar .tr-btn { margin-left: auto; min-height: var(--tr-touch-comfy); }
+
+/* 6d. Card stack (horizontal snap) */
+.tr-mstack {
+  display: flex; gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 20px;
+  padding: 4px 20px 20px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tr-mstack::-webkit-scrollbar { display: none; }
+.tr-mstack > * {
+  flex: 0 0 86%;
+  max-width: 320px;
+  scroll-snap-align: start;
+}
+
+/* 6e. Float-label inputs */
+.tr-mfield {
+  position: relative;
+  display: block;
+  margin-bottom: 14px;
+}
+.tr-mfield input,
+.tr-mfield textarea {
+  display: block; width: 100%;
+  box-sizing: border-box;
+  min-height: 56px;
+  padding: 22px 16px 8px;
+  font-size: 16px;
+  font-family: var(--tr-font-body);
+  color: var(--tr-text);
+  background: var(--tr-surface);
+  border: 1px solid var(--tr-border-hi);
+  border-radius: var(--tr-radius-md);
+  outline: none;
+  transition: border-color 160ms var(--tr-ease-base), box-shadow 160ms var(--tr-ease-base);
+}
+.tr-mfield input:focus,
+.tr-mfield textarea:focus {
+  border-color: var(--tr-cyan-500);
+  box-shadow: 0 0 0 3px rgba(6,182,212,0.18);
+}
+.tr-mfield > .tr-mfield__label {
+  position: absolute;
+  left: 16px; top: 18px;
+  font-size: 16px;
+  color: var(--tr-text-60);
+  pointer-events: none;
+  transition: transform 160ms var(--tr-ease-base), font-size 160ms var(--tr-ease-base), color 160ms;
+  transform-origin: 0 0;
+  background: transparent;
+}
+.tr-mfield input:focus + .tr-mfield__label,
+.tr-mfield input:not(:placeholder-shown) + .tr-mfield__label,
+.tr-mfield textarea:focus + .tr-mfield__label,
+.tr-mfield textarea:not(:placeholder-shown) + .tr-mfield__label {
+  transform: translateY(-10px) scale(0.78);
+  color: var(--tr-text-accent);
+}
+
+/* ---------- 7. Container ------------------------------------------------- */
+.tr-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--tr-space-gutter-sm);
+  max-width: 1200px;
+}
+@media (min-width: 640px)  { .tr-container { padding-inline: var(--tr-space-gutter-md); } }
+@media (min-width: 1024px) { .tr-container { padding-inline: var(--tr-space-gutter); } }

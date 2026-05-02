@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Type — Display Scale</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body {
+    font-family: var(--tr-font-body);
+    background: #FAFBFC;
+    background-image: radial-gradient(at 8% 0%, rgba(14,116,144,0.06) 0, transparent 55%), radial-gradient(at 92% 100%, rgba(196,181,253,0.08) 0, transparent 55%);
+    padding: 22px 24px;
+    color: #0F2A36;
+  }
+  .row { display: flex; align-items: baseline; gap: 14px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .row:last-child { border-bottom: none; }
+  .label { font-size: 11px; font-family: var(--tr-font-mono); color: #8FA6B2; width: 92px; }
+  .meta  { font-size: 11px; color: #A6BAC4; margin-left: auto; font-family: var(--tr-font-mono); }
+  .display { font-family: "Poppins", sans-serif; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+</style>
+</head>
+<body>
+  <div class="row"><span class="label">Display · 800</span>
+    <span class="display" style="font-size: 56px; font-weight: 800;">Smart Tools</span>
+    <span class="meta">Poppins 800 / 72 / -2%</span>
+  </div>
+  <div class="row"><span class="label">H1 · 700</span>
+    <span class="display" style="font-size: 40px;">Modern Therapists</span>
+    <span class="meta">Poppins 700 / 48</span>
+  </div>
+  <div class="row"><span class="label">H2 · 700</span>
+    <span class="display" style="font-size: 30px;">Professional Resources</span>
+    <span class="meta">Poppins 700 / 36</span>
+  </div>
+  <div class="row"><span class="label">H3 · 600</span>
+    <span class="display" style="font-size: 22px; font-weight: 600;">Course title</span>
+    <span class="meta">Poppins 600 / 24</span>
+  </div>
+</body>
+</html>

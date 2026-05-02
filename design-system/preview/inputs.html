@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Form Inputs — Light & Dark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--tr-font-body);
+    margin: 0; min-height: 100vh;
+  }
+
+  /* Two-pane stage --------------------------------------------------- */
+  .stage { display: grid; grid-template-rows: 1fr 1fr; min-height: 100vh; }
+  .pane { padding: 22px 22px 26px; box-sizing: border-box; position: relative; }
+  .pane.light {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+    color: #0F2A36;
+  }
+  .pane.dark {
+    background:
+      radial-gradient(at 0% 0%,   rgba( 56, 189, 248, 0.22) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(125, 211, 252, 0.20) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.18) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba( 45, 212, 191, 0.18) 0px, transparent 50%),
+      linear-gradient(135deg, #155e75 0%, #0e7490 50%, #1e3a8a 100%);
+    color: #FFFFFF;
+  }
+
+  .pane-label {
+    display: inline-block;
+    font-family: var(--tr-font-mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 6px;
+    margin-bottom: 14px;
+  }
+  .pane.light .pane-label { color: #155E75; background: #ECF5FA; border: 1px solid #BFDDE9; }
+  .pane.dark  .pane-label { color: #CFFAFE; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; max-width: 880px; }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field-label {
+    font-size: 12px; font-weight: 600;
+  }
+  .field-help {
+    font-size: 11px;
+    font-family: var(--tr-font-mono);
+  }
+  .field-error {
+    font-size: 11px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+
+  /* Light field colors */
+  .pane.light .field-label { color: #1B3D4D; }                /* AA: 11.6:1 */
+  .pane.light .field-help  { color: #5A7785; }                /* AA: 4.7:1 */
+  .pane.light .field-error { color: #B91C1C; }                /* AA: 5.9:1 */
+
+  /* Dark field colors */
+  .pane.dark .field-label { color: #FFFFFF; }
+  .pane.dark .field-help  { color: rgba(255,255,255,0.75); }   /* AA on darkest stop */
+  .pane.dark .field-error { color: #FCA5A5; }                  /* AA on dark gradient */
+
+  /* ------- INPUT BASE ----------------------------------------------- */
+  .input, .select, .textarea {
+    width: 100%; padding: 11px 14px; border-radius: 10px;
+    font-size: 14px; font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 160ms, box-shadow 160ms, background 160ms;
+    appearance: none; -webkit-appearance: none;
+  }
+
+  /* LIGHT inputs — white surface, ink text, peacock focus */
+  .pane.light .input,
+  .pane.light .select,
+  .pane.light .textarea {
+    background: #FFFFFF;
+    color: #0F2A36;                    /* ink: 14:1 on white */
+    border: 1px solid #CBD9E2;         /* visible on white */
+  }
+  .pane.light .input::placeholder,
+  .pane.light .textarea::placeholder { color: #6B8A98; }   /* AA: 4.5:1 on white */
+  .pane.light .input:hover { border-color: #8FA6B2; }
+  .pane.light .input:focus-visible,
+  .pane.light .select:focus-visible,
+  .pane.light .textarea:focus-visible {
+    outline: none;
+    border-color: #0E7490;
+    box-shadow: 0 0 0 3px rgba(14,116,144,0.25);
+  }
+  .pane.light .input.is-invalid {
+    border-color: #B91C1C;
+    box-shadow: 0 0 0 3px rgba(185,28,28,0.18);
+  }
+  .pane.light .input:disabled {
+    background: #F1F5F8; color: #6B8A98;
+    border-color: #E5ECF1; cursor: not-allowed;
+  }
+
+  /* DARK inputs — translucent glass over peacock, white text, sky focus */
+  .pane.dark .input,
+  .pane.dark .select,
+  .pane.dark .textarea {
+    background: rgba(255,255,255,0.08);
+    color: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.25);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  .pane.dark .input::placeholder,
+  .pane.dark .textarea::placeholder { color: rgba(255,255,255,0.65); }
+  .pane.dark .input:hover { border-color: rgba(255,255,255,0.40); }
+  .pane.dark .input:focus-visible,
+  .pane.dark .select:focus-visible,
+  .pane.dark .textarea:focus-visible {
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    border-color: #7DD3FC;
+    box-shadow: 0 0 0 3px rgba(125,211,252,0.35);
+  }
+  .pane.dark .input.is-invalid {
+    border-color: #FCA5A5;
+    box-shadow: 0 0 0 3px rgba(252,165,165,0.30);
+  }
+  .pane.dark .input:disabled {
+    background: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.50);
+    border-color: rgba(255,255,255,0.12); cursor: not-allowed;
+  }
+
+  /* Search input wrapper with leading icon */
+  .search { position: relative; }
+  .search .ico {
+    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .search input { padding-left: 38px; }
+  .pane.light .search .ico { color: #155E75; }
+  .pane.dark  .search .ico { color: #CFFAFE; }
+
+  /* Select chevron */
+  .sel-wrap { position: relative; }
+  .sel-wrap::after {
+    content: ""; position: absolute; right: 14px; top: 50%;
+    width: 8px; height: 8px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-75%) rotate(45deg);
+    opacity: 0.7; pointer-events: none;
+  }
+  .pane.light .sel-wrap { color: #1B3D4D; }
+  .pane.dark  .sel-wrap { color: #FFFFFF; }
+
+  /* Checkbox + Radio */
+  .check-row { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .pane.light .check-row { color: #1B3D4D; }
+  .pane.dark  .check-row { color: #FFFFFF; }
+  .check, .radio {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+    transition: background 120ms, border-color 120ms;
+  }
+  .radio { border-radius: 999px; }
+  .pane.light .check, .pane.light .radio { background: #FFFFFF; border: 1.5px solid #8FA6B2; }
+  .pane.dark  .check, .pane.dark  .radio { background: rgba(255,255,255,0.10); border: 1.5px solid rgba(255,255,255,0.50); }
+  .check:checked, .radio:checked {
+    background: #0E7490; border-color: #0E7490;
+  }
+  .check:checked::after {
+    content: ""; width: 5px; height: 9px;
+    border-right: 2px solid #FFFFFF; border-bottom: 2px solid #FFFFFF;
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+  .radio:checked::after {
+    content: ""; width: 8px; height: 8px; border-radius: 999px; background: #FFFFFF;
+  }
+  .check:focus-visible, .radio:focus-visible {
+    outline: 3px solid rgba(14,116,144,0.40); outline-offset: 2px;
+  }
+
+  /* Submit buttons */
+  .submit {
+    padding: 12px 18px; border-radius: 10px;
+    font-weight: 700; font-size: 14px;
+    border: none; cursor: pointer;
+    transition: background 160ms, transform 160ms;
+  }
+  .pane.light .submit {
+    background: linear-gradient(90deg, #0E7490, #0284C7);
+    color: #FFFFFF;
+    box-shadow: 0 8px 20px -8px rgba(14,116,144,0.45);
+  }
+  .pane.light .submit:hover { transform: translateY(-1px); }
+  .pane.light .submit:focus-visible { outline: 3px solid #7DD3FC; outline-offset: 2px; }
+
+  .pane.dark .submit {
+    background: linear-gradient(90deg, #7DD3FC, #C4B5FD);
+    color: #0F2A36;                  /* AA on light gradient: 8:1 min */
+  }
+  .pane.dark .submit:hover { transform: translateY(-1px); }
+  .pane.dark .submit:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+
+  .span-2 { grid-column: span 2; }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <!-- ============================ LIGHT PANE ============================ -->
+    <section class="pane light" aria-labelledby="light-h">
+      <span class="pane-label" id="light-h">Light · paper</span>
+      <div class="grid">
+        <div class="field">
+          <label class="field-label" for="l-name">First name</label>
+          <input class="input" id="l-name" type="text" placeholder="Rindie" />
+          <span class="field-help">Default · idle</span>
+        </div>
+        <div class="field">
+          <label class="field-label" for="l-email">Work email</label>
+          <input class="input" id="l-email" type="email" value="rindie@therapistresources.com" style="border-color:#0E7490; box-shadow: 0 0 0 3px rgba(14,116,144,0.25);" />
+          <span class="field-help">Focused · peacock ring</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="l-search">Search topics</label>
+          <div class="search">
+            <span class="ico" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+            </span>
+            <input class="input" id="l-search" type="search" placeholder="Try “consent” or “bias”" />
+          </div>
+          <span class="field-help">With leading icon</span>
+        </div>
+        <div class="field">
+          <label class="field-label" for="l-role">Practice setting</label>
+          <div class="sel-wrap">
+            <select class="select" id="l-role">
+              <option>Solo private practice</option>
+              <option>Group practice</option>
+              <option>Community mental health</option>
+              <option>Hospital / inpatient</option>
+            </select>
+          </div>
+          <span class="field-help">Native &lt;select&gt;</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="l-bad">License number</label>
+          <input class="input is-invalid" id="l-bad" value="ABC-12" aria-invalid="true" aria-describedby="l-bad-err" />
+          <span class="field-error" id="l-bad-err" role="alert">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>
+            Must be 8 characters
+          </span>
+        </div>
+        <div class="field">
+          <label class="field-label" for="l-disabled">Referral code</label>
+          <input class="input" id="l-disabled" value="EARLY-ACCESS" disabled />
+          <span class="field-help">Disabled</span>
+        </div>
+
+        <div class="field span-2">
+          <div class="row">
+            <label class="check-row"><input class="check" type="checkbox" checked /> I agree to the ethics-first AI usage policy</label>
+            <label class="check-row"><input class="radio" type="radio" name="lp" checked /> Self-paced</label>
+            <label class="check-row"><input class="radio" type="radio" name="lp" /> Cohort</label>
+            <button class="submit" type="button" style="margin-left:auto;">Send those prompts →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ DARK PANE ============================ -->
+    <section class="pane dark" aria-labelledby="dark-h">
+      <span class="pane-label" id="dark-h">Dark · glass</span>
+      <div class="grid">
+        <div class="field">
+          <label class="field-label" for="d-name">First name</label>
+          <input class="input" id="d-name" type="text" placeholder="Rindie" />
+          <span class="field-help">Default · idle</span>
+        </div>
+        <div class="field">
+          <label class="field-label" for="d-email">Work email</label>
+          <input class="input" id="d-email" type="email" value="rindie@therapistresources.com" style="background: rgba(255,255,255,0.12); border-color:#7DD3FC; box-shadow: 0 0 0 3px rgba(125,211,252,0.35);" />
+          <span class="field-help">Focused · sky ring</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="d-search">Search topics</label>
+          <div class="search">
+            <span class="ico" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+            </span>
+            <input class="input" id="d-search" type="search" placeholder="Try “consent” or “bias”" />
+          </div>
+          <span class="field-help">With leading icon</span>
+        </div>
+        <div class="field">
+          <label class="field-label" for="d-role">Practice setting</label>
+          <div class="sel-wrap">
+            <select class="select" id="d-role">
+              <option>Solo private practice</option>
+              <option>Group practice</option>
+              <option>Community mental health</option>
+              <option>Hospital / inpatient</option>
+            </select>
+          </div>
+          <span class="field-help">Native &lt;select&gt;</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="d-bad">License number</label>
+          <input class="input is-invalid" id="d-bad" value="ABC-12" aria-invalid="true" aria-describedby="d-bad-err" />
+          <span class="field-error" id="d-bad-err" role="alert">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg>
+            Must be 8 characters
+          </span>
+        </div>
+        <div class="field">
+          <label class="field-label" for="d-disabled">Referral code</label>
+          <input class="input" id="d-disabled" value="EARLY-ACCESS" disabled />
+          <span class="field-help">Disabled</span>
+        </div>
+
+        <div class="field span-2">
+          <div class="row">
+            <label class="check-row"><input class="check" type="checkbox" checked /> I agree to the ethics-first AI usage policy</label>
+            <label class="check-row"><input class="radio" type="radio" name="dp" checked /> Self-paced</label>
+            <label class="check-row"><input class="radio" type="radio" name="dp" /> Cohort</label>
+            <button class="submit" type="button" style="margin-left:auto;">Send those prompts →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

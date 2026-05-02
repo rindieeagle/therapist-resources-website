@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UI Kit — Resource Cards · Light & Dark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--tr-font-body); margin: 0; min-height: 100vh; }
+
+  .stage { display: grid; grid-template-rows: 1fr 1fr; min-height: 100vh; }
+  .pane { padding: 24px; box-sizing: border-box; position: relative; }
+  .pane.light { background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%); color: #0F2A36; }
+  .pane.dark {
+    background: linear-gradient(135deg, #155e75 0%, #0e7490 50%, #1e3a8a 100%);
+    color: #FFFFFF;
+  }
+
+  .pane-label {
+    display: inline-block; font-family: var(--tr-font-mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 6px; margin-bottom: 14px;
+  }
+  .pane.light .pane-label { color: #155E75; background: #ECF5FA; border: 1px solid #BFDDE9; }
+  .pane.dark  .pane-label { color: #CFFAFE; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 920px; }
+
+  /* Card chassis */
+  .card { border-radius: 24px; overflow: hidden; }
+  .pane.light .card {
+    background: #FFFFFF; border: 1px solid #E5ECF1;
+    box-shadow: 0 12px 28px -12px rgba(14,116,144,0.18);
+  }
+  .pane.dark .card {
+    background: rgba(255,255,255,0.05);
+    -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.30);
+  }
+
+  .cover { aspect-ratio: 16/9; position: relative; display: flex; align-items: center; justify-content: center; }
+  .pane.light .cover--course  { background: linear-gradient(135deg, #E9E1FF 0%, #DCEEFB 100%); }
+  .pane.light .cover--article { background: linear-gradient(135deg, #D7F0F4 0%, #DDF3EC 100%); }
+  .pane.dark  .cover--course  { background: linear-gradient(135deg, rgba(196,181,253,0.30) 0%, rgba(125,211,252,0.30) 100%); }
+  .pane.dark  .cover--article { background: linear-gradient(135deg, rgba(6,182,212,0.30) 0%, rgba(20,184,166,0.30) 100%); }
+
+  .cover-glyph {
+    width: 72px; height: 72px; border-radius: 22px;
+    display: flex; align-items: center; justify-content: center;
+    color: #FFFFFF;
+  }
+  .pane.light .cover-glyph { box-shadow: 0 8px 20px -6px rgba(14,116,144,0.35); }
+  .pane.light .cover-glyph--course  { background: linear-gradient(135deg, #6D5BBA 0%, #0E7490 100%); }
+  .pane.light .cover-glyph--article { background: linear-gradient(135deg, #0E7490 0%, #0D9488 100%); }
+  .pane.dark  .cover-glyph--course {
+    background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.30);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    color: #FFFFFF;
+  }
+  .pane.dark  .cover-glyph--article {
+    background: rgba(103,232,249,0.20); border: 1px solid rgba(103,232,249,0.40);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    color: #67E8F9;
+  }
+
+  /* Badges */
+  .badge-row { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+  .badge {
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+    border: 1px solid transparent;
+  }
+  .pane.light .badge--level   { background: #FFFFFF; color: #155E75; border-color: #BFDDE9; }
+  .pane.light .badge--new     { background: #FDEEF4; color: #BE185D; border-color: #F9C8D9; }
+  .pane.light .badge--article { background: #FFFFFF; color: #0F766E; border-color: #B6E1DA; }
+  .pane.dark  .badge--level   { background: linear-gradient(90deg, rgba(125,211,252,0.35), rgba(94,234,212,0.30)); color: #FFFFFF; border-color: rgba(125,211,252,0.50); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .pane.dark  .badge--new     { background: linear-gradient(90deg, rgba(249,168,212,0.42), rgba(249,168,212,0.28)); color: #FFFFFF; border-color: rgba(249,168,212,0.55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .pane.dark  .badge--article { background: linear-gradient(90deg, rgba(6,182,212,0.30), rgba(20,184,166,0.30)); color: #67E8F9; border-color: rgba(6,182,212,0.40); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+
+  /* Body & type */
+  .body { padding: 16px 18px 18px; }
+  .meta { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+  .pane.light .meta { color: #155E75; }
+  .pane.dark  .meta { color: #67E8F9; }
+  h3 { font-family: var(--tr-font-display); font-weight: 700; margin: 0 0 6px; line-height: 1.3; }
+  .pane.light h3 { font-size: 17px; }
+  .pane.dark  h3 { font-size: 18px; line-height: 1.25; }
+  .pane.light h3 { color: #0F2A36; }
+  .pane.dark  h3 { color: #FFFFFF; }
+  .desc { font-size: 13px; line-height: 1.55; margin: 0 0 14px; }
+  .pane.light .desc { color: #2A4F5F; }
+  .pane.dark  .desc { color: rgba(255,255,255,0.82); }
+
+  .row { display: flex; align-items: center; justify-content: space-between; }
+  .price { font-family: var(--tr-font-display); font-size: 20px; font-weight: 800; }
+  .pane.light .price { color: #0F2A36; }
+  .pane.dark  .price { color: #FFFFFF; }
+  .price small { font-size: 11px; font-weight: 500; }
+  .pane.light .price small { color: #5A7785; }
+  .pane.dark  .price small { color: rgba(255,255,255,0.55); }
+
+  .enroll {
+    color: #FFFFFF; padding: 9px 16px; border-radius: 12px;
+    border: none; font-weight: 700; font-size: 13px; cursor: pointer;
+  }
+  .pane.light .enroll {
+    background: linear-gradient(90deg, #6D5BBA, #4F46E5);
+    box-shadow: 0 8px 20px -6px rgba(79,70,229,0.45);
+  }
+  .pane.dark .enroll {
+    background: linear-gradient(90deg, #A78BFA, #6366F1);
+    box-shadow: 0 10px 25px -5px rgba(167,139,250,0.45);
+  }
+  .enroll:focus-visible { outline: 3px solid #A78BFA; outline-offset: 2px; }
+
+  .stats { display: flex; gap: 14px; margin-top: 12px; padding-top: 12px; }
+  .pane.light .stats { border-top: 1px solid #E5ECF1; }
+  .pane.dark  .stats { border-top: 1px solid rgba(255,255,255,0.08); }
+  .stat { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+  .pane.light .stat { color: #2A4F5F; }
+  .pane.dark  .stat { color: rgba(255,255,255,0.78); }
+  .pane.light .stat svg { color: #0E7490; flex-shrink: 0; }
+  .pane.dark  .stat svg { color: #67E8F9; flex-shrink: 0; }
+
+  .author { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .pane.light .author { color: #2A4F5F; }
+  .pane.dark  .author { color: rgba(255,255,255,0.78); }
+  .avatar { width: 26px; height: 26px; border-radius: 999px; }
+  .pane.light .avatar { background: linear-gradient(135deg, #6D5BBA, #0E7490); border: 2px solid #FFFFFF; box-shadow: 0 0 0 1px #E5ECF1; }
+  .pane.dark  .avatar { background: linear-gradient(135deg, #7DD3FC, #5EEAD4); }
+
+  .read-more { font-weight: 700; font-size: 12px; display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+  .pane.light .read-more { color: #155E75; }
+  .pane.light .read-more:hover { color: #0E7490; text-decoration: underline; }
+  .pane.dark  .read-more { color: #7DD3FC; font-weight: 600; }
+  .pane.dark  .read-more:hover { color: #BAE6FD; text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <!-- LIGHT -->
+  <section class="pane light">
+    <span class="pane-label">Light · paper</span>
+    <div class="grid">
+      <article class="card">
+        <div class="cover cover--course">
+          <div class="badge-row"><span class="badge badge--level">Intermediate</span><span class="badge badge--new">New</span></div>
+          <div class="cover-glyph cover-glyph--course" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+        </div>
+        <div class="body">
+          <div class="meta">Course · 6 modules</div>
+          <h3>AI Foundations for Modern Therapists</h3>
+          <p class="desc">Build a HIPAA-aware workflow with practical, ethics-first AI prompts you can use the next time you sit with a client.</p>
+          <div class="row"><div class="price">$49 <small>USD</small></div><button class="enroll" type="button">Enroll Now</button></div>
+          <div class="stats">
+            <span class="stat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 4.5 hrs</span>
+            <span class="stat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Self-paced</span>
+            <span class="stat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg> Workbook</span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover cover--article">
+          <div class="badge-row"><span class="badge badge--article">Article</span></div>
+          <div class="cover-glyph cover-glyph--article" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path></svg></div>
+        </div>
+        <div class="body">
+          <div class="meta">Mar 14 · 6 min read</div>
+          <h3>The Therapist's Guide to Ethical AI Prompts</h3>
+          <p class="desc">How to think about confidentiality, bias, and consent before you paste a single client note into a model.</p>
+          <div class="row"><div class="author"><div class="avatar" aria-hidden="true"></div><div>Rindie Eagle, MA, LPCC</div></div><a class="read-more" href="#" aria-label="Read more about The Therapist's Guide to Ethical AI Prompts">Read more →</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- DARK -->
+  <section class="pane dark">
+    <span class="pane-label">Dark · glass</span>
+    <div class="grid">
+      <article class="card">
+        <div class="cover cover--course">
+          <div class="badge-row"><span class="badge badge--level">Intermediate</span><span class="badge badge--new">New</span></div>
+          <div class="cover-glyph" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></div>
+        </div>
+        <div class="body">
+          <div class="meta">Course · 6 modules</div>
+          <h3>AI Foundations for Modern Therapists</h3>
+          <p class="desc">Build a HIPAA-aware workflow with practical, ethics-first AI prompts you can use the next time you sit with a client.</p>
+          <div class="row"><div class="price">$49 <small>USD</small></div><button class="enroll" type="button">Enroll Now</button></div>
+          <div class="stats">
+            <span class="stat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 4.5 hrs</span>
+            <span class="stat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Self-paced</span>
+            <span class="stat"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg> Workbook</span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover cover--article">
+          <div class="badge-row"><span class="badge badge--article">Article</span></div>
+          <div class="cover-glyph" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"></path></svg></div>
+        </div>
+        <div class="body">
+          <div class="meta">Mar 14 · 6 min read</div>
+          <h3>The Therapist's Guide to Ethical AI Prompts</h3>
+          <p class="desc">How to think about confidentiality, bias, and consent before you paste a single client note into a model.</p>
+          <div class="row"><div class="author"><div class="avatar" aria-hidden="true"></div><div>Rindie Eagle, MA, LPCC</div></div><a class="read-more" href="#" aria-label="Read more about The Therapist's Guide to Ethical AI Prompts">Read more →</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+</body>
+</html>

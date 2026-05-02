@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magnetic Button — Therapist Resources</title>
+  <link rel="stylesheet" href="colors_and_type.css" />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/framer-motion@11.11.1/dist/framer-motion.js"></script>
+
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      background: var(--tr-bg-base);
+      color: var(--tr-text);
+      font-family: var(--tr-font-body);
+      overflow-x: hidden;
+    }
+    body {
+      background-image: var(--tr-bg-radials);
+      background-attachment: fixed;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 80px 48px 120px;
+      display: flex; flex-direction: column; gap: 64px;
+    }
+
+    /* Hero */
+    .hero { display: flex; flex-direction: column; gap: 16px; max-width: 760px; }
+    .title { margin: 0; font-size: clamp(40px, 6vw, 64px); letter-spacing: -0.02em; }
+    .lede  { margin: 0; color: var(--tr-text-70); max-width: 640px; text-wrap: pretty; }
+
+    /* Stage */
+    .stage {
+      background: var(--tr-surface);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius-2xl);
+      padding: 56px 32px 32px;
+      box-shadow: var(--tr-shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+    .stage::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(at 12% 0%, rgba(6,182,212,0.07) 0px, transparent 40%),
+        radial-gradient(at 88% 100%, rgba(196,181,253,0.10) 0px, transparent 45%);
+      pointer-events: none;
+    }
+    .stage-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding: 56px 16px 80px;
+    }
+    .stage-cell {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 28px; padding: 24px;
+      border-radius: var(--tr-radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(246,250,252,0.4));
+      border: 1px dashed var(--tr-border);
+      min-height: 200px;
+      justify-content: center;
+    }
+    .cell-eyebrow {
+      font-family: var(--tr-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tr-text-60);
+    }
+
+    .stage-meta {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--tr-border);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius-md);
+      overflow: hidden;
+    }
+    .meta-row {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 14px 16px;
+      background: var(--tr-surface);
+    }
+    .meta-key {
+      font-family: var(--tr-font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tr-text-60);
+    }
+    .meta-val {
+      font-family: var(--tr-font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--tr-text);
+    }
+
+    /* Spec */
+    .spec { display: flex; flex-direction: column; gap: 20px; }
+    .spec-title { margin: 0; }
+    .spec-list {
+      list-style: none; margin: 0; padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .spec-list li {
+      display: flex; gap: 16px;
+      padding: 20px;
+      background: var(--tr-surface);
+      border: 1px solid var(--tr-border);
+      border-radius: var(--tr-radius-lg);
+      color: var(--tr-text-80);
+      line-height: 1.55;
+    }
+    .spec-num {
+      font-family: var(--tr-font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--tr-text-accent);
+      flex: 0 0 auto;
+      padding-top: 2px;
+    }
+    .spec-list code {
+      font-family: var(--tr-font-mono);
+      font-size: 13px;
+      background: var(--tr-bg-tint);
+      color: var(--tr-text-accent);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .spec-list strong { color: var(--tr-text); font-weight: 600; }
+
+    .foot {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--tr-border);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .foot em { font-style: normal; font-weight: 600; color: var(--tr-text-accent); }
+
+    /* ---------- Magnetic Button ---------- */
+    .mb {
+      position: relative;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+      padding: 14px 32px;
+      border-radius: var(--tr-radius-pill);
+      font-family: var(--tr-font-display);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+      will-change: transform;
+      overflow: hidden;
+    }
+    .mb-label {
+      display: inline-block;
+      will-change: transform;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .mb--primary {
+      background: var(--tr-grad-primary);
+      color: #fff;
+      box-shadow: var(--tr-shadow-cta);
+    }
+    .mb--primary[data-active="true"] { box-shadow: 0 14px 32px -6px rgba(6,182,212,0.6); }
+
+    .mb--ghost {
+      background: var(--tr-surface);
+      color: var(--tr-text);
+      border: 1px solid var(--tr-border-hi);
+      box-shadow: var(--tr-shadow-soft);
+    }
+    .mb--ghost[data-active="true"] {
+      border-color: var(--tr-cyan-500);
+      box-shadow: 0 10px 24px -8px rgba(6,182,212,0.35);
+    }
+
+    .mb--violet {
+      background: var(--tr-grad-violet-cta);
+      color: #fff;
+      box-shadow: var(--tr-shadow-violet);
+    }
+    .mb--violet[data-active="true"] { box-shadow: 0 14px 32px -6px rgba(139,92,246,0.55); }
+
+    @media (max-width: 800px) {
+      .page { padding: 48px 20px 80px; gap: 40px; }
+      .stage-grid { grid-template-columns: 1fr; }
+      .stage-meta { grid-template-columns: repeat(2, 1fr); }
+      .spec-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="MagneticButton.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

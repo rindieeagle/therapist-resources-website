@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bottom Sheet — Therapist Resources</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="stylesheet" href="../mobile.css" />
+  <style>
+    html, body { margin:0; padding:0; background: var(--tr-bg-base); font-family: var(--tr-font-body); color: var(--tr-text); }
+    .frame { max-width: 420px; margin: 24px auto; border: 1px solid var(--tr-border); border-radius: 28px; overflow: hidden; background: var(--tr-surface); box-shadow: var(--tr-shadow-soft); position: relative; height: 720px; }
+    .card-eyebrow { font: 600 12px/1 var(--tr-font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--tr-text-60); padding: 16px 20px 0; }
+    .meta { padding: 0 20px 16px; color: var(--tr-text-70); font-size: 14px; line-height: 1.5; }
+    .content { padding: 24px 20px; display: flex; flex-direction: column; gap: 12px; }
+    .filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; min-height: 44px; border-radius: 9999px; border: 1px solid var(--tr-border-hi); background: var(--tr-surface); font: 600 14px var(--tr-font-display); color: var(--tr-text); cursor: pointer; }
+    .opt { display: flex; align-items: center; justify-content: space-between; padding: 14px 4px; min-height: 48px; border-bottom: 1px solid var(--tr-border); cursor: pointer; }
+    .opt:last-of-type { border-bottom: 0; }
+    .opt[aria-selected="true"] { color: var(--tr-text-accent); font-weight: 600; }
+    .opt[aria-selected="true"]::after { content: "✓"; }
+  </style>
+</head>
+<body>
+  <div class="card-eyebrow">Mobile · Bottom Sheet</div>
+  <p class="meta">Slide-up sheet for filters, sort and share. 24px top radius, drag handle, scrim closes. Respects safe-area-inset.</p>
+
+  <div class="frame">
+    <header class="tr-mnav">
+      <div class="tr-mnav__logo">Resources</div>
+    </header>
+
+    <main class="content">
+      <button class="filter-pill" id="openSheet">Sort: Newest ▾</button>
+    </main>
+
+    <div class="tr-msheet" id="sheet" data-open="false" aria-hidden="true">
+      <div class="tr-msheet__scrim" data-close></div>
+      <section class="tr-msheet__panel" role="dialog" aria-label="Sort options">
+        <div class="tr-msheet__handle"></div>
+        <h3 class="tr-msheet__title">Sort by</h3>
+        <div class="opt" aria-selected="true">Newest</div>
+        <div class="opt">Most popular</div>
+        <div class="opt">Reading time</div>
+        <div class="opt">A → Z</div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const sheet = document.getElementById('sheet');
+    function setOpen(o){ sheet.setAttribute('data-open', String(o)); sheet.setAttribute('aria-hidden', String(!o)); }
+    document.getElementById('openSheet').addEventListener('click', () => setOpen(true));
+    sheet.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', () => setOpen(false)));
+    sheet.querySelectorAll('.opt').forEach(el => el.addEventListener('click', () => {
+      sheet.querySelectorAll('.opt').forEach(o => o.removeAttribute('aria-selected'));
+      el.setAttribute('aria-selected', 'true');
+      setTimeout(() => setOpen(false), 120);
+    }));
+  </script>
+</body>
+</html>

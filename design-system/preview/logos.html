@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Logo Lockups</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--tr-font-body);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+    padding: 22px 22px 28px;
+    color: #001C3F;
+  }
+
+  .head { margin: 0 0 18px; }
+  .head h1 {
+    font: 700 13px/1 var(--tr-font-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .head p {
+    font-family: var(--tr-font-mono);
+    font-size: 11px; color: #4A6B7A;
+    margin: 0;
+  }
+
+  /* Two rows: square pair, rectangle pair */
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .row.rect { grid-template-columns: 1fr 1fr; }
+
+  .tile {
+    border-radius: 18px;
+    padding: 18px;
+    box-sizing: border-box;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .tile.square { aspect-ratio: 1 / 1; }
+  .tile.rect   { aspect-ratio: 3 / 1; }
+
+  .tile.dark {
+    background: #001C3F;
+    border: 1px solid #0A3160;
+  }
+  .tile.light {
+    background: #FFFFFF;
+    border: 1px solid #E5ECF1;
+  }
+  .tile img { max-width: 78%; max-height: 78%; object-fit: contain; }
+
+  .tile-tag {
+    position: absolute; top: 10px; left: 12px;
+    font: 600 10px/1 var(--tr-font-mono);
+    letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .tile.dark  .tile-tag { color: rgba(255,255,255,0.55); }
+  .tile.light .tile-tag { color: rgba(0,28,63,0.45); }
+
+  .meta {
+    margin-top: 6px;
+    font-family: var(--tr-font-mono);
+    font-size: 11px;
+    color: #4A6B7A;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+  }
+  .meta .name { color: #001C3F; }
+
+  .rules {
+    margin-top: 18px;
+    border: 1px solid #E5ECF1;
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.7);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .rule h3 {
+    font: 700 11px/1 var(--tr-font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    color: #001C3F;
+  }
+  .rule p {
+    font-size: 12px; line-height: 1.5;
+    color: #4A6B7A; margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .row, .rules { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="head">
+    <h1>Logo Lockups</h1>
+    <p>Four canonical surfaces. Use the dark variant on navy/peacock; light variant on paper.</p>
+  </header>
+
+  <!-- Square pair -->
+  <div class="row">
+    <div>
+      <div class="tile square dark">
+        <span class="tile-tag">Dark · Square</span>
+        <img src="../assets/4.png" alt="Therapist Resources — square lockup, white on navy" />
+      </div>
+      <div class="meta"><span class="name">assets/4.png</span><span>square · dark · primary on app surfaces</span></div>
+    </div>
+
+    <div>
+      <div class="tile square light">
+        <span class="tile-tag">Light · Square</span>
+        <img src="../assets/1.png" alt="Therapist Resources — square lockup, navy on white" />
+      </div>
+      <div class="meta"><span class="name">assets/1.png</span><span>square · light · marketing &amp; print</span></div>
+    </div>
+  </div>
+
+  <!-- Rectangle pair -->
+  <div class="row rect">
+    <div>
+      <div class="tile rect dark">
+        <span class="tile-tag">Dark · Rectangle</span>
+        <img src="../assets/tr-rectangle-logo-on-blue.png" alt="Therapist Resources — horizontal lockup, ghosted on navy" style="max-width: 88%;" />
+      </div>
+      <div class="meta"><span class="name">assets/tr-rectangle-logo-on-blue.png</span><span>rectangle · dark · header / nav</span></div>
+    </div>
+
+    <div>
+      <div class="tile rect light">
+        <span class="tile-tag">Light · Rectangle</span>
+        <img src="../assets/tr-rectangle-logo-on-white.png" alt="Therapist Resources — horizontal lockup, navy on white" style="max-width: 88%;" />
+      </div>
+      <div class="meta"><span class="name">assets/tr-rectangle-logo-on-white.png</span><span>rectangle · light · header / nav</span></div>
+    </div>
+  </div>
+
+  <!-- Usage rules -->
+  <section class="rules" aria-label="Usage">
+    <div class="rule">
+      <h3>Clear space</h3>
+      <p>Keep at least the trunk's base height clear on every side. The wordmark divider in the rectangle lockup is the minimum.</p>
+    </div>
+    <div class="rule">
+      <h3>Min size</h3>
+      <p>Square: 64px tall. Rectangle: 180px wide. Below that, use the mark alone (favicon).</p>
+    </div>
+    <div class="rule">
+      <h3>Don't</h3>
+      <p>Recolor it, drop-shadow it, or place it on a busy photograph without first sitting it inside a glass tile.</p>
+    </div>
+  </section>
+
+</body>
+</html>
