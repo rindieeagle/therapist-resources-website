@@ -18,7 +18,7 @@ const apps = [
     title: "Attract Your Ideal Client",
     description: "A comprehensive mini-course and interactive workbook designed to help you clarify your niche and speak directly to the clients you do your best work with.",
     icon: Magnet,
-    gradient: "from-primary via-sky-500 to-indigo-500",
+    gradient: "from-primary via-sky-500 to-cyan-500",
     buttonText: "Start Mini-Course",
     link: "https://share.minicoursegenerator.com/attract-your-ideal-client-638138860996532035/1"
   },

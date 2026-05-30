@@ -149,8 +149,8 @@ const CoursesPage = () => {
           {courses.map((course, index) => <motion.div key={index} variants={itemVariants} whileHover={{
             scale: 1.02,
             y: -5
-          }} className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-[0_12px_28px_-12px_rgba(14,116,144,0.18)] transition-all duration-300 hover:shadow-violet-500/20 dark:bg-white/5 dark:border-white/10 dark:shadow-2xl">
-            <div className="relative aspect-video bg-gradient-to-br from-[#E9E1FF] to-[#DCEEFB] dark:from-violet-300/30 dark:to-sky-300/30 flex items-center justify-center">
+          }} className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-[0_12px_28px_-12px_rgba(14,116,144,0.18)] transition-all duration-300 hover:shadow-cyan-500/20 dark:bg-white/5 dark:border-white/10 dark:shadow-2xl">
+            <div className="relative aspect-video bg-gradient-to-br from-[#D7F0F4] to-[#DCEEFB] dark:from-cyan-500/25 dark:to-sky-300/25 flex items-center justify-center">
               <div className="absolute left-4 top-4 flex flex-wrap gap-2">
                 <span className="rounded-full border border-[#BFDDE9] bg-white px-3 py-1 text-sm font-semibold text-[#155E75] dark:border-sky-300/50 dark:bg-sky-300/30 dark:text-white dark:backdrop-blur-sm">
                   {course.level}
@@ -161,7 +161,7 @@ const CoursesPage = () => {
                 </span>
               </div>
 
-              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-br from-[#6D5BBA] to-[#0E7490] text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-white/30 dark:bg-white/20 dark:bg-none dark:backdrop-blur-md">
+              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-br from-[#1B5A7E] to-[#0E7490] text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-white/30 dark:bg-white/20 dark:bg-none dark:backdrop-blur-md">
                 <course.icon className="h-8 w-8" />
               </div>
             </div>
@@ -175,7 +175,7 @@ const CoursesPage = () => {
 
               <div className="mt-auto space-y-5">
                 <Button
-                  className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 py-6 text-base font-bold text-white border-0 shadow-lg shadow-violet-900/20 transition-all duration-300 hover:from-violet-500 hover:to-indigo-500 hover:shadow-violet-500/40 md:w-auto md:self-start md:px-8"
+                  className="w-full rounded-xl bg-gradient-to-r from-primary to-sky-600 py-6 text-base font-bold text-primary-foreground border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:from-primary/90 hover:to-sky-500 hover:shadow-cyan-500/40 md:w-auto md:self-start md:px-8"
                   onClick={() => handleEnrollClick(course.enrollmentLink)}
                 >
                   Enroll Now
