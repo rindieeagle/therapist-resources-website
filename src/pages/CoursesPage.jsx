@@ -103,6 +103,21 @@ const itemVariants = {
   }
 };
 
+const cardVariants = [
+  {
+    cover: 'from-[#E9E1FF] to-[#DCEEFB] dark:from-white/15 dark:to-cyan-300/20',
+    glyph: 'from-[#1B5A7E] to-[#0E7490]',
+    badge: 'border-[#BFDDE9] bg-white text-[#155E75] dark:border-sky-300/50 dark:bg-sky-300/30 dark:text-white',
+    accent: 'border-[#F9C8D9] bg-[#FDEEF4] text-[#BE185D] dark:border-pink-300/55 dark:bg-pink-300/30 dark:text-white'
+  },
+  {
+    cover: 'from-[#D7F0F4] to-[#DDF3EC] dark:from-cyan-500/30 dark:to-teal-500/30',
+    glyph: 'from-[#0E7490] to-[#0D9488]',
+    badge: 'border-[#B6E1DA] bg-white text-[#0F766E] dark:border-cyan-400/40 dark:bg-cyan-500/30 dark:text-cyan-300',
+    accent: 'border-[#BFDDE9] bg-white text-[#155E75] dark:border-sky-300/50 dark:bg-sky-300/30 dark:text-white'
+  }
+];
+
 const CoursesPage = () => {
   const handleEnrollClick = (link) => {
     window.open(link, "_blank");
@@ -144,49 +159,52 @@ const CoursesPage = () => {
       </div>
 
       {/* Courses Grid */}
-      <div className="container mx-auto max-w-7xl">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {courses.map((course, index) => <motion.div key={index} variants={itemVariants} whileHover={{
+      <div className="container mx-auto max-w-6xl">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {courses.map((course, index) => {
+            const variant = cardVariants[index % cardVariants.length];
+            return <motion.div key={index} variants={itemVariants} whileHover={{
             scale: 1.02,
             y: -5
           }} className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-[0_12px_28px_-12px_rgba(14,116,144,0.18)] transition-all duration-300 hover:shadow-cyan-500/20 dark:bg-white/5 dark:border-white/10 dark:shadow-2xl">
-            <div className="relative aspect-video bg-gradient-to-br from-[#D7F0F4] to-[#DCEEFB] dark:from-cyan-500/25 dark:to-sky-300/25 flex items-center justify-center">
+            <div className={`relative aspect-video bg-gradient-to-br ${variant.cover} flex items-center justify-center`}>
               <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-                <span className="rounded-full border border-[#BFDDE9] bg-white px-3 py-1 text-sm font-semibold text-[#155E75] dark:border-sky-300/50 dark:bg-sky-300/30 dark:text-white dark:backdrop-blur-sm">
+                <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${variant.badge} dark:backdrop-blur-sm`}>
                   {course.level}
                 </span>
-                <span className="inline-flex items-center gap-1 rounded-full border border-[#F9C8D9] bg-[#FDEEF4] px-3 py-1 text-sm font-semibold text-[#BE185D] dark:border-pink-300/55 dark:bg-pink-300/30 dark:text-white dark:backdrop-blur-sm">
-                  <Clock className="h-3.5 w-3.5" />
+                <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold ${variant.accent} dark:backdrop-blur-sm`}>
+                  <Clock className="h-3 w-3" />
                   {course.duration}
                 </span>
               </div>
 
-              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-br from-[#1B5A7E] to-[#0E7490] text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-white/30 dark:bg-white/20 dark:bg-none dark:backdrop-blur-md">
-                <course.icon className="h-8 w-8" />
+              <div className={`flex h-16 w-16 items-center justify-center rounded-[20px] bg-gradient-to-br ${variant.glyph} text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-white/30 dark:bg-white/20 dark:bg-none dark:backdrop-blur-md`}>
+                <course.icon className="h-7 w-7" />
               </div>
             </div>
 
-            <div className="p-6 flex-grow flex flex-col">
-              <div className="mb-2 text-xs font-bold uppercase tracking-[0.06em] text-primary dark:text-cyan-300">
+            <div className="p-5 flex-grow flex flex-col">
+              <div className="mb-2 bg-gradient-to-r from-primary to-sky-500 bg-clip-text text-xs font-bold uppercase tracking-[0.06em] text-transparent dark:from-cyan-300 dark:to-sky-200">
                 Instructor: {course.instructor}
               </div>
-              <h3 className="text-2xl font-bold leading-snug text-foreground mb-3">{course.title}</h3>
-              <p className="text-foreground/80 text-base leading-relaxed mb-6">{course.description}</p>
+              <h3 className="text-xl font-bold leading-snug text-foreground mb-2">{course.title}</h3>
+              <p className="text-foreground/80 text-sm leading-relaxed mb-5">{course.description}</p>
 
-              <div className="mt-auto space-y-5">
+              <div className="mt-auto space-y-4">
                 <Button
-                  className="w-full rounded-xl bg-gradient-to-r from-primary to-sky-600 py-6 text-base font-bold text-primary-foreground border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:from-primary/90 hover:to-sky-500 hover:shadow-cyan-500/40 md:w-auto md:self-start md:px-8"
+                  className="w-full rounded-xl bg-gradient-to-r from-primary to-sky-600 py-5 text-sm font-bold text-primary-foreground border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:from-primary/90 hover:to-sky-500 hover:shadow-cyan-500/40"
                   onClick={() => handleEnrollClick(course.enrollmentLink)}
                 >
                   Enroll Now
                 </Button>
-                <div className="flex items-center gap-2 border-t border-border pt-4 text-sm font-medium text-foreground/70 dark:border-white/10 dark:text-white/75">
+                <div className="flex items-center gap-2 border-t border-border pt-3 text-sm font-medium text-foreground/70 dark:border-white/10 dark:text-white/75">
                   <GraduationCap className="h-4 w-4 text-primary dark:text-cyan-300" />
                   {course.duration}
                 </div>
               </div>
             </div>
-          </motion.div>)}
+          </motion.div>;
+          })}
         </motion.div>
       </div>
     </div>
