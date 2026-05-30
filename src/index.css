@@ -53,6 +53,15 @@
 }
 
 @layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+  }
+
   * {
     @apply border-border;
   }
