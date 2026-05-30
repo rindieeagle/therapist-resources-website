@@ -14,10 +14,13 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="container relative z-10 mx-auto max-w-5xl"
         >
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#BFDDE9] bg-[#ECF5FA] px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-primary dark:border-white/20 dark:bg-white/10 dark:text-cyan-100">
+          <a
+            href="https://goldenthread.therapistresources.com"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#BFDDE9] bg-[#ECF5FA] px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-primary transition-colors hover:border-primary hover:bg-accent dark:border-white/20 dark:bg-white/10 dark:text-cyan-100 dark:hover:bg-white/15"
+          >
             <span className="h-1.5 w-1.5 rounded-full bg-[#9F90C9] shadow-[0_0_8px_rgba(159,144,201,0.55)]" aria-hidden="true"></span>
-            The Modern Therapist · bi-monthly
-          </span>
+            Write it Right Course Bundle is now available
+          </a>
 
           <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] md:text-6xl lg:text-7xl">
             <span className="block bg-gradient-to-r from-[#001C3F] via-primary to-cyan-500 bg-clip-text text-transparent dark:from-white dark:via-cyan-100 dark:to-sky-300">
