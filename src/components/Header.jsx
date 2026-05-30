@@ -4,10 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from '@/components/ThemeToggle';
+import { useTheme } from '@/lib/theme';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   // Scroll to top on route change
   useEffect(() => {
@@ -29,7 +32,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl bg-white/5 border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass border-b border-border"
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
@@ -40,11 +43,11 @@ const Header = () => {
               className="flex items-center gap-2"
             >
               <img
-                src="/logo.png"
+                src={theme === 'dark' ? '/tr-rectangle-logo-on-blue.png' : '/tr-rectangle-logo-on-white.png'}
                 alt="Therapist Resources Logo"
                 className="h-8 sm:h-10 w-auto"
               />
-              <span className="hidden sm:inline text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+              <span className="hidden sm:inline text-lg sm:text-xl font-bold tr-grad-text">
                 Therapist Resources
               </span>
             </motion.div>
@@ -65,7 +68,7 @@ const Header = () => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="text-white/90 hover:text-cyan-300 transition-colors duration-300 font-medium"
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
                   >
                     {item.name}
                   </motion.a>
@@ -78,7 +81,7 @@ const Header = () => {
                   href={item.path}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-white/90 hover:text-cyan-300 transition-colors duration-300 font-medium"
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
                 >
                   {item.name}
                 </motion.a>
@@ -87,7 +90,7 @@ const Header = () => {
                   <motion.span
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`transition-colors duration-300 font-medium ${location.pathname === item.path ? 'text-cyan-300' : 'text-white/90 hover:text-cyan-300'
+                    className={`transition-colors duration-300 font-medium ${location.pathname === item.path ? 'text-primary' : 'text-foreground/80 hover:text-primary'
                       }`}
                   >
                     {item.name}
@@ -97,15 +100,20 @@ const Header = () => {
             })}
           </div>
 
+          <ThemeToggle className="hidden md:inline-flex text-foreground hover:bg-accent" />
+
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-white hover:bg-white/10"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle className="text-foreground hover:bg-accent" />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-foreground hover:bg-accent"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X /> : <Menu />}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -116,7 +124,7 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden mt-4 backdrop-blur-xl bg-white/5 rounded-3xl p-4 border border-white/10"
+              className="md:hidden mt-4 glass rounded-3xl p-4 border border-border"
             >
               {navItems.map((item) => {
                 const isHash = item.path.startsWith('#');
@@ -131,7 +139,7 @@ const Header = () => {
                       rel="noopener noreferrer"
                       onClick={() => setIsMobileMenuOpen(false)}
                       whileTap={{ scale: 0.95 }}
-                      className="block py-3 text-white/90 hover:text-cyan-300 transition-colors duration-300 font-medium"
+                      className="block py-3 text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
                     >
                       {item.name}
                     </motion.a>
@@ -144,7 +152,7 @@ const Header = () => {
                     href={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
                     whileTap={{ scale: 0.95 }}
-                    className="block py-3 text-white/90 hover:text-cyan-300 transition-colors duration-300 font-medium"
+                    className="block py-3 text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
                   >
                     {item.name}
                   </motion.a>
@@ -156,7 +164,7 @@ const Header = () => {
                   >
                     <motion.div
                       whileTap={{ scale: 0.95 }}
-                      className={`block py-3 transition-colors duration-300 font-medium ${location.pathname === item.path ? 'text-cyan-300' : 'text-white/90 hover:text-cyan-300'
+                      className={`block py-3 transition-colors duration-300 font-medium ${location.pathname === item.path ? 'text-primary' : 'text-foreground/80 hover:text-primary'
                         }`}
                     >
                       {item.name}

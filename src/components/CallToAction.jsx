@@ -12,16 +12,16 @@ const CallToAction = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.4 }}
-          className="backdrop-blur-md bg-gradient-to-br from-cyan-500/20 via-sky-500/20 to-teal-500/20 rounded-3xl p-8 sm:p-12 md:p-16 border border-white/20 shadow-2xl text-center"
+          className="glass-strong bg-gradient-to-br from-primary/10 via-accent/20 to-primary/10 rounded-3xl p-8 sm:p-12 md:p-16 shadow-2xl text-center"
         >
           <div className="pt-4 sm:pt-8">
-            <p className="text-white/80 mb-4">Connect with me</p>
+            <p className="text-foreground/80 mb-4">Connect with me</p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold shadow-lg hover:shadow-cyan-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
+                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
               >
                 <Linkedin className="w-5 h-5" />
                 Follow on LinkedIn
@@ -30,7 +30,7 @@ const CallToAction = () => {
                 href="https://www.facebook.com/rindieresources"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold shadow-lg hover:shadow-cyan-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
+                className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-full font-bold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
               >
                 <Facebook className="w-5 h-5" />
                 Follow on Facebook

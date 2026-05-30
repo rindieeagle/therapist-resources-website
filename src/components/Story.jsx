@@ -50,7 +50,7 @@ const Story = () => {
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="backdrop-blur-xl bg-white/5 rounded-[2rem] p-8 md:p-12 border border-white/10 shadow-2xl space-y-8"
+            className="glass rounded-[2rem] p-8 md:p-12 shadow-2xl space-y-8"
           >
             {/* Story text */}
             <motion.div
@@ -59,10 +59,10 @@ const Story = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-4"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-6">
                 My Journey
               </h2>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed text-center">
+              <p className="text-lg md:text-xl text-foreground/90 leading-relaxed text-center">
                 From the Navy, to the IT field, to Therapy… It's been a variable smorgasbord of experiences to draw from in order to help others.
               </p>
             </motion.div>
@@ -72,17 +72,17 @@ const Story = () => {
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-teal-500 to-cyan-500"
+              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-primary to-sky-500"
               style={{
-                borderImage: 'linear-gradient(to bottom, #9D4EDD, #00D9FF) 1'
+                borderImage: 'linear-gradient(to bottom, var(--tr-leaf-lavender), var(--tr-cyan-500)) 1'
               }}
             >
-              <Quote className="absolute -left-4 top-4 w-8 h-8 text-cyan-400" />
+              <Quote className="absolute -left-4 top-4 w-8 h-8 text-primary" />
               <blockquote className="space-y-4">
-                <p className="text-2xl md:text-3xl italic text-white/95 leading-relaxed">
+                <p className="text-2xl md:text-3xl italic text-foreground/95 leading-relaxed">
                   "Follow your heart, but take your brain with you."
                 </p>
-                <cite className="text-lg text-teal-300 not-italic font-semibold">
+                <cite className="text-lg text-primary not-italic font-semibold">
                   — Alfred Adler
                 </cite>
               </blockquote>
@@ -93,7 +93,7 @@ const Story = () => {
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg text-white/80 leading-relaxed text-center"
+              className="text-lg text-foreground/80 leading-relaxed text-center"
             >
               This quote perfectly encapsulates my approach to therapy and resource development. Combining empathy with evidence-based practices to create tools that truly serve clinicians and their clients.
             </motion.p>
@@ -104,7 +104,7 @@ const Story = () => {
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.4, delay: 0.1 }}
-            className="backdrop-blur-xl bg-white/5 rounded-[2rem] border border-white/10 shadow-2xl flex flex-col overflow-hidden"
+            className="glass rounded-[2rem] shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header section with background */}
             <div 
@@ -142,7 +142,7 @@ const Story = () => {
                       <input
                         type="text"
                         name="FNAME"
-                        className="w-full px-4 py-4 rounded-lg bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all"
+                        className="w-full px-4 py-4 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                         id="mce-FNAME"
                         placeholder="First Name"
                       />
@@ -152,7 +152,7 @@ const Story = () => {
                       <input
                         type="text"
                         name="LNAME"
-                        className="w-full px-4 py-4 rounded-lg bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all"
+                        className="w-full px-4 py-4 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                         id="mce-LNAME"
                         placeholder="Last Name"
                       />
@@ -162,7 +162,7 @@ const Story = () => {
                       <input
                         type="email"
                         name="EMAIL"
-                        className="w-full px-4 py-4 rounded-lg bg-white border border-gray-200 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 transition-all"
+                        className="w-full px-4 py-4 rounded-lg bg-card border border-border text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                         id="mce-EMAIL"
                         required
                         placeholder="Email Address"
@@ -185,7 +185,7 @@ const Story = () => {
                         type="submit"
                         name="subscribe"
                         id="mc-embedded-subscribe"
-                        className="w-full px-8 py-4 bg-purple-300 hover:bg-purple-400 text-white rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer"
+                        className="w-full px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer"
                         value="Join and Send those prompts my way!"
                       />
                     </div>

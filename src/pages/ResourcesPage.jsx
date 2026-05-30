@@ -85,13 +85,13 @@ const ResourcesPage = () => {
             alt="Therapy Resources"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-teal-900/80 to-slate-900/60 backdrop-blur-sm flex items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/80 to-primary/40 backdrop-blur-sm flex items-center justify-center">
             <div className="text-center p-6 max-w-3xl">
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-300 via-sky-300 to-teal-300 bg-clip-text text-transparent"
+                className="text-4xl md:text-6xl font-bold mb-6 tr-grad-text"
               >
                 Therapy Resources
               </motion.h1>
@@ -99,7 +99,7 @@ const ResourcesPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl text-white/90"
+                className="text-xl text-foreground/90"
               >
                 Professional tools designed to enhance your clinical practice and support client growth.
               </motion.p>
@@ -120,24 +120,24 @@ const ResourcesPage = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300"
+                className="group relative flex flex-col h-full glass rounded-3xl overflow-hidden shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300"
               >
                 <div className="p-6 flex-grow flex flex-col">
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-cyan-500/20 to-teal-500/20 text-cyan-300 border border-cyan-500/30">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
                       {resource.type}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-500/20 to-teal-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <resource.icon className="w-6 h-6 text-cyan-300" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <resource.icon className="w-6 h-6 text-primary" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-2">{resource.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-6">{resource.description}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{resource.title}</h3>
+                  <p className="text-foreground/70 text-sm leading-relaxed mb-6">{resource.description}</p>
 
-                  <div className="mt-auto pt-4 border-t border-white/10">
-                    <Button className="w-full bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:shadow-cyan-500/40">
+                  <div className="mt-auto pt-4 border-t border-border">
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:shadow-cyan-500/40">
                       View Details
                     </Button>
                   </div>
