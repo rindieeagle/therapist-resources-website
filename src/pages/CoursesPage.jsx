@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby } from 'lucide-react';
+import { Clock, GraduationCap, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
 
@@ -145,39 +145,45 @@ const CoursesPage = () => {
 
       {/* Courses Grid */}
       <div className="container mx-auto max-w-7xl">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <motion.div variants={containerVariants} initial="hidden" animate="visible" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {courses.map((course, index) => <motion.div key={index} variants={itemVariants} whileHover={{
             scale: 1.02,
             y: -5
-          }} className="group relative flex flex-col h-full glass rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 transition-all duration-300">
-            <div className="p-6 flex-grow flex flex-col">
-              <div className="flex justify-between items-start mb-4">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 text-violet-300 border border-violet-500/30">
+          }} className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-[0_12px_28px_-12px_rgba(14,116,144,0.18)] transition-all duration-300 hover:shadow-violet-500/20 dark:bg-white/5 dark:border-white/10 dark:shadow-2xl">
+            <div className="relative aspect-video bg-gradient-to-br from-[#E9E1FF] to-[#DCEEFB] dark:from-violet-300/30 dark:to-sky-300/30 flex items-center justify-center">
+              <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+                <span className="rounded-full border border-[#BFDDE9] bg-white px-3 py-1 text-sm font-semibold text-[#155E75] dark:border-sky-300/50 dark:bg-sky-300/30 dark:text-white dark:backdrop-blur-sm">
                   {course.level}
                 </span>
-                <span className="text-xs text-muted-foreground flex items-center gap-1">
-                  <GraduationCap className="w-3 h-3" />
+                <span className="inline-flex items-center gap-1 rounded-full border border-[#F9C8D9] bg-[#FDEEF4] px-3 py-1 text-sm font-semibold text-[#BE185D] dark:border-pink-300/55 dark:bg-pink-300/30 dark:text-white dark:backdrop-blur-sm">
+                  <Clock className="h-3.5 w-3.5" />
                   {course.duration}
                 </span>
               </div>
 
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-violet-500/20 to-primary/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <course.icon className="w-6 h-6 text-violet-300" />
+              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-br from-[#6D5BBA] to-[#0E7490] text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-white/30 dark:bg-white/20 dark:bg-none dark:backdrop-blur-md">
+                <course.icon className="h-8 w-8" />
               </div>
+            </div>
 
-              <h3 className="text-xl font-bold text-foreground mb-2">{course.title}</h3>
-              <p className="text-foreground/70 text-sm leading-relaxed mb-4">{course.description}</p>
+            <div className="p-6 flex-grow flex flex-col">
+              <div className="mb-2 text-xs font-bold uppercase tracking-[0.06em] text-primary dark:text-cyan-300">
+                Instructor: {course.instructor}
+              </div>
+              <h3 className="text-2xl font-bold leading-snug text-foreground mb-3">{course.title}</h3>
+              <p className="text-foreground/80 text-base leading-relaxed mb-6">{course.description}</p>
 
-              <div className="mt-auto space-y-4">
-                <div className="text-xs text-muted-foreground border-t border-border pt-4">
-                  Instructor: <span className="text-foreground/80">{course.instructor}</span>
-                </div>
+              <div className="mt-auto space-y-5">
                 <Button
-                  className="w-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white border-0 shadow-lg shadow-violet-900/20 transition-all duration-300 hover:shadow-violet-500/40"
+                  className="w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 py-6 text-base font-bold text-white border-0 shadow-lg shadow-violet-900/20 transition-all duration-300 hover:from-violet-500 hover:to-indigo-500 hover:shadow-violet-500/40 md:w-auto md:self-start md:px-8"
                   onClick={() => handleEnrollClick(course.enrollmentLink)}
                 >
                   Enroll Now
                 </Button>
+                <div className="flex items-center gap-2 border-t border-border pt-4 text-sm font-medium text-foreground/70 dark:border-white/10 dark:text-white/75">
+                  <GraduationCap className="h-4 w-4 text-primary dark:text-cyan-300" />
+                  {course.duration}
+                </div>
               </div>
             </div>
           </motion.div>)}

@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="text-center sm:text-left sm:col-span-2 md:col-span-1">
             <div className="flex items-center justify-center sm:justify-start gap-2 mb-4">
-              <img src={theme === 'dark' ? '/tr-rectangle-logo-on-blue.png' : '/tr-rectangle-logo-on-white.png'} alt="Therapist Resources" className="h-20 sm:h-24 md:h-32 w-auto" />
+              <img src={theme === 'dark' ? '/tr-rectangle-logo-on-blue.png' : '/tr-rectangle-logo-on-white.png'} alt="Therapist Resources" className="h-auto w-44 max-w-full sm:w-52 md:w-56 object-contain" />
             </div>
           </div>
 

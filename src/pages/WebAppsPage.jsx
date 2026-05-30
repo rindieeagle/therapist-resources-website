@@ -99,26 +99,33 @@ const WebAppsPage = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, translateY: -5 }}
-                className="group relative flex flex-col h-full glass rounded-3xl overflow-hidden shadow-2xl hover:shadow-2xl transition-all duration-300"
+                className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-[0_12px_28px_-12px_rgba(14,116,144,0.18)] transition-all duration-300 hover:shadow-2xl dark:bg-white/5 dark:border-white/10 dark:shadow-2xl"
               >
-                {/* Gradient Top Border/Glow */}
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${app.gradient}`} />
-                <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${app.gradient} opacity-20 blur-[50px] group-hover:opacity-30 transition-opacity duration-500`} />
+                <div className="relative aspect-video bg-gradient-to-br from-[#D7F0F4] to-[#DDF3EC] dark:from-cyan-500/30 dark:to-teal-500/30 flex items-center justify-center">
+                  <div className="absolute left-4 top-4">
+                    <span className="rounded-full border border-[#B6E1DA] bg-white px-3 py-1 text-sm font-semibold text-[#0F766E] dark:border-cyan-400/40 dark:bg-cyan-500/30 dark:text-cyan-300 dark:backdrop-blur-sm">
+                      {app.buttonText}
+                    </span>
+                  </div>
+                  <div className={`flex h-[72px] w-[72px] items-center justify-center rounded-[22px] bg-gradient-to-br ${app.gradient} text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-cyan-300/40 dark:bg-cyan-300/20 dark:bg-none dark:text-cyan-300 dark:backdrop-blur-md`}>
+                    <app.icon className="w-8 h-8" />
+                  </div>
+                </div>
 
-                <div className="p-8 flex-grow flex flex-col relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${app.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <app.icon className="w-7 h-7 text-primary-foreground" />
+                <div className="p-6 flex-grow flex flex-col relative z-10">
+                  <div className="mb-2 text-xs font-bold uppercase tracking-[0.06em] text-primary dark:text-cyan-300">
+                    Interactive Clinical Tools
                   </div>
 
-                  <h3 className="text-2xl font-bold text-foreground mb-4">{app.title}</h3>
-                  <p className="text-foreground/70 leading-relaxed mb-8 flex-grow">
+                  <h3 className="text-2xl font-bold leading-snug text-foreground mb-3">{app.title}</h3>
+                  <p className="text-foreground/80 leading-relaxed mb-8 flex-grow">
                     {app.description}
                   </p>
 
-                  <div className="pt-6 border-t border-border">
+                  <div className="mt-auto flex items-center justify-between gap-4">
                     <Button
                       asChild
-                      className={`w-full py-6 text-lg font-medium bg-gradient-to-r ${app.gradient} hover:opacity-90 text-white border-0 shadow-lg transition-all duration-300 hover:shadow-cyan-500/40`}
+                      className={`rounded-xl bg-gradient-to-r ${app.gradient} px-5 py-6 text-base font-bold text-white border-0 shadow-lg transition-all duration-300 hover:opacity-90 hover:shadow-cyan-500/40`}
                     >
                       <a href={app.link} target="_blank" rel="noopener noreferrer">
                         {app.buttonText}
