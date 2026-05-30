@@ -1,10 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '@/lib/theme';
 
 const Hero = () => {
-  const { theme } = useTheme();
-
   return (
     <>
       <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-28">
@@ -17,14 +14,6 @@ const Hero = () => {
           transition={{ duration: 0.5 }}
           className="container relative z-10 mx-auto max-w-5xl"
         >
-          <div className="mb-7">
-            <img
-              src={theme === 'dark' ? '/tr-stacked-white.png' : '/tr-stacked-navy.png'}
-              alt="Therapist Resources"
-              className="h-28 w-auto object-contain sm:h-32"
-            />
-          </div>
-
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#BFDDE9] bg-[#ECF5FA] px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-primary dark:border-white/20 dark:bg-white/10 dark:text-cyan-100">
             <span className="h-1.5 w-1.5 rounded-full bg-[#9F90C9] shadow-[0_0_8px_rgba(159,144,201,0.55)]" aria-hidden="true"></span>
             The Modern Therapist · bi-monthly
