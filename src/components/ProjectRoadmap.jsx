@@ -1,10 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Clock, BookOpen, ClipboardList, FileSearch, FileText } from 'lucide-react';
+import { CheckCircle2, Clock, BookOpen, ClipboardList, FileSearch, FileText, Waypoints } from 'lucide-react';
 
 const milestones = [
   {
-    quarter: 'Q1',
+    title: 'The Golden Thread & Medical Necessity Course',
+    description:
+      'Establish the foundation of defensible documentation. Tie assessment, goals, and interventions into one continuous golden thread that demonstrates medical necessity.',
+    icon: Waypoints,
+    status: 'done',
+    link: 'https://foundations.therapistresources.com',
+    gradient: 'from-amber-400 to-orange-500',
+    glow: 'shadow-amber-500/20',
+  },
+  {
     title: 'SOAP Notes Course',
     description:
       'Master the art of writing effective SOAP notes. Clear, concise, and clinically sound documentation that saves you time.',
@@ -15,32 +24,32 @@ const milestones = [
     glow: 'shadow-emerald-500/20',
   },
   {
-    quarter: 'Q2',
     title: 'Treatment Planning Course',
     description:
       'Build treatment plans that are individualized, measurable, and audit-ready. Connect goals to interventions with confidence.',
     icon: ClipboardList,
-    status: 'upcoming',
+    status: 'done',
+    link: 'https://tp.therapistresources.com',
     gradient: 'from-primary to-sky-500',
     glow: 'shadow-cyan-500/20',
   },
   {
-    quarter: 'Q3',
     title: 'Diagnostic Assessment Course',
     description:
       'Conduct and document thorough diagnostic assessments. From clinical interviews to differential diagnosis and written formulation.',
     icon: FileSearch,
-    status: 'upcoming',
+    status: 'done',
+    link: 'https://da.therapistresources.com',
     gradient: 'from-violet-400 to-indigo-500',
     glow: 'shadow-violet-500/20',
   },
   {
-    quarter: 'Q4',
     title: 'Discharge & Treatment Summary Course',
     description:
       'Close cases with well-documented discharge and treatment summaries that communicate outcomes and support continuity of care.',
     icon: FileText,
-    status: 'upcoming',
+    status: 'done',
+    link: 'https://discharge.therapistresources.com',
     gradient: 'from-fuchsia-400 to-pink-500',
     glow: 'shadow-fuchsia-500/20',
   },
@@ -90,7 +99,7 @@ const ProjectRoadmap = () => {
             Clinical Documentation Series
           </p>
           <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-            Four courses across four quarters. Each one builds on the last to give you a complete clinical documentation skill set.
+            Five courses that build on each other to give you a complete clinical documentation skill set.
           </p>
         </motion.div>
 
@@ -102,7 +111,7 @@ const ProjectRoadmap = () => {
               initial={{ scaleY: 0 }}
               animate={isVisible ? { scaleY: 1 } : { scaleY: 0 }}
               transition={{ duration: 1.2, delay: 0.3 }}
-              className="h-full w-full bg-gradient-to-b from-emerald-500/50 via-primary/50 via-violet-500/50 to-pink-500/50 origin-top"
+              className="h-full w-full bg-gradient-to-b from-amber-500/50 via-primary/50 to-pink-500/50 origin-top"
             />
           </div>
 
@@ -135,15 +144,6 @@ const ProjectRoadmap = () => {
                       <Icon className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span
-                        className={`text-xs font-bold tracking-widest uppercase px-2.5 py-1 rounded-md ${
-                          isDone
-                            ? 'bg-emerald-500/20 text-emerald-300'
-                            : 'bg-muted text-muted-foreground'
-                        }`}
-                      >
-                        {milestone.quarter} 2026
-                      </span>
                       {isDone ? (
                         <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400">
                           <CheckCircle2 className="w-3.5 h-3.5" />
@@ -180,7 +180,7 @@ const ProjectRoadmap = () => {
               );
 
               return (
-                <div key={milestone.quarter} className="relative">
+                <div key={milestone.title} className="relative">
                   {/* Desktop: alternating layout */}
                   <div className="hidden md:grid md:grid-cols-2 md:gap-12 items-center">
                     {isLeft ? (
