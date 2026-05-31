@@ -1,96 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const lineOneWords = ['Smart', 'Tools'];
-const lineTwoWords = ['for', 'the', 'Modern', 'Therapist'];
-
-const HeroWord = ({ className, index, word }) => {
-  return (
-    <span
-      style={{ '--word-index': index }}
-      className={`${className} hero-scrolly-word`}
-    >
-      {word}{' '}
-    </span>
-  );
-};
-
 const Hero = () => {
   return (
     <>
-      <section id="home" className="hero-scrolly-section relative min-h-[150vh] overflow-visible px-4">
+      <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-4 pb-16 pt-28">
         <div className="absolute inset-0 bg-gradient-to-b from-white to-[#F2F7FB] dark:bg-none dark:from-transparent dark:to-transparent"></div>
-        <div className="hero-scrolly-backdrop absolute inset-0 pointer-events-none origin-center bg-[radial-gradient(at_0%_0%,rgba(27,90,126,0.10)_0px,transparent_55%),radial-gradient(at_100%_100%,rgba(14,116,144,0.08)_0px,transparent_55%)] dark:bg-[radial-gradient(at_0%_0%,rgba(56,189,248,0.18)_0px,transparent_50%),radial-gradient(at_100%_100%,rgba(6,182,212,0.20)_0px,transparent_50%),linear-gradient(135deg,#0F3A52_0%,#1B5A7E_50%,#0E7490_100%)]"></div>
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(at_0%_0%,rgba(27,90,126,0.10)_0px,transparent_55%),radial-gradient(at_100%_100%,rgba(14,116,144,0.08)_0px,transparent_55%)] dark:bg-[radial-gradient(at_0%_0%,rgba(56,189,248,0.18)_0px,transparent_50%),radial-gradient(at_100%_100%,rgba(6,182,212,0.20)_0px,transparent_50%),linear-gradient(135deg,#0F3A52_0%,#1B5A7E_50%,#0E7490_100%)]"></div>
 
-        <motion.div className="hero-scrolly-content container sticky top-0 z-10 mx-auto flex min-h-screen max-w-5xl items-center py-28">
-          <div>
-            <a
-              href="https://goldenthread.therapistresources.com"
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#BFDDE9] bg-[#ECF5FA] px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-primary transition-colors hover:border-primary hover:bg-accent dark:border-white/20 dark:bg-white/10 dark:text-cyan-100 dark:hover:bg-white/15"
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="container relative z-10 mx-auto max-w-5xl"
+        >
+          <a
+            href="https://goldenthread.therapistresources.com"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#BFDDE9] bg-[#ECF5FA] px-4 py-2 text-xs font-bold uppercase tracking-[0.04em] text-primary transition-colors hover:border-primary hover:bg-accent dark:border-white/20 dark:bg-white/10 dark:text-cyan-100 dark:hover:bg-white/15"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#9F90C9] shadow-[0_0_8px_rgba(159,144,201,0.55)]" aria-hidden="true"></span>
+            Write it Right Course Bundle is now available
+          </a>
+
+          <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] md:text-6xl lg:text-7xl">
+            <span className="block bg-gradient-to-r from-[#001C3F] via-primary to-cyan-500 bg-clip-text text-transparent dark:from-white dark:via-cyan-100 dark:to-sky-300">
+              Smart Tools
+            </span>
+            <span className="block bg-gradient-to-r from-primary via-cyan-600 to-cyan-400 bg-clip-text text-transparent dark:from-sky-300 dark:via-cyan-400 dark:to-teal-300">
+              for the Modern Therapist
+            </span>
+          </h1>
+
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-foreground/80 dark:text-white/80">
+            Audit-ready documentation, ethics-first AI workflows, and clinical templates. Built by a clinician with 10+ years in private practice, for therapists who want their paperwork to hold up and their evenings back.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <button
+              className="inline-flex items-center rounded-full bg-gradient-to-r from-primary via-cyan-700 to-sky-600 px-7 py-3 text-base font-bold text-white shadow-[0_12px_28px_-10px_rgba(27,90,126,0.55)] transition-transform duration-200 hover:-translate-y-0.5"
+              onClick={() => document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-[#9F90C9] shadow-[0_0_8px_rgba(159,144,201,0.55)]" aria-hidden="true"></span>
-              Write it Right Course Bundle is now available
-            </a>
+              Browse Resources →
+            </button>
+            <button
+              className="inline-flex items-center rounded-full border border-[#CBD9E2] bg-white px-7 py-3 text-base font-bold text-[#001C3F] transition-colors duration-200 hover:border-primary hover:bg-accent dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+              onClick={() => document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              View Courses
+            </button>
+          </div>
 
-            <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] md:text-6xl lg:text-7xl">
-              <span className="block overflow-hidden pb-1 [perspective:900px]">
-                {lineOneWords.map((word, index) => (
-                  <HeroWord
-                    key={word}
-                    word={word}
-                    index={index}
-                    className="mr-[0.23em] inline-block origin-bottom bg-gradient-to-r from-[#001C3F] via-primary to-cyan-500 bg-clip-text text-transparent dark:from-white dark:via-cyan-100 dark:to-sky-300"
-                  />
-                ))}
-              </span>
-              <span className="block overflow-hidden pb-1 [perspective:900px]">
-                {lineTwoWords.map((word, index) => (
-                  <HeroWord
-                    key={word}
-                    word={word}
-                    index={index + lineOneWords.length}
-                    className="mr-[0.23em] inline-block origin-bottom bg-gradient-to-r from-primary via-cyan-600 to-cyan-400 bg-clip-text text-transparent dark:from-sky-300 dark:via-cyan-400 dark:to-teal-300"
-                  />
-                ))}
-              </span>
-            </h1>
-
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-foreground/80 dark:text-white/80">
-              Audit-ready documentation, ethics-first AI workflows, and clinical templates. Built by a clinician with 10+ years in private practice, for therapists who want their paperwork to hold up and their evenings back.
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <button
-                className="inline-flex items-center rounded-full bg-gradient-to-r from-primary via-cyan-700 to-sky-600 px-7 py-3 text-base font-bold text-white shadow-[0_12px_28px_-10px_rgba(27,90,126,0.55)] transition-transform duration-200 hover:-translate-y-0.5"
-                onClick={() => document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Browse Resources →
-              </button>
-              <button
-                className="inline-flex items-center rounded-full border border-[#CBD9E2] bg-white px-7 py-3 text-base font-bold text-[#001C3F] transition-colors duration-200 hover:border-primary hover:bg-accent dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
-                onClick={() => document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                View Courses
-              </button>
+          <div className="mt-9 grid gap-5 border-t border-border pt-5 sm:grid-cols-3 dark:border-white/10">
+            <div>
+              <div className="font-sans text-3xl font-extrabold text-[#001C3F] dark:text-white">10+</div>
+              <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">Years in private practice</div>
             </div>
-
-            <div className="relative mt-9 grid gap-5 border-t border-border pt-5 sm:grid-cols-3 dark:border-white/10">
-              <div
-                aria-hidden="true"
-                className="hero-scrolly-rule absolute left-0 top-0 h-px origin-left bg-gradient-to-r from-primary via-cyan-500 to-transparent"
-              ></div>
-              <div>
-                <div className="font-sans text-3xl font-extrabold text-[#001C3F] dark:text-white">10+</div>
-                <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">Years in private practice</div>
-              </div>
-              <div>
-                <div className="font-sans text-3xl font-extrabold text-primary dark:text-sky-300">4-course</div>
-                <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">Write it Right documentation series</div>
-              </div>
-              <div>
-                <div className="font-sans text-3xl font-extrabold text-cyan-700 dark:text-cyan-400">Bi-monthly</div>
-                <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">The Modern Therapist newsletter</div>
-              </div>
+            <div>
+              <div className="font-sans text-3xl font-extrabold text-primary dark:text-sky-300">4-course</div>
+              <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">Write it Right documentation series</div>
+            </div>
+            <div>
+              <div className="font-sans text-3xl font-extrabold text-cyan-700 dark:text-cyan-400">Bi-monthly</div>
+              <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">The Modern Therapist newsletter</div>
             </div>
           </div>
         </motion.div>
