@@ -1,0 +1,420 @@
+/* ==========================================================================
+   Therapist Resources — Design Tokens
+   Source of truth: rindieeagle/therapist-resources-website (production code)
+   Style: LIGHT remix — ink-on-paper with peacock + lavender accents
+   ========================================================================== */
+
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Thin.ttf") format("truetype");           font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-ThinItalic.ttf") format("truetype");     font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-ExtraLight.ttf") format("truetype");     font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Light.ttf") format("truetype");          font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-LightItalic.ttf") format("truetype");    font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Regular.ttf") format("truetype");        font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Italic.ttf") format("truetype");         font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Medium.ttf") format("truetype");         font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-MediumItalic.ttf") format("truetype");   font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-SemiBold.ttf") format("truetype");       font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-SemiBoldItalic.ttf") format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Bold.ttf") format("truetype");           font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-ExtraBold.ttf") format("truetype");      font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("fonts/Poppins-Black.ttf") format("truetype");          font-weight: 900; font-style: normal; font-display: swap; }
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap");
+
+:root {
+  /* ----- Backdrop / surface (LIGHT) ----- */
+  --tr-bg-base:           #FAFBFC;                 /* near-white page */
+  --tr-bg-paper:          #FFFFFF;                 /* card surface */
+  --tr-bg-tint:           #F1F7FA;                 /* faint peacock tint */
+  --tr-bg-app:
+    linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+  --tr-bg-radials:
+    radial-gradient(at 0% 0%,   rgba( 14, 116, 144, 0.07) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(125, 211, 252, 0.10) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.10) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba( 94, 234, 212, 0.08) 0px, transparent 55%);
+
+  /* ----- Brand accents (from the logo + product gradients) ----- */
+  --tr-teal-200:          #99f6e4;                 /* aqua highlight, headlines */
+  --tr-teal-300:          #5eead4;                 /* primary accent text */
+  --tr-teal-400:          #2dd4bf;                 /* primary CTA start */
+  --tr-teal-500:          #14b8a6;                 /* primary CTA end */
+  --tr-teal-600:          #0d9488;
+  --tr-teal-700:          #0f766e;
+  --tr-cyan-300:          #67e8f9;                 /* secondary accent */
+  --tr-cyan-400:          #22d3ee;
+  --tr-cyan-500:          #06b6d4;
+  --tr-cyan-600:          #0891b2;
+  --tr-aqua:              #B0E2EA;                 /* logo aqua, decorative */
+  --tr-emerald-400:       #34d399;
+  --tr-emerald-500:       #10b981;
+  --tr-sky-300:           #7dd3fc;                 /* support accent */
+  --tr-sky-500:           #0ea5e9;
+  --tr-violet-300:        #c4b5fd;                 /* lavender accent */
+  --tr-violet-400:        #a78bfa;                 /* periwinkle — bridges sky→lavender */
+  --tr-violet-500:        #8b5cf6;                 /* deeper lavender, used sparingly */
+  --tr-violet-600:        #7c3aed;
+  --tr-pink:              #F9A8D4;                 /* soft pink — warm accent for badges, highlights */
+
+  /* ----- Logo source colors (new tree-of-leaves, sampled from logo) ----- */
+  --tr-leaf-teal:         #64C5C9;   /* upper teal leaves */
+  --tr-leaf-cyan:         #05B4DD;   /* ring cyan, brightest stop */
+  --tr-leaf-blue:         #0276B5;   /* mid leaves, deeper sky */
+  --tr-leaf-blue-deep:    #0183C4;   /* lower leaves */
+  --tr-leaf-lavender:     #9F90C9;   /* top purple leaf */
+  --tr-trunk-navy:        #001C3F;   /* trunk + wordmark navy */
+  /* Back-compat aliases for old token names */
+  --tr-leaf-aqua:         var(--tr-leaf-teal);
+  --tr-leaf-purple:       var(--tr-leaf-lavender);
+  --tr-trunk-teal:        var(--tr-trunk-navy);
+
+  /* ----- Surfaces (LIGHT) ----- */
+  --tr-surface:           #FFFFFF;                     /* card */
+  --tr-surface-soft:      #F6FAFC;                     /* recessed */
+  --tr-surface-hover:     #FFFFFF;
+  --tr-border:            #E5ECF1;                     /* hairline */
+  --tr-border-hi:         #CBD9E2;                     /* focus / heavier */
+  --tr-glass-blur:        blur(8px);
+  --tr-glass-blur-md:     blur(6px);
+
+  /* ----- Text on light (ink) ----- */
+  --tr-ink:               #0F2A36;                     /* deep peacock ink */
+  --tr-text:              #0F2A36;
+  --tr-text-90:           #1B3D4D;                     /* body strong */
+  --tr-text-80:           #2A4F5F;                     /* body */
+  --tr-text-70:           #4A6B7A;                     /* secondary */
+  --tr-text-60:           #6B8A98;                     /* meta */
+  --tr-text-50:           #8FA6B2;                     /* legal */
+  --tr-text-accent:       #0E7490;                     /* peacock cyan-700 link */
+  --tr-text-accent-hover: #155E75;
+
+  /* ----- Semantic ----- */
+  --tr-success:           var(--tr-emerald-400);
+  --tr-warning:           #F9A8D4;                 /* soft pink instead of amber */
+  --tr-danger:            #f87171;
+  --tr-info:              var(--tr-teal-300);
+
+  /* ==========================================================================
+     Signature gradients — TWO context-aware sets
+     --------------------------------------------------------------------------
+     DARK set: original pastel gradients designed to sit on the deep peacock
+     backdrop. Vibrant, light-on-dark. Use on dark surfaces only.
+
+     LIGHT set: parallel gradients tuned for ink-on-paper. Slightly deeper /
+     more saturated stops so they read on white without going muddy.
+     ========================================================================== */
+
+  /* ----- DARK-context gradients (on navy/peacock backdrop) -----
+     Sampled directly from the tree-of-leaves logo. Teal + cyan + blue
+     do the work; lavender appears only in the dedicated accent slot. */
+  --tr-grad-primary-dark:    linear-gradient(90deg, #64C5C9 0%, #05B4DD 100%);                 /* leaf-teal → leaf-cyan · CTA */
+  --tr-grad-roadmap-dark:    linear-gradient(90deg, #64C5C9 0%, #05B4DD 50%, #0276B5 100%);    /* teal → cyan → blue */
+  --tr-grad-headline-dark:   linear-gradient(90deg, #64C5C9 0%, #05B4DD 50%, #0276B5 100%);    /* teal → cyan → blue · headline */
+  --tr-grad-violet-dark:     linear-gradient(90deg, #9F90C9 0%, #6E5DAA 100%);                 /* leaf-lavender → deeper lav */
+  --tr-grad-backdrop-dark:   linear-gradient(135deg, #001C3F 0%, #003A6B 50%, #0276B5 100%);   /* trunk-navy → deep blue */
+
+  /* ----- LIGHT-context gradients (deeper stops, read on white) ----- */
+  --tr-grad-primary-light:   linear-gradient(90deg, #001C3F 0%, #0276B5 100%);                 /* trunk-navy → leaf-blue · CTA */
+  --tr-grad-roadmap-light:   linear-gradient(90deg, #001C3F 0%, #0276B5 50%, #05B4DD 100%);    /* navy → blue → cyan */
+  --tr-grad-headline-light:  linear-gradient(90deg, #001C3F 0%, #0276B5 50%, #05B4DD 100%);    /* navy → blue → cyan · headline */
+  --tr-grad-violet-light:    linear-gradient(90deg, #9F90C9 0%, #6E5DAA 100%);                 /* leaf-lavender → deeper lav */
+  --tr-grad-backdrop-light:  linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);                /* white → cool tint · paper */
+
+  /* ----- Default aliases (light context — this is the light remix) ----- */
+  --tr-grad-primary:      var(--tr-grad-primary-light);
+  --tr-grad-deep:         linear-gradient(90deg, #0891b2 0%, #0e7490 100%);
+  --tr-grad-roadmap:      var(--tr-grad-roadmap-light);
+  --tr-grad-blog-text:    var(--tr-grad-headline-light);
+  --tr-grad-hero-text:    var(--tr-grad-headline-dark);                                        /* used over dark imagery */
+  --tr-grad-courses-text: var(--tr-grad-roadmap-light);
+  --tr-grad-violet-cta:   var(--tr-grad-violet-light);
+
+  /* ----- Soft tinted card surfaces (work on light) ----- */
+  --tr-grad-card-teal:    linear-gradient(135deg, rgba(45,212,191,0.22) 0%, rgba(56,189,248,0.22) 100%);
+  --tr-grad-card-aqua:    linear-gradient(135deg, rgba(125,211,252,0.22) 0%, rgba(196,181,253,0.22) 100%);
+  --tr-grad-card-violet:  linear-gradient(135deg, rgba(196,181,253,0.22) 0%, rgba(125,211,252,0.22) 100%);
+  --tr-grad-page-soft:
+    linear-gradient(135deg, rgba(56,189,248,0.12) 0%, rgba(196,181,253,0.10) 50%, rgba(45,212,191,0.10) 100%);
+
+  /* ----- Shadows (always tinted, never neutral grey) ----- */
+  --tr-shadow-card:       0 25px 50px -12px rgba(0, 0, 0, 0.25);    /* shadow-2xl */
+  --tr-shadow-cta:        0 10px 25px -5px rgba(  6, 182, 212, 0.50); /* peacock cyan glow */
+  --tr-shadow-cyan:       0 10px 25px -5px rgba( 56, 189, 248, 0.45); /* sky glow */
+  --tr-shadow-violet:     0 10px 25px -5px rgba(139,  92, 246, 0.40); /* lavender accent */
+  --tr-shadow-soft:       0 10px 30px -15px rgba(0, 0, 0, 0.30);
+  --tr-shadow-up-glow:    0 -10px 30px -15px rgba(0, 0, 0, 0.30);   /* footer top */
+
+  /* ----- Radii ----- */
+  --tr-radius-sm:         8px;
+  --tr-radius-md:         12px;     /* form inputs */
+  --tr-radius-lg:         16px;     /* small cards, badges */
+  --tr-radius-xl:         24px;     /* most cards */
+  --tr-radius-2xl:        32px;     /* glass hero shells */
+  --tr-radius-pill:       9999px;   /* CTAs, badges, social */
+
+  /* ----- Spacing scale (tailwind defaults; 4px base) ----- */
+  --tr-space-1:           4px;
+  --tr-space-2:           8px;
+  --tr-space-3:           12px;
+  --tr-space-4:           16px;
+  --tr-space-5:           20px;
+  --tr-space-6:           24px;
+  --tr-space-8:           32px;
+  --tr-space-10:          40px;
+  --tr-space-12:          48px;
+  --tr-space-16:          64px;
+  --tr-space-20:          80px;
+  --tr-space-24:          96px;
+
+  /* ----- Mobile tokens (3-tier: <640 / 640-1024 / >=1024) ----- */
+  --tr-bp-sm:             640px;     /* mobile  → tablet */
+  --tr-bp-md:             1024px;    /* tablet  → desktop */
+  --tr-bp-lg:             1280px;    /* desktop → wide */
+
+  /* Section padding: 80 desktop / 64 tablet / 48 mobile */
+  --tr-space-section:     80px;
+  --tr-space-section-md:  64px;
+  --tr-space-section-sm:  48px;
+
+  /* Page gutter: 48 desktop / 32 tablet / 20 mobile */
+  --tr-space-gutter:      48px;
+  --tr-space-gutter-md:   32px;
+  --tr-space-gutter-sm:   20px;
+
+  /* Touch hit-target minimums (Apple HIG / Material) */
+  --tr-touch-min:         44px;      /* iOS minimum */
+  --tr-touch-comfy:       48px;      /* Material recommended */
+
+  /* Mobile type floors (apply via mobile.css) */
+  --tr-fs-eyebrow-mobile: 13px;      /* up from 12px on phones */
+  --tr-fs-h1-mobile:      32px;
+  --tr-fs-h2-mobile:      28px;
+  --tr-fs-h3-mobile:      20px;
+
+  /* ----- Motion ----- */
+  --tr-ease-base:         cubic-bezier(0.4, 0, 0.2, 1);
+  --tr-ease-soft:         cubic-bezier(0.4, 0, 0.6, 1);
+  --tr-dur-fast:          200ms;
+  --tr-dur-base:          300ms;
+  --tr-dur-slow:          500ms;
+  --tr-dur-pulse:         4s;       /* slow hero pulse */
+  --tr-dur-gradient:      15s;      /* drift animation */
+
+  /* ----- Type stacks ----- */
+  --tr-font-display:      "Poppins", "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --tr-font-body:         "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --tr-font-serif:        "Playfair Display", Georgia, "Times New Roman", serif;
+  --tr-font-mono:         ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ----- Type scale (matched to live site) ----- */
+  --tr-fs-display:        72px;     /* hero h1 lg+ : text-5xl/7xl */
+  --tr-fs-h1:             48px;     /* page titles md: text-4xl/5xl */
+  --tr-fs-h2:             36px;     /* section headings */
+  --tr-fs-h3:             24px;     /* card titles */
+  --tr-fs-h4:             20px;
+  --tr-fs-lead:           20px;     /* hero body / subheads */
+  --tr-fs-body:           16px;     /* base paragraph */
+  --tr-fs-small:          14px;     /* captions, meta */
+  --tr-fs-xs:             12px;     /* eyebrow, badges */
+
+  --tr-lh-tight:          1.10;
+  --tr-lh-snug:           1.30;
+  --tr-lh-normal:         1.60;     /* body baseline */
+
+  --tr-fw-regular:        400;
+  --tr-fw-medium:         500;
+  --tr-fw-semibold:       600;
+  --tr-fw-bold:           700;
+  --tr-fw-extrabold:      800;
+
+  --tr-tracking-tight:    -0.02em;
+  --tr-tracking-wide:     0.07em;   /* eyebrows */
+}
+
+/* ==========================================================================
+   Body baseline — apply to a wrapper or to <body>.
+   The site's body has the radial gradients + film grain. Use .tr-app on
+   a full-bleed wrapper to recreate it.
+   ========================================================================== */
+
+.tr-app {
+  min-height: 100vh;
+  font-family: var(--tr-font-body);
+  color: var(--tr-text-80);
+  background-color: var(--tr-bg-base);
+  background-image: var(--tr-bg-radials);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Light page wash — paper white with peacock + lavender radial bloom */
+.tr-app--animated {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+  background-size: 100% 100%;
+  position: relative;
+}
+.tr-app--animated::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(at 8% 0%,   rgba( 14, 116, 144, 0.06) 0px, transparent 55%),
+    radial-gradient(at 92% 100%, rgba(196, 181, 253, 0.08) 0px, transparent 55%);
+  pointer-events: none;
+}
+
+@keyframes tr-gradient-drift {
+  0%, 100% { background-position:   0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes tr-pulse-slow {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+
+/* ==========================================================================
+   Type semantics
+   ========================================================================== */
+
+.tr-display {
+  font-family: var(--tr-font-display);
+  font-size: clamp(40px, 6vw, var(--tr-fs-display));
+  font-weight: var(--tr-fw-bold);
+  line-height: var(--tr-lh-tight);
+  letter-spacing: var(--tr-tracking-tight);
+  color: var(--tr-text);
+}
+.tr-h1 {
+  font-family: var(--tr-font-display);
+  font-size: clamp(32px, 5vw, var(--tr-fs-h1));
+  font-weight: var(--tr-fw-bold);
+  line-height: var(--tr-lh-tight);
+  color: var(--tr-text);
+}
+.tr-h2 {
+  font-family: var(--tr-font-display);
+  font-size: var(--tr-fs-h2);
+  font-weight: var(--tr-fw-bold);
+  line-height: var(--tr-lh-snug);
+  color: var(--tr-text);
+}
+.tr-h3 {
+  font-family: var(--tr-font-display);
+  font-size: var(--tr-fs-h3);
+  font-weight: var(--tr-fw-bold);
+  line-height: var(--tr-lh-snug);
+  color: var(--tr-text);
+}
+.tr-lead {
+  font-family: var(--tr-font-body);
+  font-size: var(--tr-fs-lead);
+  line-height: var(--tr-lh-normal);
+  color: var(--tr-text-80);
+}
+.tr-body {
+  font-family: var(--tr-font-body);
+  font-size: var(--tr-fs-body);
+  line-height: var(--tr-lh-normal);
+  color: var(--tr-text-80);
+}
+.tr-small {
+  font-family: var(--tr-font-body);
+  font-size: var(--tr-fs-small);
+  line-height: var(--tr-lh-normal);
+  color: var(--tr-text-70);
+}
+.tr-caption {
+  font-family: var(--tr-font-body);
+  font-size: var(--tr-fs-xs);
+  line-height: var(--tr-lh-normal);
+  color: var(--tr-text-60);
+}
+.tr-eyebrow {
+  font-family: var(--tr-font-body);
+  font-size: var(--tr-fs-xs);
+  font-weight: var(--tr-fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tr-tracking-wide);
+  color: var(--tr-teal-300);
+}
+.tr-quote {
+  font-family: var(--tr-font-body);
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.4;
+  color: rgba(255,255,255,0.95);
+}
+
+/* ==========================================================================
+   Effect classes used across the system
+   ========================================================================== */
+
+/* Glass card */
+.tr-glass {
+  background: var(--tr-glass-base);
+  -webkit-backdrop-filter: var(--tr-glass-blur);
+          backdrop-filter: var(--tr-glass-blur);
+  border: 1px solid var(--tr-glass-border);
+  box-shadow: var(--tr-shadow-card);
+  border-radius: var(--tr-radius-xl);
+}
+.tr-glass-strong {
+  background: var(--tr-glass-strong);
+  -webkit-backdrop-filter: var(--tr-glass-blur);
+          backdrop-filter: var(--tr-glass-blur);
+  border: 1px solid var(--tr-glass-border-cta);
+}
+
+/* Gradient text helpers */
+.tr-grad-text {
+  background: var(--tr-grad-blog-text);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+}
+.tr-grad-text--brand {
+  background: linear-gradient(90deg, #38bdf8 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+          color: transparent;
+}
+
+/* Primary pill button (teal→cyan) — the brand's signature CTA */
+.tr-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--tr-radius-pill);
+  font-family: var(--tr-font-body);
+  font-weight: var(--tr-fw-semibold);
+  font-size: var(--tr-fs-body);
+  border: none; cursor: pointer;
+  transition: transform var(--tr-dur-fast) var(--tr-ease-base),
+              box-shadow var(--tr-dur-fast) var(--tr-ease-base),
+              background var(--tr-dur-fast) var(--tr-ease-base);
+}
+.tr-btn--primary {
+  background: var(--tr-grad-primary);
+  color: var(--tr-text);
+  box-shadow: var(--tr-shadow-card);
+}
+.tr-btn--primary:hover { transform: scale(1.02); box-shadow: var(--tr-shadow-cta); }
+.tr-btn--primary:active { transform: scale(0.98); }
+
+.tr-btn--ghost {
+  background: var(--tr-glass-base);
+  color: var(--tr-text);
+  border: 1px solid var(--tr-glass-border);
+}
+.tr-btn--ghost:hover { background: var(--tr-glass-mid); border-color: var(--tr-glass-border-hi); transform: scale(1.02); }
+.tr-btn--ghost:active { transform: scale(0.98); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

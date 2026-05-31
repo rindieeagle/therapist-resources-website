@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticky CTA Bar — Therapist Resources</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="stylesheet" href="../mobile.css" />
+  <style>
+    html, body { margin:0; padding:0; background: var(--tr-bg-base); font-family: var(--tr-font-body); color: var(--tr-text); }
+    .frame { max-width: 420px; margin: 24px auto; border: 1px solid var(--tr-border); border-radius: 28px; overflow: hidden; background: var(--tr-surface); box-shadow: var(--tr-shadow-soft); position: relative; height: 720px; display: flex; flex-direction: column; }
+    .card-eyebrow { font: 600 12px/1 var(--tr-font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--tr-text-60); padding: 16px 20px 0; }
+    .meta { padding: 0 20px 16px; color: var(--tr-text-70); font-size: 14px; line-height: 1.5; }
+    .scroll { flex: 1; overflow-y: auto; padding: 20px; }
+    .hero { padding: 8px 0 20px; }
+    .badge { display: inline-flex; padding: 4px 10px; border-radius: 9999px; font: 600 11px var(--tr-font-mono); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--tr-grad-violet-cta); }
+    h1 { font: 700 28px/1.15 var(--tr-font-display); margin: 12px 0 8px; }
+    .lede { font-size: 15px; line-height: 1.5; color: var(--tr-text-70); margin: 0 0 16px; }
+    .module { padding: 16px; border: 1px solid var(--tr-border); border-radius: 16px; margin-bottom: 12px; font-size: 14px; color: var(--tr-text-80); }
+  </style>
+</head>
+<body>
+  <div class="card-eyebrow">Mobile · Sticky CTA Bar</div>
+  <p class="meta">Persistent purchase bar on course pages. Sits at bottom, frosted glass, respects safe-area-inset-bottom.</p>
+
+  <div class="frame">
+    <header class="tr-mnav"><div class="tr-mnav__logo">Course</div></header>
+
+    <div class="scroll">
+      <section class="hero">
+        <span class="badge">Course</span>
+        <h1>Folding AI into CBT practice without losing the therapeutic relationship</h1>
+        <p class="lede">An ethics-first, 8-module course for licensed clinicians who want practical AI workflows that respect confidentiality and consent.</p>
+      </section>
+      <div class="module">Module 1 — Where AI helps and where it breaks</div>
+      <div class="module">Module 2 — Consent conversations, scripted</div>
+      <div class="module">Module 3 — Case-note workflows under HIPAA</div>
+      <div class="module">Module 4 — Drafting client letters</div>
+      <div class="module">Module 5 — Modality-specific prompts (CBT)</div>
+      <div class="module">Module 6 — Modality-specific prompts (IFS)</div>
+      <div class="module">Module 7 — Supervision & accountability</div>
+      <div class="module">Module 8 — Building your own template library</div>
+    </div>
+
+    <div class="tr-mctabar">
+      <div class="tr-mctabar__price">
+        <strong>$129</strong>
+        <span>Lifetime access</span>
+      </div>
+      <button class="tr-btn tr-btn--primary">Enroll now</button>
+    </div>
+  </div>
+</body>
+</html>

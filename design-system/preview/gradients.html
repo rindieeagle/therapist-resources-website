@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Gradients</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--tr-font-body); }
+
+  .stage { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+  .pane { padding: 22px 22px 26px; box-sizing: border-box; position: relative; }
+
+  /* LEFT — dark context: trunk-navy + leaf radial bloom */
+  .pane.dark {
+    background:
+      radial-gradient(at 0% 0%,    rgba(  5, 180, 221, 0.22) 0px, transparent 50%),  /* leaf-cyan */
+      radial-gradient(at 100% 0%,  rgba(100, 197, 201, 0.20) 0px, transparent 50%),  /* leaf-teal */
+      radial-gradient(at 100% 100%, rgba(  2, 118, 181, 0.22) 0px, transparent 50%), /* leaf-blue */
+      radial-gradient(at 0% 100%,   rgba(  5, 180, 221, 0.18) 0px, transparent 50%), /* leaf-cyan */
+      linear-gradient(135deg, #001C3F 0%, #003A6B 50%, #0276B5 100%);                /* trunk-navy → deep blue */
+    color: #FFFFFF;
+  }
+
+  /* RIGHT — light context */
+  .pane.light {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+    color: #001C3F;
+  }
+
+  .pane h2 {
+    font: 700 13px/1 var(--tr-font-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 6px;
+    opacity: 0.85;
+  }
+  .pane h2 + p {
+    font-family: var(--tr-font-mono);
+    font-size: 11px;
+    margin: 0 0 18px;
+    opacity: 0.7;
+  }
+
+  .grad {
+    height: 56px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    padding: 0 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-weight: 600; font-size: 13px;
+  }
+  .meta { font-family: var(--tr-font-mono); font-size: 11px; font-weight: 400; opacity: 0.85; }
+
+  /* DARK swatches */
+  .pane.dark .grad { color: #001C3F; }
+  .pane.dark .grad.violet { color: #FFFFFF; }
+  .pane.dark .grad.backdrop { color: #FFFFFF; }
+  .d1 { background: var(--tr-grad-primary-dark); }
+  .d2 { background: var(--tr-grad-roadmap-dark); }
+  .d3 { background: var(--tr-grad-headline-dark); }
+  .d4 { background: var(--tr-grad-violet-dark); }
+  .d5 { background: var(--tr-grad-backdrop-dark); }
+
+  /* LIGHT swatches */
+  .pane.light .grad { color: #FFFFFF; }
+  .pane.light .grad.backdrop { color: #001C3F; border: 1px solid var(--tr-border); }
+  .l1 { background: var(--tr-grad-primary-light); }
+  .l2 { background: var(--tr-grad-roadmap-light); }
+  .l3 { background: var(--tr-grad-headline-light); }
+  .l4 { background: var(--tr-grad-violet-light); }
+  .l5 { background: var(--tr-grad-backdrop-light); }
+
+  .typedemo {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+  .pane.dark .typedemo { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); }
+  .pane.light .typedemo { background: var(--tr-surface); border: 1px solid var(--tr-border); }
+  .typedemo .label { font: 600 10px/1 var(--tr-font-mono); letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.7; }
+  .typedemo .h {
+    font-family: var(--tr-font-display);
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 6px 0 0;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .pane.dark .typedemo .h { background: var(--tr-grad-headline-dark); -webkit-background-clip: text; background-clip: text; }
+  .pane.light .typedemo .h { background: var(--tr-grad-headline-light); -webkit-background-clip: text; background-clip: text; }
+
+  .leafrow {
+    margin-top: 18px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+  }
+  .leaf {
+    height: 44px; border-radius: 10px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 6px 8px;
+    font: 600 9px/1 var(--tr-font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .leaf .hex { font-weight: 400; opacity: 0.85; margin-top: 2px; }
+  .leaf-teal     { background: #64C5C9; color: #001C3F; }
+  .leaf-cyan     { background: #05B4DD; color: #001C3F; }
+  .leaf-blue     { background: #0276B5; color: #FFFFFF; }
+  .leaf-lavender { background: #9F90C9; color: #001C3F; }
+  .leaf-trunk    { background: #001C3F; color: #64C5C9; }
+
+  @media (max-width: 720px) {
+    .stage { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+
+    <section class="pane dark">
+      <h2>Dark · On navy backdrop</h2>
+      <p>Logo leaves on trunk-navy — the canonical brand surface.</p>
+
+      <div class="grad d1">Primary CTA <span class="meta">leaf-teal → leaf-cyan</span></div>
+      <div class="grad d2">Roadmap Spectrum <span class="meta">teal → cyan → blue</span></div>
+      <div class="grad d3">Headline Wash <span class="meta">teal → cyan → blue</span></div>
+      <div class="grad d4 violet">Lavender Accent <span class="meta">leaf-lavender → deeper</span></div>
+      <div class="grad d5 backdrop">App Backdrop <span class="meta">trunk-navy → deep blue</span></div>
+
+      <div class="typedemo">
+        <div class="label">Headline · clipped fill</div>
+        <div class="h">Smart tools for modern therapists.</div>
+      </div>
+
+      <div class="leafrow" aria-label="Brand leaves">
+        <div class="leaf leaf-teal">Teal<span class="hex">#64C5C9</span></div>
+        <div class="leaf leaf-cyan">Cyan<span class="hex">#05B4DD</span></div>
+        <div class="leaf leaf-blue">Blue<span class="hex">#0276B5</span></div>
+        <div class="leaf leaf-lavender">Lavender<span class="hex">#9F90C9</span></div>
+        <div class="leaf leaf-trunk">Trunk<span class="hex">#001C3F</span></div>
+      </div>
+    </section>
+
+    <section class="pane light">
+      <h2>Light · Remix on paper</h2>
+      <p>Trunk-navy anchor with leaf-blue and cyan — depth on white.</p>
+
+      <div class="grad l1">Primary CTA <span class="meta">trunk-navy → leaf-blue</span></div>
+      <div class="grad l2">Roadmap Spectrum <span class="meta">navy → blue → cyan</span></div>
+      <div class="grad l3">Headline Wash <span class="meta">navy → blue → cyan</span></div>
+      <div class="grad l4">Lavender Accent <span class="meta">leaf-lavender → deeper</span></div>
+      <div class="grad l5 backdrop">App Backdrop <span class="meta">white → cool tint</span></div>
+
+      <div class="typedemo">
+        <div class="label">Headline · clipped fill</div>
+        <div class="h">Smart tools for modern therapists.</div>
+      </div>
+
+      <div class="leafrow" aria-label="Brand leaves">
+        <div class="leaf leaf-teal">Teal<span class="hex">#64C5C9</span></div>
+        <div class="leaf leaf-cyan">Cyan<span class="hex">#05B4DD</span></div>
+        <div class="leaf leaf-blue">Blue<span class="hex">#0276B5</span></div>
+        <div class="leaf leaf-lavender">Lavender<span class="hex">#9F90C9</span></div>
+        <div class="leaf leaf-trunk">Trunk<span class="hex">#001C3F</span></div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile Inputs — Therapist Resources</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="stylesheet" href="../mobile.css" />
+  <style>
+    html, body { margin:0; padding:0; background: var(--tr-bg-base); font-family: var(--tr-font-body); color: var(--tr-text); }
+    .frame { max-width: 420px; margin: 24px auto; border: 1px solid var(--tr-border); border-radius: 28px; overflow: hidden; background: var(--tr-surface); box-shadow: var(--tr-shadow-soft); position: relative; padding-bottom: 24px; }
+    .card-eyebrow { font: 600 12px/1 var(--tr-font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--tr-text-60); padding: 16px 20px 0; }
+    .meta { padding: 0 20px 16px; color: var(--tr-text-70); font-size: 14px; line-height: 1.5; }
+    .form { padding: 8px 20px 16px; }
+    .form .tr-mfield { display: block; width: 100%; box-sizing: border-box; }
+    .form .tr-mfield input,
+    .form .tr-mfield textarea { box-sizing: border-box; width: 100%; max-width: 100%; }
+    h2 { font: 700 22px var(--tr-font-display); margin: 8px 0 16px; }
+    .row { display: flex; gap: 10px; }
+    .row .tr-mfield { flex: 1 1 0; min-width: 0; margin-bottom: 14px; }
+    .row .tr-mfield input { width: 100%; box-sizing: border-box; }
+    .hint { font-size: 12px; color: var(--tr-text-60); margin: -8px 4px 12px; }
+  </style>
+</head>
+<body>
+  <div class="card-eyebrow">Mobile · Forms</div>
+  <p class="meta">56px hit target, 16px font (no iOS auto-zoom), float-label pattern, native keyboard hints via inputmode &amp; autocomplete.</p>
+
+  <div class="frame">
+    <header class="tr-mnav"><div class="tr-mnav__logo">Sign in</div></header>
+    <form class="form" onsubmit="event.preventDefault()">
+      <h2>Welcome back</h2>
+
+      <div class="tr-mfield">
+        <input id="i-email" type="email" inputmode="email" autocomplete="email" placeholder=" " />
+        <label for="i-email" class="tr-mfield__label">Email address</label>
+      </div>
+
+      <div class="tr-mfield">
+        <input id="i-pass" type="password" autocomplete="current-password" placeholder=" " />
+        <label for="i-pass" class="tr-mfield__label">Password</label>
+      </div>
+      <div class="hint">8+ characters, mixed case</div>
+
+      <div class="row">
+        <div class="tr-mfield">
+          <input id="i-zip" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="postal-code" placeholder=" " />
+          <label for="i-zip" class="tr-mfield__label">ZIP</label>
+        </div>
+        <div class="tr-mfield">
+          <input id="i-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder=" " />
+          <label for="i-phone" class="tr-mfield__label">Phone (optional)</label>
+        </div>
+      </div>
+
+      <button type="submit" class="tr-btn tr-btn--primary tr-btn--block-mobile" style="margin-top: 8px;">Sign in</button>
+      <button type="button" class="tr-btn tr-btn--ghost tr-btn--block-mobile" style="margin-top: 10px;">Use a magic link</button>
+    </form>
+  </div>
+</body>
+</html>

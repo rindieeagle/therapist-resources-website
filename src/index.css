@@ -1,46 +1,75 @@
+@import './styles/colors_and_type.css';
+@import './styles/mobile.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 210 25% 98%;
+    --foreground: 198 57% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 198 57% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 198 57% 14%;
+    --primary: 202 65% 30%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 33% 97%;
+    --secondary-foreground: 198 57% 14%;
+    --muted: 200 43% 96%;
+    --muted-foreground: 199 24% 38%;
+    --accent: 200 43% 96%;
+    --accent-foreground: 202 65% 30%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 205 28% 92%;
+    --input: 205 28% 92%;
+    --ring: 202 65% 30%;
     --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 201 69% 19%;
+    --foreground: 0 0% 100%;
+    --card: 201 50% 16%;
+    --card-foreground: 0 0% 100%;
+    --popover: 201 55% 14%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 199 90% 60%;
+    --primary-foreground: 201 69% 12%;
+    --secondary: 201 40% 24%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 201 35% 26%;
+    --muted-foreground: 200 25% 78%;
+    --accent: 201 40% 28%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 200 30% 30%;
+    --input: 200 30% 30%;
+    --ring: 199 90% 60%;
   }
 }
 
 @layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-cyan-950 text-slate-200 antialiased overflow-x-hidden;
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-family: 'Inter', sans-serif;
-    /* This creates the 'organic' feel behind the glass */
-    background-image:
-      radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(45, 212, 191, 0.15) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.15) 0px, transparent 50%);
+    background-image: var(--tr-bg-radials);
   }
 
   /* The "Non-AI" Texture: Subtle Film Grain - disabled on mobile for performance */
@@ -76,6 +105,19 @@
 
   .font-inter {
     font-family: 'Inter', sans-serif;
+  }
+
+  .tr-grad-text {
+    background: var(--tr-grad-headline-light);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dark .tr-grad-text {
+    background: linear-gradient(90deg, #ffffff 0%, #e0f2fe 55%, #bae6fd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 }
 
@@ -115,22 +157,22 @@
 
 /* Custom glass morphism utility classes */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--tr-glass-base);
+  -webkit-backdrop-filter: var(--tr-glass-blur);
+  backdrop-filter: var(--tr-glass-blur);
+  border: 1px solid var(--tr-glass-border);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.15);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--tr-glass-strong);
+  -webkit-backdrop-filter: var(--tr-glass-blur);
+  backdrop-filter: var(--tr-glass-blur);
+  border: 1px solid var(--tr-glass-border-cta);
 }
 
 /* Smooth scrolling */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;
 }
 

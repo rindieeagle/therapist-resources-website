@@ -20,9 +20,9 @@ function App() {
         <meta name="description" content="Professional therapy resources, courses, and digital products designed by Rindie Eagle. From session-ready materials to clinical tools, everything you need with no prep time required." />
       </Helmet>
       
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-x-hidden">
+      <div className="min-h-screen bg-background relative overflow-x-hidden">
         {/* Animated gradient overlay */}
-        <div className="fixed inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-teal-500/10 animate-gradient pointer-events-none"></div>
+        <div className="fixed inset-0 bg-gradient-to-br from-primary/5 via-accent/10 to-primary/5 animate-gradient pointer-events-none"></div>
 
         <AnalyticsTracker />
         <Header />

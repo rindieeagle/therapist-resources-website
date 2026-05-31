@@ -35,7 +35,7 @@ const ResourcesShowcase = () => {
     //   icon: FileText,
     //   title: 'Session-Ready Resources',
     //   description: 'Professionally designed worksheets, activities, and therapeutic materials ready to use in your next session. No preparation time needed.',
-    //   gradient: 'from-cyan-500 to-blue-500',
+    //   gradient: 'from-primary to-blue-500',
     //   link: '/resources' // Add link property for navigation
     // },
     {
@@ -45,7 +45,7 @@ const ResourcesShowcase = () => {
 
         <>
           Ready-to-use courses designed for therapists. Includes:
-          <ul className="list-disc list-inside mt-2 text-white/70">
+          <ul className="list-disc list-inside mt-2 text-foreground/70">
             <li>Motivation Course</li>
             <li>Sleep Hygiene 101 Course</li>
             <li>Befriending Your Nervous System Course</li>
@@ -62,14 +62,14 @@ const ResourcesShowcase = () => {
       description: ( // Updated description
         <>
           Interactive tools built for therapists. Features:
-          <ul className="list-disc list-inside mt-2 text-white/70">
+          <ul className="list-disc list-inside mt-2 text-foreground/70">
             <li>Behavioral Definition Builder (part of Golden Thread Therapist Resources)</li>
             <li>More tools coming soon</li>
           </ul>
           <p className="mt-2">Designed for immediate use in your practice. The Behavioral Definition Builder is nearly complete and ready to transform how you work with clients.</p>
         </>
       ),
-      gradient: 'from-teal-500 to-cyan-500',
+      gradient: 'from-teal-500 to-primary',
       link: '#' // Add a placeholder link, or a toast notification for unimplemented features
     }
   ];
@@ -83,10 +83,10 @@ const ResourcesShowcase = () => {
           transition={{ duration: 0.4 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Professional Resources
           </h2>
-          <p className="text-xl text-cyan-300 max-w-3xl mx-auto">
+          <p className="text-xl text-primary max-w-3xl mx-auto">
             Everything designed to be used immediately, with no prep time required.
           </p>
         </motion.div>
@@ -104,17 +104,17 @@ const ResourcesShowcase = () => {
                 initial={{ opacity: 0 }}
                 animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl rounded-3xl p-8 hover:bg-white/10 hover:border-white/20 hover:scale-[1.02] transition-all duration-200 group"
+                className="glass shadow-2xl rounded-3xl p-8 hover:bg-accent hover:border-border hover:scale-[1.02] transition-all duration-200 group"
               >
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${resource.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" />
+                  <Icon className="w-8 h-8 text-primary-foreground" />
                 </div>
 
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
                   {resource.title}
                 </h3>
 
-                <p className="text-white/80 leading-relaxed min-h-[120px]"> {/* Added min-h for consistent card height */}
+                <p className="text-foreground/80 leading-relaxed min-h-[120px]"> {/* Added min-h for consistent card height */}
                   {resource.description}
                 </p>
 
@@ -124,7 +124,7 @@ const ResourcesShowcase = () => {
                 >
                   <motion.div
                     whileHover={{ x: 5 }}
-                    className="inline-flex items-center text-cyan-300 font-semibold group-hover:text-cyan-200 transition-colors duration-300"
+                    className="inline-flex items-center text-primary font-semibold group-hover:text-primary/80 transition-colors duration-300"
                   >
                     Learn More →
                   </motion.div>
@@ -138,12 +138,12 @@ const ResourcesShowcase = () => {
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 text-center backdrop-blur-xl bg-white/5 rounded-3xl p-8 border border-white/10 shadow-cyan-500/10"
+          className="mt-16 text-center glass rounded-3xl p-8 shadow-cyan-500/10"
         >
-          <p className="text-xl md:text-2xl text-white font-semibold mb-2">
+          <p className="text-xl md:text-2xl text-foreground font-semibold mb-2">
             Ready to Use, Right Away
           </p>
-          <p className="text-lg text-white/80">
+          <p className="text-lg text-foreground/80">
             Download, print, and implement in your practice today
           </p>
         </motion.div>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>UI Kit — Hero Band · Light & Dark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { font-family: var(--tr-font-body); margin: 0; min-height: 100vh; }
+
+  .stage { display: grid; grid-template-rows: 1fr 1fr; min-height: 100vh; }
+  .pane { padding: 30px 30px 36px; box-sizing: border-box; position: relative; overflow: hidden; }
+  .pane.light {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+    color: #0F2A36;
+  }
+  .pane.light::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(at 0% 0%, rgba(14,116,144,0.08) 0px, transparent 55%),
+      radial-gradient(at 100% 100%, rgba(196,181,253,0.10) 0px, transparent 55%);
+  }
+  .pane.dark {
+    background:
+      radial-gradient(at 0% 0%,   rgba( 56, 189, 248, 0.20) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba( 6, 182, 212, 0.20) 0px, transparent 50%),
+      linear-gradient(135deg, #155e75 0%, #0e7490 50%, #1e3a8a 100%);
+    color: #FFFFFF;
+  }
+
+  .pane-label {
+    display: inline-block; font-family: var(--tr-font-mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 6px; margin-bottom: 14px;
+    position: relative; z-index: 1;
+  }
+  .pane.light .pane-label { color: #155E75; background: #ECF5FA; border: 1px solid #BFDDE9; }
+  .pane.dark  .pane-label { color: #CFFAFE; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); }
+
+  .hero { max-width: 880px; margin: 0 auto; position: relative; }
+
+  /* Eyebrow */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .pane.light .eyebrow { background: #ECF5FA; border: 1px solid #BFDDE9; color: #155E75; }
+  .pane.light .eyebrow .dot { background: #0E7490; box-shadow: 0 0 8px rgba(14,116,144,0.40); }
+  .pane.dark  .eyebrow { background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); color: #67E8F9; font-weight: 600; }
+  .pane.dark  .eyebrow .dot { background: #7DD3FC; box-shadow: 0 0 8px #7DD3FC; }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 999px; }
+
+  /* Headline */
+  h1 {
+    font-family: var(--tr-font-display);
+    font-size: clamp(30px, 4.6vw, 50px);
+    font-weight: 800; line-height: 1.05; letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+  /* Light gradient: ink → peacock → cyan-700 (still AA when degraded to first stop) */
+  .pane.light h1 .grad {
+    background: linear-gradient(90deg, #0F2A36 0%, #155E75 60%, #0E7490 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .pane.light h1 .accent {
+    background: linear-gradient(90deg, #0E7490 0%, #6D5BBA 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  /* Dark gradient: white → light teal → light sky (was the original wash) */
+  .pane.dark h1 .grad {
+    background: linear-gradient(90deg, #FFFFFF 0%, #CFFAFE 50%, #BAE6FD 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .pane.dark h1 .accent {
+    background: linear-gradient(90deg, #7DD3FC 0%, #C4B5FD 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+
+  /* Lead paragraph */
+  .lead {
+    max-width: 620px; line-height: 1.55;
+    margin: 16px 0 24px;
+  }
+  .pane.light .lead { color: #2A4F5F; font-size: 17px; }                   /* 8.3:1 */
+  .pane.dark  .lead { color: rgba(255,255,255,0.80); font-size: 18px; }    /* matches source DS */
+
+  /* CTAs */
+  .ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 26px; border-radius: 999px;
+    font-weight: 700; font-size: 15px; border: none; cursor: pointer;
+    transition: transform 160ms, box-shadow 160ms;
+  }
+  .btn:focus-visible { outline: 3px solid; outline-offset: 2px; }
+  .pane.light .btn:focus-visible { outline-color: #7DD3FC; }
+  .pane.dark  .btn:focus-visible { outline-color: #FFFFFF; }
+  .btn:hover { transform: translateY(-1px); }
+
+  .pane.light .primary {
+    background: linear-gradient(90deg, #0E7490, #0284C7);
+    color: #FFFFFF;
+    box-shadow: 0 12px 28px -10px rgba(14,116,144,0.45);
+  }
+  .pane.dark .primary {
+    background: linear-gradient(90deg, #06B6D4, #0284C7);
+    color: #FFFFFF;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  }
+
+  .pane.light .ghost { background: #FFFFFF; color: #0F2A36; border: 1px solid #CBD9E2; }
+  .pane.light .ghost:hover { background: #F1F7FA; border-color: #8FA6B2; }
+  .pane.dark  .ghost { background: rgba(255,255,255,0.05); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.10); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  .pane.dark  .ghost:hover { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.20); }
+
+  /* Stats */
+  .stats { display: flex; gap: 28px; }
+  .pane.light .stats { margin-top: 28px; padding-top: 18px; border-top: 1px solid #E5ECF1; }
+  .pane.dark  .stats { margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.10); }
+  .stat .num { font-family: var(--tr-font-display); font-weight: 800; }
+  .pane.light .stat .num { font-size: 26px; }
+  .pane.dark  .stat .num { font-size: 28px; }
+  .stat .lbl { font-size: 12px; margin-top: 2px; }
+  /* light stat colors (deep, AA) */
+  .pane.light .stat .num.cyan   { color: #0E7490; }   /* 5.4:1 */
+  .pane.light .stat .num.violet { color: #6D5BBA; }   /* 4.6:1 — AA large */
+  .pane.light .stat .num.teal   { color: #0D9488; }   /* 4.5:1 */
+  .pane.light .stat .lbl { color: #2A4F5F; }
+  /* dark stat colors (light tints) */
+  .pane.dark .stat .num.cyan   { color: #7DD3FC; }
+  .pane.dark .stat .num.violet { color: #C4B5FD; }
+  .pane.dark .stat .num.teal   { color: #5EEAD4; }
+  .pane.dark .stat .lbl { color: rgba(255,255,255,0.78); }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <!-- LIGHT HERO -->
+    <section class="pane light">
+      <span class="pane-label">Light · paper</span>
+      <div class="hero">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Now in beta · 2026 cohort</span>
+        <h1><span class="grad">Smart Tools</span><br/><span class="accent">for Modern Therapists</span></h1>
+        <p class="lead">Bridging traditional therapy and modern technology. Practical, ethics-first AI workflows, ready-to-use worksheets, and digital downloads built by clinicians, for clinicians.</p>
+        <div class="ctas">
+          <button class="btn primary" type="button">Explore Resources →</button>
+          <button class="btn ghost" type="button">View Courses</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="num cyan">42+</div><div class="lbl">Worksheets &amp; downloads</div></div>
+          <div class="stat"><div class="num violet">6</div><div class="lbl">Self-paced courses</div></div>
+          <div class="stat"><div class="num teal">2,400</div><div class="lbl">Therapists in the community</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DARK HERO -->
+    <section class="pane dark">
+      <span class="pane-label">Dark · glass</span>
+      <div class="hero">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Now in beta · 2026 cohort</span>
+        <h1><span class="grad">Smart Tools</span><br/><span class="accent">for Modern Therapists</span></h1>
+        <p class="lead">Bridging traditional therapy and modern technology. Practical, ethics-first AI workflows, ready-to-use worksheets, and digital downloads built by clinicians, for clinicians.</p>
+        <div class="ctas">
+          <button class="btn primary" type="button">Explore Resources →</button>
+          <button class="btn ghost" type="button">View Courses</button>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="num cyan">42+</div><div class="lbl">Worksheets &amp; downloads</div></div>
+          <div class="stat"><div class="num violet">6</div><div class="lbl">Self-paced courses</div></div>
+          <div class="stat"><div class="num teal">2,400</div><div class="lbl">Therapists in the community</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

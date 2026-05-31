@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Card Surfaces — Light & Dark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--tr-font-body);
+    padding: 0;
+    color: #0F2A36;
+    min-height: 100vh;
+  }
+
+  /* Two-pane stage: light over dark, full-bleed bands ----------------- */
+  .stage { display: grid; grid-template-rows: 1fr 1fr; min-height: 100vh; }
+
+  .pane { padding: 22px 22px 26px; position: relative; box-sizing: border-box; }
+  .pane.light {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F4F8FB 100%);
+    color: #0F2A36;
+  }
+  .pane.dark {
+    background:
+      radial-gradient(at 0% 0%,   rgba( 56, 189, 248, 0.22) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(125, 211, 252, 0.20) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(196, 181, 253, 0.18) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba( 45, 212, 191, 0.18) 0px, transparent 50%),
+      linear-gradient(135deg, #155e75 0%, #0e7490 50%, #1e3a8a 100%);
+    color: #FFFFFF;
+  }
+
+  .pane-label {
+    display: inline-block;
+    font-family: var(--tr-font-mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .pane.light .pane-label { color: #155E75; background: #ECF5FA; border: 1px solid #BFDDE9; }
+  .pane.dark  .pane-label { color: #CFFAFE; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Card chassis ------------------------------------------------------ */
+  .card {
+    border-radius: 24px;
+    padding: 16px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  /* Light cards */
+  .pane.light .card {
+    background: #FFFFFF;
+    border: 1px solid #E5ECF1;
+    box-shadow: 0 10px 24px -12px rgba(14, 116, 144, 0.18);
+  }
+  .pane.light .card.is-hover {
+    background: #F6FAFC;
+    border-color: #CBD9E2;
+    transform: translateY(-4px);
+    box-shadow: 0 18px 32px -14px rgba(14, 116, 144, 0.30);
+  }
+
+  /* Dark cards (glass) */
+  .pane.dark .card {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  .pane.dark .card.is-hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.20);
+    transform: translateY(-4px);
+  }
+
+  /* Top-bar variant (shared) */
+  .top-bar {
+    position: absolute; inset: 0 0 auto 0; height: 4px;
+    background: linear-gradient(90deg, #0E7490, #0284C7);
+  }
+
+  /* Icon chip */
+  .icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px;
+  }
+  .pane.light .icon.ic-cyan { background: #ECF5FA; color: #0E7490; border: 1px solid #BFDDE9; }
+  .pane.light .icon.ic-teal { background: #E4F5F0; color: #0F766E; border: 1px solid #B6E1DA; }
+  .pane.dark  .icon.ic-cyan { background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(6,182,212,0.22)); color: #7DD3FC; border: 1px solid rgba(125,211,252,0.30); }
+  .pane.dark  .icon.ic-teal { background: linear-gradient(135deg, rgba(94,234,212,0.22), rgba(56,189,248,0.22)); color: #5EEAD4; border: 1px solid rgba(94,234,212,0.30); }
+
+  /* Type */
+  h3 {
+    margin: 0 0 4px;
+    font-family: var(--tr-font-display);
+    font-size: 15px; font-weight: 700;
+  }
+  .pane.light h3 { color: #0F2A36; }
+  .pane.dark  h3 { color: #FFFFFF; }
+
+  p {
+    margin: 0; font-size: 12px; line-height: 1.5;
+  }
+  .pane.light p { color: #2A4F5F; }
+  .pane.dark  p { color: rgba(255, 255, 255, 0.80); }
+
+  .meta {
+    margin-top: 8px; font-size: 10px;
+    font-family: var(--tr-font-mono);
+  }
+  .pane.light .meta { color: #5A7785; }
+  .pane.dark  .meta { color: rgba(255, 255, 255, 0.60); }
+
+  /* Top-bar card spans both columns */
+  .span-2 { grid-column: span 2; padding-top: 18px; }
+  .span-2 .row { display: flex; gap: 12px; align-items: flex-start; }
+  .span-2 .icon { margin: 0; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <!-- LIGHT PANE ============================================== -->
+    <section class="pane light">
+      <span class="pane-label">Light · paper</span>
+      <div class="grid">
+        <div class="card">
+          <div class="icon ic-cyan" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <h3>Default Card</h3>
+          <p>White surface, 1px hairline #E5ECF1, soft peacock-tinted shadow.</p>
+          <div class="meta">.tr-card</div>
+        </div>
+        <div class="card is-hover">
+          <div class="icon ic-teal" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3>Hover State</h3>
+          <p>Lifts −4px, surface to #F6FAFC, border deepens, shadow grows.</p>
+          <div class="meta">.tr-card:hover</div>
+        </div>
+        <div class="card span-2">
+          <div class="top-bar"></div>
+          <div class="row">
+            <div class="icon ic-cyan" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 4M12 17h.01"></path></svg>
+            </div>
+            <div>
+              <h3>Top-bar Card</h3>
+              <p>4px peacock→sky strip anchors category. Used on Web Apps and resource taxonomy pages.</p>
+              <div class="meta">.tr-card .top-bar · cyan-700→sky-600</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DARK PANE =============================================== -->
+    <section class="pane dark">
+      <span class="pane-label">Dark · glass</span>
+      <div class="grid">
+        <div class="card">
+          <div class="icon ic-cyan" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <h3>Default Card</h3>
+          <p>Glass · 5% white fill, 24px backdrop-blur, 1px white/10 border, shadow-2xl.</p>
+          <div class="meta">.tr-glass</div>
+        </div>
+        <div class="card is-hover">
+          <div class="icon ic-teal" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3>Hover State</h3>
+          <p>Lifts −4px, surface upgrades to 10% white, border to 20%.</p>
+          <div class="meta">+ scale 1.02 (motion)</div>
+        </div>
+        <div class="card span-2">
+          <div class="top-bar"></div>
+          <div class="row">
+            <div class="icon ic-cyan" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 4M12 17h.01"></path></svg>
+            </div>
+            <div>
+              <h3>Top-bar Card</h3>
+              <p>4px peacock→sky strip across the top, used on Web Apps page. Anchors category.</p>
+              <div class="meta">absolute · linear-gradient cyan→sky</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

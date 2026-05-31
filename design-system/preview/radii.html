@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { font-family: var(--tr-font-body); background: #FAFBFC; padding: 18px 24px; color: #0F2A36; }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .box {
+    height: 90px;
+    background: #FFFFFF;
+    border: 1px solid rgba(255,255,255,0.18);
+    -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  }
+  .name { font-size: 12px; font-weight: 600; }
+  .meta { font-size: 11px; color: #8FA6B2; font-family: var(--tr-font-mono); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="box" style="border-radius: 8px;"><div class="name">sm</div><div class="meta">8px</div></div>
+    <div class="box" style="border-radius: 12px;"><div class="name">md</div><div class="meta">12px</div></div>
+    <div class="box" style="border-radius: 16px;"><div class="name">lg</div><div class="meta">16px</div></div>
+    <div class="box" style="border-radius: 24px;"><div class="name">xl</div><div class="meta">24px · cards</div></div>
+    <div class="box" style="border-radius: 32px;"><div class="name">2xl</div><div class="meta">32px · hero</div></div>
+  </div>
+  <div style="display:flex; align-items:center; gap:14px; margin-top:14px;">
+    <div class="box" style="border-radius: 9999px; width: 90px; height: 44px;"><div class="name">pill</div></div>
+    <span style="font-size:12px; color: #6B8A98; font-family: var(--tr-font-mono);">9999 · CTAs, badges, social</span>
+  </div>
+</body>
+</html>

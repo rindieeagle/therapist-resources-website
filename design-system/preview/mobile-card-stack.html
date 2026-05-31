@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mobile Card Stack — Therapist Resources</title>
+  <link rel="stylesheet" href="../colors_and_type.css" />
+  <link rel="stylesheet" href="../mobile.css" />
+  <style>
+    html, body { margin:0; padding:0; background: var(--tr-bg-base); font-family: var(--tr-font-body); color: var(--tr-text); }
+    .frame { max-width: 420px; margin: 24px auto; border: 1px solid var(--tr-border); border-radius: 28px; overflow: hidden; background: var(--tr-surface); box-shadow: var(--tr-shadow-soft); position: relative; height: 720px; }
+    .card-eyebrow { font: 600 12px/1 var(--tr-font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--tr-text-60); padding: 16px 20px 0; }
+    .meta { padding: 0 20px 16px; color: var(--tr-text-70); font-size: 14px; line-height: 1.5; }
+    .stack-card { background: var(--tr-surface); border: 1px solid var(--tr-border); border-radius: var(--tr-radius-xl); padding: 20px; box-shadow: var(--tr-shadow-soft); display: flex; flex-direction: column; gap: 12px; min-height: 280px; }
+    .stack-card .badge { display: inline-flex; padding: 4px 10px; border-radius: 9999px; font: 600 11px var(--tr-font-mono); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--tr-grad-violet-cta); align-self: flex-start; }
+    .stack-card.article .badge { background: var(--tr-grad-primary); }
+    .stack-card h4 { margin: 0; font: 700 18px/1.3 var(--tr-font-display); color: var(--tr-text); }
+    .stack-card p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--tr-text-70); }
+    .stack-card .row { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .stack-card .price { font: 700 18px var(--tr-font-display); color: var(--tr-text); }
+    .stack-card .meta-row { font-size: 12px; color: var(--tr-text-60); }
+    .pager { display: flex; gap: 6px; justify-content: center; padding-bottom: 16px; }
+    .pager span { width: 6px; height: 6px; border-radius: 9999px; background: var(--tr-border-hi); }
+    .pager span.on { background: var(--tr-text-accent); width: 18px; }
+    .section-title { font: 700 22px var(--tr-font-display); margin: 16px 20px 8px; }
+  </style>
+</head>
+<body>
+  <div class="card-eyebrow">Mobile · Card Stack</div>
+  <p class="meta">Horizontal scroll-snap. 86% width per card, gap 16, gutter 20. Scrollbar hidden, momentum scroll on iOS.</p>
+
+  <div class="frame">
+    <header class="tr-mnav"><div class="tr-mnav__logo">Resources</div></header>
+    <h2 class="section-title">Featured courses</h2>
+
+    <div class="tr-mstack" id="stack">
+      <article class="stack-card">
+        <span class="badge">Course</span>
+        <h4>Folding AI into CBT practice — without losing the therapeutic relationship</h4>
+        <p>An 8-module course on practical, ethics-first AI use for licensed clinicians.</p>
+        <div class="row"><span class="price">$129</span><span class="meta-row">8 modules · 6h</span></div>
+      </article>
+      <article class="stack-card article">
+        <span class="badge">Article</span>
+        <h4>Cutting case-note time in half: a workflow that respects HIPAA</h4>
+        <p>What we changed, what we didn't, and where the consent conversation begins.</p>
+        <div class="row"><span class="meta-row">Rindie Eagle, MA</span><span class="meta-row">7 min read</span></div>
+      </article>
+      <article class="stack-card">
+        <span class="badge">Course</span>
+        <h4>IFS-informed prompting for client letters & summaries</h4>
+        <p>Templates and ethics for parts-aware language when drafting with AI assistance.</p>
+        <div class="row"><span class="price">$89</span><span class="meta-row">5 modules · 3h</span></div>
+      </article>
+    </div>
+
+    <div class="pager"><span class="on"></span><span></span><span></span></div>
+  </div>
+
+  <script>
+    const stack = document.getElementById('stack');
+    const dots = document.querySelectorAll('.pager span');
+    stack.addEventListener('scroll', () => {
+      const i = Math.round(stack.scrollLeft / (stack.children[0].offsetWidth + 16));
+      dots.forEach((d, idx) => d.classList.toggle('on', idx === i));
+    });
+  </script>
+</body>
+</html>

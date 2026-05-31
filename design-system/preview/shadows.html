@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin:0; padding:0; }
+  body { font-family: var(--tr-font-body); background: #FAFBFC; padding: 22px 24px; color: #0F2A36; }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    height: 90px; border-radius: 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.16);
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px;
+  }
+  .name { font-size: 12px; font-weight: 600; }
+  .meta { font-size: 11px; color: #8FA6B2; font-family: var(--tr-font-mono); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="card" style="box-shadow: 0 10px 30px -15px rgba(0,0,0,0.30);"><div class="name">Soft</div><div class="meta">footer · headers</div></div>
+    <div class="card" style="box-shadow: 0 12px 28px -10px rgba(14,116,144,0.18);"><div class="name">Card / 2xl</div><div class="meta">resting cards</div></div>
+    <div class="card" style="box-shadow: 0 10px 25px -5px rgba(6,182,212,0.50);"><div class="name">Peacock Glow</div><div class="meta">CTA hover</div></div>
+    <div class="card" style="box-shadow: 0 10px 25px -5px rgba(56,189,248,0.45);"><div class="name">Sky Glow</div><div class="meta">secondary CTA</div></div>
+    <div class="card" style="box-shadow: 0 10px 25px -5px rgba(139,92,246,0.40);"><div class="name">Lavender Glow</div><div class="meta">course tier accent</div></div>
+    <div class="card" style="box-shadow: inset 0 1px 0 #E5ECF1;"><div class="name">Inner Hairline</div><div class="meta">glass top edge</div></div>
+  </div>
+</body>
+</html>

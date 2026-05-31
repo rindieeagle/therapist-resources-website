@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Colors — Logo Source</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--tr-font-body);
+    background: #FAFBFC;
+    background-image:
+      radial-gradient(at 8% 0%,   rgba(  5, 180, 221, 0.08) 0, transparent 55%),
+      radial-gradient(at 92% 100%, rgba(159, 144, 201, 0.08) 0, transparent 55%);
+    padding: 22px;
+    color: #001C3F;
+  }
+
+  .head { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; margin: 0 0 14px; }
+  .head h1 {
+    font: 700 13px/1 var(--tr-font-mono);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .head p {
+    font-family: var(--tr-font-mono);
+    font-size: 11px;
+    color: #4A6B7A;
+    margin: 0;
+    max-width: 56ch;
+  }
+  .logo-key {
+    width: 96px; height: 96px;
+    background: #001C3F;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 10px; box-sizing: border-box;
+  }
+  .logo-key img { width: 100%; height: 100%; object-fit: contain; }
+
+  /* Swatch grid: 5 brand leaves up top, 2 ink anchors below */
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .row.anchors { grid-template-columns: repeat(2, 1fr); margin-top: 10px; }
+
+  .swatch {
+    border-radius: 14px;
+    height: 132px;
+    padding: 12px 14px 14px;
+    box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 8px 24px -10px rgba(0, 28, 63, 0.30);
+    border: 1px solid rgba(255,255,255,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+  .swatch .role {
+    font: 600 10px/1 var(--tr-font-mono);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    opacity: 0.78;
+  }
+  .swatch .label { display: flex; flex-direction: column; gap: 2px; }
+  .swatch .name {
+    font-family: var(--tr-font-display);
+    font-weight: 700; font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+  .swatch .meta {
+    font: 500 11px/1.3 var(--tr-font-mono);
+    opacity: 0.85;
+    display: flex; justify-content: space-between; gap: 8px;
+  }
+
+  /* Where each color shows up — caption strip */
+  .uses {
+    margin-top: 18px;
+    border: 1px solid #E5ECF1;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.7);
+    padding: 14px 16px;
+  }
+  .uses h3 {
+    font: 700 11px/1 var(--tr-font-mono);
+    letter-spacing: 0.14em; text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+  .uses dl {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 4px 14px;
+    margin: 0;
+    font-size: 12px; line-height: 1.5;
+  }
+  .uses dt { color: #001C3F; font-weight: 600; }
+  .uses dd { margin: 0; color: #4A6B7A; }
+
+  @media (max-width: 720px) {
+    .row { grid-template-columns: repeat(2, 1fr); }
+    .uses dl { grid-template-columns: 1fr; gap: 0 0; }
+    .uses dt { margin-top: 8px; }
+    .head { grid-template-columns: 1fr; }
+    .logo-key { width: 72px; height: 72px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="head">
+    <div>
+      <h1>Colors · Logo Source</h1>
+      <p>Sampled directly from the tree-of-leaves mark. Five leaves do the brand work; trunk-navy and paper-white are the ink anchors that hold every layout together.</p>
+    </div>
+    <div class="logo-key" aria-hidden="true">
+      <img src="../assets/4.png" alt="" />
+    </div>
+  </header>
+
+  <!-- Brand leaves -->
+  <div class="row" aria-label="Brand leaves">
+    <div class="swatch" style="background:#64C5C9; color:#001C3F;">
+      <div class="role">Leaf</div>
+      <div class="label">
+        <span class="name">Teal</span>
+        <span class="meta"><span>#64C5C9</span><span>upper leaves</span></span>
+      </div>
+    </div>
+    <div class="swatch" style="background:#05B4DD; color:#001C3F;">
+      <div class="role">Leaf</div>
+      <div class="label">
+        <span class="name">Cyan</span>
+        <span class="meta"><span>#05B4DD</span><span>ring + brightest leaves</span></span>
+      </div>
+    </div>
+    <div class="swatch" style="background:#0276B5; color:#FFFFFF;">
+      <div class="role">Leaf</div>
+      <div class="label">
+        <span class="name">Blue</span>
+        <span class="meta"><span>#0276B5</span><span>mid leaves</span></span>
+      </div>
+    </div>
+    <div class="swatch" style="background:#0183C4; color:#FFFFFF;">
+      <div class="role">Leaf</div>
+      <div class="label">
+        <span class="name">Blue Deep</span>
+        <span class="meta"><span>#0183C4</span><span>lower leaves</span></span>
+      </div>
+    </div>
+    <div class="swatch" style="background:#9F90C9; color:#001C3F;">
+      <div class="role">Leaf · Accent</div>
+      <div class="label">
+        <span class="name">Lavender</span>
+        <span class="meta"><span>#9F90C9</span><span>top crown leaf</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ink anchors -->
+  <div class="row anchors" aria-label="Ink anchors">
+    <div class="swatch" style="background:#001C3F; color:#64C5C9; height:104px;">
+      <div class="role" style="opacity:0.8;">Ink · Anchor</div>
+      <div class="label">
+        <span class="name" style="color:#FFFFFF;">Trunk Navy</span>
+        <span class="meta"><span>#001C3F</span><span>wordmark, body ink, dark surfaces</span></span>
+      </div>
+    </div>
+    <div class="swatch" style="background:#FFFFFF; color:#001C3F; height:104px; border-color:#E5ECF1;">
+      <div class="role">Paper · Anchor</div>
+      <div class="label">
+        <span class="name">Canvas</span>
+        <span class="meta"><span>#FFFFFF</span><span>paper, light surfaces, lockup negatives</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Where each one lives -->
+  <section class="uses" aria-label="Usage">
+    <h3>Where each one lives</h3>
+    <dl>
+      <dt>Teal</dt>            <dd>Eyebrows, "GROW" word in tagline, soft icon strokes.</dd>
+      <dt>Cyan</dt>            <dd>Ring outline, primary-CTA gradient stop, link hover, focus ring.</dd>
+      <dt>Blue / Blue Deep</dt><dd>Headline gradient mid-stops, secondary buttons, illustrated leaves.</dd>
+      <dt>Lavender</dt>        <dd>Course badges, decorative dots, the violet-accent gradient. Use sparingly.</dd>
+      <dt>Trunk Navy</dt>      <dd>Wordmark, body ink on light, app backdrop on dark. Default text on every paper surface.</dd>
+      <dt>Canvas</dt>          <dd>Card surface, paper backdrop, lockup text on dark surfaces.</dd>
+    </dl>
+  </section>
+
+</body>
+</html>

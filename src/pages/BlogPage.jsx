@@ -141,8 +141,8 @@ export default function BlogPage() {
             onClick={handleShowAll}
             className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap shrink-0 ${
               activeTag === null
-                ? 'text-cyan-400 font-semibold bg-white/10'
-                : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
+                ? 'text-primary font-semibold bg-primary/10'
+                : 'text-foreground/70 hover:text-primary hover:bg-accent'
             }`}
           >
             All Posts
@@ -153,8 +153,8 @@ export default function BlogPage() {
               onClick={() => handleTagClick(tag.id)}
               className={`text-sm px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap text-left shrink-0 ${
                 activeTag === tag.id
-                  ? 'text-cyan-400 font-semibold bg-white/10'
-                  : 'text-white/70 hover:text-cyan-300 hover:bg-white/5'
+                  ? 'text-primary font-semibold bg-primary/10'
+                  : 'text-foreground/70 hover:text-primary hover:bg-accent'
               }`}
             >
               {tag.name}
@@ -164,19 +164,19 @@ export default function BlogPage() {
 
         {/* Tag pagination (desktop sidebar only, hidden when searching) */}
         {!horizontal && !isSearching && totalTagPages > 1 && (
-          <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+          <div className="flex items-center justify-between mt-3 pt-3 border-t border-border">
             <button
               onClick={() => setTagPage((p) => Math.max(1, p - 1))}
               disabled={tagPage === 1}
               className={`text-sm px-2 py-1 rounded-lg transition-colors ${
                 tagPage === 1
-                  ? 'text-white/20 cursor-not-allowed'
-                  : 'text-cyan-400 hover:bg-white/5'
+                  ? 'text-muted-foreground/40 cursor-not-allowed'
+                  : 'text-primary hover:bg-accent'
               }`}
             >
               ←
             </button>
-            <span className="text-xs text-white/50">
+            <span className="text-xs text-muted-foreground">
               {tagPage} of {totalTagPages}
             </span>
             <button
@@ -184,8 +184,8 @@ export default function BlogPage() {
               disabled={tagPage === totalTagPages}
               className={`text-sm px-2 py-1 rounded-lg transition-colors ${
                 tagPage === totalTagPages
-                  ? 'text-white/20 cursor-not-allowed'
-                  : 'text-cyan-400 hover:bg-white/5'
+                  ? 'text-muted-foreground/40 cursor-not-allowed'
+                  : 'text-primary hover:bg-accent'
               }`}
             >
               →
@@ -208,10 +208,10 @@ export default function BlogPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 pt-32">
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-violet-300 via-cyan-300 to-purple-300 bg-clip-text text-transparent drop-shadow-md pb-2">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 tr-grad-text drop-shadow-md pb-2">
           Latest Resources & Articles
         </h2>
-        <p className="max-w-2xl mx-auto text-xl text-white/90">
+        <p className="max-w-2xl mx-auto text-xl text-foreground/90">
           Insights, updates, and helpful tools for therapists.
         </p>
       </div>
@@ -228,14 +228,14 @@ export default function BlogPage() {
         {/* Desktop sidebar */}
         {tags.length > 0 && (
           <aside className="hidden lg:block">
-            <div className="sticky top-28 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-white mb-3">Topics</h3>
+            <div className="sticky top-28 glass rounded-3xl p-6">
+              <h3 className="text-lg font-bold text-foreground mb-3">Topics</h3>
               <input
                 type="text"
                 placeholder="Search topics..."
                 value={tagSearch}
                 onChange={(e) => setTagSearch(e.target.value)}
-                className="w-full px-3 py-2 mb-3 rounded-lg bg-white/5 border border-white/10 text-sm text-white placeholder-white/40 focus:outline-none focus:border-cyan-400/50 transition-colors"
+                className="w-full px-3 py-2 mb-3 rounded-lg bg-card border border-border text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
               />
               <TagList />
             </div>
@@ -249,7 +249,7 @@ export default function BlogPage() {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
             </div>
           ) : posts.length === 0 ? (
-            <div className="text-center text-white/60 py-20">
+            <div className="text-center text-muted-foreground py-20">
               <p className="text-lg">No posts found.</p>
             </div>
           ) : (
@@ -262,10 +262,10 @@ export default function BlogPage() {
                   return (
                     <article
                       key={post.id}
-                      className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-1 transition-all duration-300"
+                      className="group relative flex flex-col h-full glass rounded-3xl overflow-hidden shadow-2xl hover:shadow-violet-500/20 hover:-translate-y-1 transition-all duration-300"
                     >
                       {/* Featured Image */}
-                      <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 w-full bg-slate-800/50 overflow-hidden relative cursor-pointer">
+                      <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-48 w-full bg-muted overflow-hidden relative cursor-pointer">
                         {featuredImage ? (
                           <img
                             src={featuredImage}
@@ -273,16 +273,16 @@ export default function BlogPage() {
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         ) : (
-                          <div className="w-full h-full flex flex-col items-center justify-center text-white/40 space-y-2">
+                          <div className="w-full h-full flex flex-col items-center justify-center text-muted-foreground space-y-2">
                             <span className="text-sm font-medium">No Image</span>
                           </div>
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       </a>
 
                       {/* Post Content */}
                       <div className="p-6 flex flex-col flex-1 relative">
-                        <p className="text-sm font-semibold text-cyan-400 mb-3 tracking-wide uppercase">
+                        <p className="text-sm font-semibold text-primary mb-3 tracking-wide uppercase">
                           {new Date(post.date).toLocaleDateString('en-US', {
                             month: 'long',
                             day: 'numeric',
@@ -292,21 +292,21 @@ export default function BlogPage() {
 
                         <div className="flex-1">
                           <h3
-                            className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors leading-tight"
+                            className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors leading-tight"
                             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                           />
                           <div
-                            className="text-white/70 line-clamp-3 text-sm leading-relaxed"
+                            className="text-foreground/70 line-clamp-3 text-sm leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
                           />
                         </div>
 
                         {/* Author footer */}
-                        <div className="mt-auto pt-4 border-t border-white/10 flex items-center">
-                          <div className="text-sm font-medium text-white/90">
-                            By <span className="text-cyan-300">{authorName}</span>
+                        <div className="mt-auto pt-4 border-t border-border flex items-center">
+                          <div className="text-sm font-medium text-foreground/90">
+                            By <span className="text-primary">{authorName}</span>
                           </div>
-                          <a href={post.link} target="_blank" rel="noopener noreferrer" className="ml-auto inline-flex items-center text-sm font-medium text-teal-400 hover:text-cyan-300 transition-colors">
+                          <a href={post.link} target="_blank" rel="noopener noreferrer" className="ml-auto inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors">
                             Read more →
                           </a>
                         </div>
@@ -324,8 +324,8 @@ export default function BlogPage() {
                     disabled={page === 1}
                     className={`px-4 py-2 rounded-xl border transition-colors ${
                       page === 1
-                        ? 'border-white/5 text-white/30 cursor-not-allowed'
-                        : 'border-white/10 bg-white/5 text-cyan-400 hover:bg-white/10'
+                        ? 'border-border text-muted-foreground/50 cursor-not-allowed'
+                        : 'border-border bg-card text-primary hover:bg-accent'
                     }`}
                   >
                     Previous
@@ -337,8 +337,8 @@ export default function BlogPage() {
                       onClick={() => setPage(num)}
                       className={`w-10 h-10 rounded-xl border transition-colors ${
                         num === page
-                          ? 'border-cyan-400/50 bg-cyan-400/10 text-cyan-400 font-semibold'
-                          : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10 hover:text-cyan-300'
+                          ? 'border-primary/50 bg-primary/10 text-primary font-semibold'
+                          : 'border-border bg-card text-foreground/70 hover:bg-accent hover:text-primary'
                       }`}
                     >
                       {num}
@@ -350,8 +350,8 @@ export default function BlogPage() {
                     disabled={page === totalPages}
                     className={`px-4 py-2 rounded-xl border transition-colors ${
                       page === totalPages
-                        ? 'border-white/5 text-white/30 cursor-not-allowed'
-                        : 'border-white/10 bg-white/5 text-cyan-400 hover:bg-white/10'
+                        ? 'border-border text-muted-foreground/50 cursor-not-allowed'
+                        : 'border-border bg-card text-primary hover:bg-accent'
                     }`}
                   >
                     Next

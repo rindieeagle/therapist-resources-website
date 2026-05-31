@@ -77,13 +77,31 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('tr-theme') || 'light';
+        var el = document.documentElement;
+        if (t === 'dark') {
+          el.classList.add('dark');
+          el.setAttribute('data-theme', 'dark');
+        } else {
+          el.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <!-- Critical CSS to prevent FOUC -->
   <style>
     html, body, #root {
       margin: 0;
       padding: 0;
       min-height: 100vh;
-      background: #0f172a;
+      background: #FAFBFC;
+    }
+
+    html.dark, html.dark body, html.dark #root {
+      background: #0F3A52;
     }
     /* Hide content until CSS loads */
     .loading-hidden { visibility: hidden; }
