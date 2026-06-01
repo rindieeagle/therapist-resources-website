@@ -1,17 +1,58 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, GraduationCap, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby } from 'lucide-react';
+import { Clock, GraduationCap, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby, Waypoints, BookOpen, ClipboardList, FileSearch, FileText, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
 
 const courses = [{
-  title: "Write it Right: SOAP Notes | Interactive Training Course",
-  description: "Stop second-guessing every note. Learn to write concise, audit-ready SOAP notes in under 10 minutes.",
-  instructor: "Rindie Eagle, MA, LPCC",
-  level: "Intermediate",
-  icon: GraduationCap,
-  duration: "1.5 Hours",
+  title: "Write it Right Bundle",
+  description: "Get all four Write it Right documentation courses—SOAP Notes, Treatment Planning, Diagnostic Assessment, and Discharge & Treatment Summary—in one bundle and save $51 versus buying them individually.",
+  instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
+  level: "Save $51",
+  icon: Layers,
+  duration: "4 Courses",
+  enrollmentLink: "https://goldenthread.therapistresources.com",
+  cta: "Get the Bundle"
+}, {
+  title: "Write it Right: The Golden Thread & Medical Necessity",
+  description: "Establish the foundation of defensible documentation. Tie assessment, goals, and interventions into one continuous golden thread that demonstrates medical necessity.",
+  instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
+  level: "Beginner",
+  icon: Waypoints,
+  duration: "1 Hour",
+  enrollmentLink: "https://foundations.therapistresources.com"
+}, {
+  title: "Write it Right: SOAP Notes",
+  description: "Master the art of writing effective SOAP notes. Clear, concise, and clinically sound documentation that saves you time.",
+  instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
+  level: "Beginner",
+  icon: BookOpen,
+  duration: "2 Hours",
   enrollmentLink: "https://soap.therapistresources.com"
+}, {
+  title: "Write it Right: Treatment Planning",
+  description: "Build treatment plans that are individualized, measurable, and audit-ready. Connect goals to interventions with confidence.",
+  instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
+  level: "Beginner",
+  icon: ClipboardList,
+  duration: "1.5 Hours",
+  enrollmentLink: "https://tp.therapistresources.com"
+}, {
+  title: "Write it Right: Diagnostic Assessment",
+  description: "Conduct and document thorough diagnostic assessments. From clinical interviews to differential diagnosis and written formulation.",
+  instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
+  level: "Beginner",
+  icon: FileSearch,
+  duration: "2 Hours",
+  enrollmentLink: "https://da.therapistresources.com"
+}, {
+  title: "Write it Right: Discharge & Treatment Summary",
+  description: "Close cases with well-documented discharge and treatment summaries that communicate outcomes and support continuity of care.",
+  instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
+  level: "Beginner",
+  icon: FileText,
+  duration: "1.5 Hours",
+  enrollmentLink: "https://discharge.therapistresources.com"
 }, {
   title: "Sleep Hygiene 101",
   description: "What is good sleep hygiene and how to do set up good sleep habits. Perfect for those wanting to know the science behind sleep.",
@@ -195,7 +236,7 @@ const CoursesPage = () => {
                   className="w-full rounded-xl bg-gradient-to-r from-primary to-sky-600 py-5 text-sm font-bold text-primary-foreground border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:from-primary/90 hover:to-sky-500 hover:shadow-cyan-500/40"
                   onClick={() => handleEnrollClick(course.enrollmentLink)}
                 >
-                  Enroll Now
+                  {course.cta || "Enroll Now"}
                 </Button>
                 <div className="flex items-center gap-2 border-t border-border pt-3 text-sm font-medium text-foreground/70 dark:border-white/10 dark:text-white/75">
                   <GraduationCap className="h-4 w-4 text-primary dark:text-cyan-300" />
