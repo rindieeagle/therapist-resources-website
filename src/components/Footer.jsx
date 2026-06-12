@@ -34,7 +34,8 @@ const Footer = () => {
               <a href="#courses" className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">
                 Courses
               </a>
-              <a href="/blog" className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">
+              {/* Static page outside the SPA router — mirror changes in tools/blog/templates/chrome.js */}
+              <a href="/blog/" className="block text-foreground/80 hover:text-primary transition-colors duration-300 font-medium">
                 Blog
               </a>
             </nav>

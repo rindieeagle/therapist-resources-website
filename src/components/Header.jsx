@@ -17,12 +17,15 @@ const Header = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // NOTE: structural changes to this header must be mirrored in
+  // tools/blog/templates/chrome.js (the static blog pages' chrome).
   const navItems = [
     { name: 'Home', path: '/' },
     // { name: 'Resources', path: '/resources' }, // Hidden for now
     { name: 'Courses', path: '/courses' },
     { name: 'Web Apps', path: '/web-apps' },
-    { name: 'Blog', path: '/blog' },
+    // Blog is static HTML outside the SPA router — must be a full page load
+    { name: 'Blog', path: '/blog/', isStaticPage: true },
     { name: 'Shop', path: 'https://reagleeagle.gumroad.com/?section=SoACiIzAf7Uk2VwpGfH5Xg%3D%3D' },
     { name: 'Contact', path: 'https://rindieme.formaloo.me/contact' }
   ];
@@ -66,6 +69,20 @@ const Header = () => {
                     href={item.path}
                     target="_blank"
                     rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+                  >
+                    {item.name}
+                  </motion.a>
+                );
+              }
+
+              if (item.isStaticPage) {
+                return (
+                  <motion.a
+                    key={item.name}
+                    href={item.path}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
@@ -137,6 +154,20 @@ const Header = () => {
                       href={item.path}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      whileTap={{ scale: 0.95 }}
+                      className="block py-3 text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+                    >
+                      {item.name}
+                    </motion.a>
+                  );
+                }
+
+                if (item.isStaticPage) {
+                  return (
+                    <motion.a
+                      key={item.name}
+                      href={item.path}
                       onClick={() => setIsMobileMenuOpen(false)}
                       whileTap={{ scale: 0.95 }}
                       className="block py-3 text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"

@@ -17,9 +17,19 @@
 
   # Cache everything on CDN by default
   Header set Cache-Control "public, s-maxage=604800, max-age=0"
-  
+
   # Cache in browser all assets
   <If "%{REQUEST_URI} =~ m#^/assets/.*$#">
+    Header set Cache-Control "public, max-age=604800"
+  </If>
+
+  # Blog HTML: short CDN TTL so edited posts go live within the hour
+  <If "%{REQUEST_URI} =~ m#^/blog/#">
+    Header set Cache-Control "public, s-maxage=3600, max-age=0"
+  </If>
+
+  # Blog images are immutable per filename - cache like /assets/
+  <If "%{REQUEST_URI} =~ m#^/blog-images/.*$#">
     Header set Cache-Control "public, max-age=604800"
   </If>
 </IfModule>
