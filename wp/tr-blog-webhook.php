@@ -78,23 +78,6 @@ function tr_blog_webhook_on_transition($new_status, $old_status, $post) {
 }
 
 /**
- * Edits to an already-published post fire 'updated' via post_updated as well,
- * because transition_post_status sees publish->publish only on status-touching
- * saves in some editors. Deduplication is unnecessary: the n8n flow is
- * idempotent (same content -> same commit -> no-op).
- */
-add_action('post_updated', 'tr_blog_webhook_on_update', 10, 3);
-function tr_blog_webhook_on_update($post_id, $post_after, $post_before) {
-    if ($post_after->post_type !== 'post' || $post_after->post_status !== 'publish' || $post_before->post_status !== 'publish') {
-        return;
-    }
-    if (wp_is_post_autosave($post_id) || wp_is_post_revision($post_id)) {
-        return;
-    }
-    tr_blog_webhook_on_transition('publish', 'publish', $post_after);
-}
-
-/**
  * Expose SmartCrawl SEO meta + the custom byline to authenticated REST
  * requests as a single `tr_seo` field. Protected meta (_wds_*) is invisible
  * to REST by default.
