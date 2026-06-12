@@ -1,5 +1,6 @@
 @import './styles/colors_and_type.css';
 @import './styles/mobile.css';
+@import './styles/blog.css';
 
 @tailwind base;
 @tailwind components;

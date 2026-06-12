@@ -6,6 +6,8 @@ module.exports = {
 		'./components/**/*.{js,jsx}',
 		'./app/**/*.{js,jsx}',
 		'./src/**/*.{js,jsx}',
+		// Static blog templates — their utility classes must survive purge.
+		'./tools/blog/**/*.js',
 	],
 	theme: {
 		container: {

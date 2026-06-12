@@ -1,0 +1,164 @@
+/* ==========================================================================
+   .blog-prose — typography for blog post bodies.
+   WordPress emits classless HTML and Tailwind preflight strips default
+   margins/list styles, so post content needs explicit styling. Used by the
+   static pages generated in tools/blog/ (the templates are scanned by
+   Tailwind via tailwind.config.js content globs).
+   ========================================================================== */
+
+.blog-prose {
+  color: hsl(var(--foreground) / 0.9);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.blog-prose h2,
+.blog-prose h3,
+.blog-prose h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  line-height: 1.25;
+  margin-top: 2.25em;
+  margin-bottom: 0.75em;
+}
+
+.blog-prose h2 {
+  font-size: 1.75rem;
+}
+
+.blog-prose h3 {
+  font-size: 1.375rem;
+}
+
+.blog-prose h4 {
+  font-size: 1.125rem;
+}
+
+.blog-prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.blog-prose a {
+  color: hsl(var(--primary));
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: hsl(var(--primary) / 0.4);
+  transition: text-decoration-color 0.3s;
+}
+
+.blog-prose a:hover {
+  text-decoration-color: hsl(var(--primary));
+}
+
+.blog-prose strong {
+  color: hsl(var(--foreground));
+  font-weight: 700;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  margin: 1.25em 0;
+  padding-left: 1.5em;
+}
+
+.blog-prose ul {
+  list-style-type: disc;
+}
+
+.blog-prose ol {
+  list-style-type: decimal;
+}
+
+.blog-prose li {
+  margin: 0.5em 0;
+  padding-left: 0.25em;
+}
+
+.blog-prose li::marker {
+  color: hsl(var(--primary));
+}
+
+.blog-prose blockquote {
+  border-left: 3px solid hsl(var(--primary));
+  padding-left: 1.25em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: hsl(var(--foreground) / 0.8);
+}
+
+.blog-prose img {
+  border-radius: 1.5rem;
+  margin: 2em auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.blog-prose figure {
+  margin: 2em 0;
+}
+
+.blog-prose figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: 0.75em;
+}
+
+.blog-prose hr {
+  border: 0;
+  border-top: 1px solid hsl(var(--border));
+  margin: 2.5em 0;
+}
+
+.blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75em 0;
+  font-size: 0.9375rem;
+}
+
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid hsl(var(--border));
+  padding: 0.625em 0.875em;
+  text-align: left;
+}
+
+.blog-prose th {
+  background: hsl(var(--muted));
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.blog-prose code {
+  background: hsl(var(--muted));
+  border-radius: 0.375rem;
+  padding: 0.125em 0.375em;
+  font-size: 0.875em;
+}
+
+.blog-prose pre {
+  background: hsl(var(--muted));
+  border-radius: 1rem;
+  padding: 1.25em;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.blog-prose pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.blog-prose > :first-child {
+  margin-top: 0;
+}
+
+.blog-prose > :last-child {
+  margin-bottom: 0;
+}
