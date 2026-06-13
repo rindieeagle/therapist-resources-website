@@ -90,7 +90,7 @@ const Hero = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-sky-500 rounded-2xl blur-xl opacity-40"></div>
                   <img
-                    src="hhttps://i.ibb.co/VpbD95Tk/6-EF9-C4-B7-1-ADC-48-FF-A7-F9-B07367-AAE4-C4.jpg"
+                    src="https://i.ibb.co/VpbD95Tk/6-EF9-C4-B7-1-ADC-48-FF-A7-F9-B07367-AAE4-C4.jpg"
                     alt="Rindie Eagle - Professional Therapist"
                     className="relative rounded-2xl shadow-2xl w-full max-w-md object-cover"
                   />
