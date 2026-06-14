@@ -342,6 +342,7 @@ test('buildLlmsTxt is spec-compliant, lists live pages, and drops /resources', (
 
 Run: `node --test tools/blog/lib/feeds.test.js`
 Expected: PASS — `# pass 3`, `# fail 0`.
+Then run `node --test 'tools/blog/lib/**/*.test.js'` (Node-expanded glob — note: a bare directory path like `tools/blog/lib/` does NOT work in Node 25, it tries to load the dir as a module) to confirm BOTH suites pass: `# pass 7`.
 
 - [ ] **Step 6: Commit**
 
@@ -505,7 +506,7 @@ In `package.json`, change the `build` script and add a `test` script. The script
     "dev": "vite --host :: --port 3000",
     "build": "vite build && node tools/blog/build-blog.js",
     "build:blog": "node tools/blog/build-blog.js",
-    "test": "node --test tools/blog/lib/",
+    "test": "node --test 'tools/blog/lib/**/*.test.js'",
     "migrate:wp": "node tools/migrate-from-wp.js",
     "preview": "vite preview --host :: --port 3000",
     "lint": "eslint . --quiet",
