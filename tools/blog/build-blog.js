@@ -48,6 +48,7 @@ function loadPosts() {
       warnings.push(`content/blog/${file}: status "${post.status}" — skipped`);
       continue;
     }
+    validatePost(file, post);
     posts.push(post);
   }
 
@@ -59,6 +60,44 @@ function loadPosts() {
 
   posts.sort((a, b) => new Date(b.date_gmt) - new Date(a.date_gmt));
   return posts;
+}
+
+// Normalize a question for comparison (case/space-insensitive, no trailing punctuation).
+function normQuestion(s) {
+  return String(s || '').toLowerCase().replace(/\s+/g, ' ').trim().replace(/[?.!]+$/, '');
+}
+
+// AEO/GEO data-contract guardrails. Defensive: fields are only checked when
+// present, so records predating the enriched contract still build. Structural
+// problems hard-fail (a broken deploy never replaces a working one); contract
+// drift that does not break a page only warns.
+function validatePost(file, post) {
+  const where = `content/blog/${file}`;
+  if (post.canonical_url && post.link && post.canonical_url !== post.link) {
+    throw new Error(`${where}: canonical_url !== link ("${post.canonical_url}" vs "${post.link}")`);
+  }
+  if (post.wp_link && post.link && post.wp_link === post.link) {
+    throw new Error(`${where}: link still points at the WordPress permalink (${post.link}); expected the TR URL`);
+  }
+  if (Array.isArray(post.faq) && post.faq.length) {
+    const keys = post.faq.map((f) => normQuestion(f.q));
+    if (new Set(keys).size !== keys.length) throw new Error(`${where}: duplicate FAQ question(s)`);
+    const visible = detectFaq(post.content).map((f) => normQuestion(f.q));
+    const structured = new Set(keys);
+    const missing = visible.filter((q) => !structured.has(q));
+    const extra = keys.filter((q) => !visible.includes(q));
+    if (missing.length || extra.length) {
+      warnings.push(`${where}: FAQ structured/visible mismatch (missing ${missing.length}, extra ${extra.length})`);
+    }
+  }
+  // Only the enriched object form is expected to carry focus; a legacy flat
+  // string just means the record predates the {focus, secondary} shape.
+  if (post.seo?.keyphrases && typeof post.seo.keyphrases === 'object' && !post.seo.keyphrases.focus) {
+    warnings.push(`${where}: seo.keyphrases.focus is empty`);
+  }
+  if (post.answer_block && (post.answer_block.length < 120 || post.answer_block.length > 450)) {
+    warnings.push(`${where}: answer_block length ${post.answer_block.length} outside ~120–450 chars`);
+  }
 }
 
 function discoverCss() {
@@ -148,7 +187,7 @@ function main() {
     const html = renderPostPage({
       post,
       contentHtml,
-      faqItems: detectFaq(contentHtml),
+      faqItems: post.faq?.length ? post.faq : detectFaq(contentHtml),
       featuredSrc: post._cardImage,
       prev: posts[i - 1] ?? null,
       next: posts[i + 1] ?? null,

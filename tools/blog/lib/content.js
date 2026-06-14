@@ -3,9 +3,9 @@
 import fs from 'fs';
 import path from 'path';
 import { parse } from 'node-html-parser';
-import { WP_HOST } from './wp-normalize.js';
+import { SITE, WP_HOST } from './entities.js';
 
-export const SITE = 'https://therapistresources.com';
+export { SITE };
 
 const NAMED_ENTITIES = {
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',

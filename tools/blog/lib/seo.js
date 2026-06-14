@@ -2,12 +2,10 @@
 // References the stable @ids defined in index.html's site-wide JSON-LD graph.
 
 import { parse } from 'node-html-parser';
-import { SITE, decodeEntities, stripHtml, truncate } from './content.js';
+import { decodeEntities, stripHtml, truncate } from './content.js';
+import { SITE, ORG_ID, PERSON_ID, WEBSITE_ID, DEFAULT_BYLINE } from './entities.js';
 
-export const ORG_ID = `${SITE}/#organization`;
-export const PERSON_ID = `${SITE}/#rindie-eagle`;
-export const WEBSITE_ID = `${SITE}/#website`;
-export const DEFAULT_BYLINE = 'Rindie Eagle, MA, LPCC';
+export { ORG_ID, PERSON_ID, WEBSITE_ID, DEFAULT_BYLINE };
 const TITLE_SUFFIX = ' | Therapist Resources';
 
 export function deriveMeta(post) {
@@ -47,7 +45,7 @@ export function blogPostingJsonLd(post, { canonical, imageUrl }) {
     description: deriveMeta(post).description,
     ...(imageUrl ? { image: imageUrl } : {}),
     datePublished: post.date_gmt,
-    dateModified: post.modified_gmt,
+    dateModified: post.date_modified || post.modified_gmt,
     author: authorsJsonLd(post),
     publisher: { '@id': ORG_ID },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },

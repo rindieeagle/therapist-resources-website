@@ -57,7 +57,7 @@ const CTA_BLOCK = `<section class="glass-strong rounded-3xl p-8 md:p-10 mt-16 te
         </section>`;
 
 export function renderPostPage({ post, contentHtml, faqItems, featuredSrc, prev, next, related, cssHref }) {
-  const canonical = `${SITE}/blog/${post.slug}/`;
+  const canonical = post.canonical_url || `${SITE}/blog/${post.slug}/`;
   const { title, description } = deriveMeta(post);
   const displayTitle = decodeEntities(post.title);
   const byline = post.byline || DEFAULT_BYLINE;
@@ -84,7 +84,7 @@ export function renderPostPage({ post, contentHtml, faqItems, featuredSrc, prev,
     : `${SITE}/logo.png`;
 
   const ogExtra = `  <meta property="article:published_time" content="${post.date_gmt}" />
-  <meta property="article:modified_time" content="${post.modified_gmt}" />
+  <meta property="article:modified_time" content="${post.date_modified || post.modified_gmt}" />
 `;
 
   const jsonLd = [
