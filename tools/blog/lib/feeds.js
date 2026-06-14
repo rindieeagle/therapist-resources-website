@@ -1,20 +1,21 @@
 // sitemap.xml, RSS feed, and llms.txt additions for the static blog.
 
-import fs from 'fs';
-import path from 'path';
 import { SITE, escapeXml, stripHtml, truncate, decodeEntities } from './content.js';
 import { deriveMeta } from './seo.js';
+import { PAGE_MANIFEST, SITE_SUMMARY, gitLastModified } from './discovery.js';
 
-const STATIC_ROUTES = ['/', '/courses', '/web-apps'];
+const IMAGE_NS = 'http://www.google.com/schemas/sitemap-image/1.1';
 
 export function buildSitemap({ posts, topicSlugs, indexPageCount }) {
-  const buildDate = new Date().toISOString();
   const urls = [];
 
-  for (const route of STATIC_ROUTES) {
-    urls.push({ loc: `${SITE}${route}`, lastmod: buildDate });
+  // Static SPA pages: lastmod from the page's last git commit, so it only moves
+  // when the page actually changes (build-time stamps make Google distrust it).
+  for (const page of PAGE_MANIFEST) {
+    urls.push({ loc: `${SITE}${page.route}`, lastmod: gitLastModified(page.source) });
   }
 
+  const buildDate = new Date().toISOString();
   const newestPost = posts[0]?.modified_gmt || buildDate;
   urls.push({ loc: `${SITE}/blog/`, lastmod: newestPost });
   for (let p = 2; p <= indexPageCount; p++) {
@@ -24,20 +25,26 @@ export function buildSitemap({ posts, topicSlugs, indexPageCount }) {
     urls.push({ loc: `${SITE}/blog/topic/${slug}/`, lastmod: newestPost });
   }
   for (const post of posts) {
-    urls.push({ loc: `${SITE}/blog/${post.slug}/`, lastmod: post.modified_gmt || post.date_gmt });
+    // Only emit images we actually serve (local /blog-images/ paths); never a
+    // hotlinked cross-domain URL.
+    const image =
+      post._cardImage && post._cardImage.startsWith('/blog-images/')
+        ? { loc: `${SITE}${post._cardImage}`, caption: post.featured?.alt || decodeEntities(post.title) }
+        : null;
+    urls.push({ loc: `${SITE}/blog/${post.slug}/`, lastmod: post.modified_gmt || post.date_gmt, image });
   }
 
   const entries = urls
-    .map(
-      ({ loc, lastmod }) => `  <url>
-    <loc>${escapeXml(loc)}</loc>
-    <lastmod>${lastmod}</lastmod>
-  </url>`
-    )
+    .map(({ loc, lastmod, image }) => {
+      const imageXml = image
+        ? `\n    <image:image>\n      <image:loc>${escapeXml(image.loc)}</image:loc>\n      <image:caption>${escapeXml(image.caption)}</image:caption>\n    </image:image>`
+        : '';
+      return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n    <lastmod>${lastmod}</lastmod>${imageXml}\n  </url>`;
+    })
     .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="${IMAGE_NS}">
 ${entries}
 </urlset>
 `;
@@ -74,13 +81,25 @@ ${items}
 `;
 }
 
-export function appendBlogToLlmsTxt(distDir, posts) {
-  const llmsPath = path.join(distDir, 'llms.txt');
-  const existing = fs.existsSync(llmsPath) ? fs.readFileSync(llmsPath, 'utf8').trimEnd() : '';
-  const lines = posts.map((post) => {
+// Spec-compliant llms.txt: title + summary, live pages (from the manifest),
+// and every published post with its meta description. Returns the full file.
+export function buildLlmsTxt({ posts, pages = PAGE_MANIFEST, site = SITE, summary = SITE_SUMMARY }) {
+  const pageLines = pages.map((p) => `- [${p.title}](${site}${p.route}): ${p.description}`);
+  const postLines = posts.map((post) => {
     const { description } = deriveMeta(post);
-    return `- [${decodeEntities(post.title)}](/blog/${post.slug}/): ${description}`;
+    return `- [${decodeEntities(post.title)}](${site}/blog/${post.slug}/): ${description}`;
   });
-  const blogSection = `## Blog\n- [Blog Index](/blog/): Articles on clinical documentation, practice tools, and resources for therapists.\n\n## Blog Posts\n${lines.join('\n')}`;
-  fs.writeFileSync(llmsPath, `${existing}\n\n${blogSection}\n`);
+  return `# Therapist Resources
+
+> ${summary}
+
+## Pages
+${pageLines.join('\n')}
+
+## Blog
+- [Blog Index](${site}/blog/): Articles on clinical documentation, practice tools, and resources for therapists.
+
+## Blog Posts
+${postLines.join('\n')}
+`;
 }
