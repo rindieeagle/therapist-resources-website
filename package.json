@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "vite --host :: --port 3000",
-    "build": "node tools/generate-llms.js || true && vite build && node tools/blog/build-blog.js",
+    "build": "vite build && node tools/blog/build-blog.js",
     "build:blog": "node tools/blog/build-blog.js",
+    "test": "node --test 'tools/blog/lib/**/*.test.js'",
     "migrate:wp": "node tools/migrate-from-wp.js",
     "preview": "vite preview --host :: --port 3000",
     "lint": "eslint . --quiet",
