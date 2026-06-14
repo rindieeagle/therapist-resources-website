@@ -34,7 +34,11 @@ export function escapeXml(str = '') {
 }
 
 export function stripHtml(html = '') {
-  return decodeEntities(parse(html).text).replace(/\s+/g, ' ').trim();
+  const root = parse(html);
+  // node-html-parser's .text includes the text content of <script>/<style>;
+  // drop those subtrees so inline widget JS never leaks into plaintext output.
+  root.querySelectorAll('script, style').forEach((n) => n.remove());
+  return decodeEntities(root.text).replace(/\s+/g, ' ').trim();
 }
 
 export function truncate(str, max = 155) {

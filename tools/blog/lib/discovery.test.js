@@ -33,3 +33,14 @@ test('buildLlmsFull renders a section per post with title, url, and body', () =>
   assert.ok(out.includes('# Second'));
   assert.ok(out.includes('\n---\n'));
 });
+
+test('buildLlmsFull drops inline script/style content, keeps real text', () => {
+  const posts = [
+    { title: 'Widget Post', slug: 'widget', date_gmt: '2026-06-01T00:00:00Z',
+      content: '<p>Keep this sentence.</p><script>var leak = function(){return 1;};</script><style>.x{color:red}</style>' },
+  ];
+  const out = buildLlmsFull(posts, { site: 'https://example.com' });
+  assert.ok(out.includes('Keep this sentence.'));
+  assert.ok(!out.includes('var leak'));
+  assert.ok(!out.includes('color:red'));
+});
