@@ -42,7 +42,7 @@ const Story = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 relative">
+    <section id="story" ref={sectionRef} className="py-20 px-4 relative">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* My Journey Block */}
@@ -72,18 +72,15 @@ const Story = () => {
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="relative pl-8 md:pl-12 py-6 border-l-4 border-gradient-to-b from-primary to-sky-500"
-              style={{
-                borderImage: 'linear-gradient(to bottom, var(--tr-leaf-lavender), var(--tr-cyan-500)) 1'
-              }}
+              className="relative rounded-2xl bg-[#F1F7FA] px-8 py-7 dark:bg-white/5"
             >
-              <Quote className="absolute -left-4 top-4 w-8 h-8 text-primary" />
+              <Quote className="absolute right-6 top-5 w-10 h-10 text-primary/20" aria-hidden="true" />
               <blockquote className="space-y-4">
                 <p className="text-2xl md:text-3xl italic text-foreground/95 leading-relaxed">
                   "Follow your heart, but take your brain with you."
                 </p>
                 <cite className="text-lg text-primary not-italic font-semibold">
-                  — Alfred Adler
+                  Alfred Adler
                 </cite>
               </blockquote>
             </motion.div>
@@ -122,7 +119,7 @@ const Story = () => {
                 Bi-monthly field notes on AI, tech, and workflows that actually reduce your workload and generate income.
               </p>
               <p className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                Get 5 prompts for creating psychoeducational handouts for clients - FREE!
+                Get 5 free prompts for creating psychoeducational handouts for clients.
               </p>
             </div>
             
@@ -186,7 +183,7 @@ const Story = () => {
                         name="subscribe"
                         id="mc-embedded-subscribe"
                         className="w-full px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg font-semibold shadow-lg transition-all duration-300 cursor-pointer"
-                        value="Join and Send those prompts my way!"
+                        value="Send me the prompts"
                       />
                     </div>
                   </div>

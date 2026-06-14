@@ -66,11 +66,11 @@ const ResourcesShowcase = () => {
             <li>Behavioral Definition Builder (part of Golden Thread Therapist Resources)</li>
             <li>More tools coming soon</li>
           </ul>
-          <p className="mt-2">Designed for immediate use in your practice. The Behavioral Definition Builder is nearly complete and ready to transform how you work with clients.</p>
+          <p className="mt-2">Designed for immediate use in your practice. The Behavioral Definition Builder is nearly complete and ready to streamline how you work with clients.</p>
         </>
       ),
       gradient: 'from-teal-500 to-primary',
-      link: '#' // Add a placeholder link, or a toast notification for unimplemented features
+      link: '/web-apps'
     }
   ];
 
@@ -114,9 +114,9 @@ const ResourcesShowcase = () => {
                   {resource.title}
                 </h3>
 
-                <p className="text-foreground/80 leading-relaxed min-h-[120px]"> {/* Added min-h for consistent card height */}
+                <div className="text-foreground/80 leading-relaxed min-h-[120px]">
                   {resource.description}
-                </p>
+                </div>
 
                 <Wrapper
                   {...wrapperProps}

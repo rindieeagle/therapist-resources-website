@@ -1,0 +1,155 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - paragraph [ref=e4]: Light register · default
+    - heading "Ink & Aurora" [level=1] [ref=e5]
+    - paragraph [ref=e6]:
+      - text: Deep peacock ink on paper, lit from the corners by teal and cyan radial blooms, with frosted-glass cards floating above the wash. Rendered live from
+      - code [ref=e7]: colors_and_type.css
+      - text: .
+    - generic [ref=e8]:
+      - heading "Signature headline gradient" [level=2] [ref=e9]
+      - generic [ref=e10]: Smart tools for modern therapists
+    - generic [ref=e11]:
+      - heading "Primary" [level=2] [ref=e12]
+      - generic [ref=e13]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: Peacock
+          - generic [ref=e18]: "#1B5A7E"
+        - generic [ref=e21]:
+          - generic [ref=e22]: Trunk Navy
+          - generic [ref=e23]: "#001C3F"
+        - generic [ref=e26]:
+          - generic [ref=e27]: Deep Peacock Ink
+          - generic [ref=e28]: "#0F2A36"
+    - generic [ref=e29]:
+      - heading "Secondary — the light ramp" [level=2] [ref=e30]
+      - generic [ref=e31]:
+        - generic [ref=e34]:
+          - generic [ref=e35]: Leaf Teal
+          - generic [ref=e36]: "#64C5C9"
+        - generic [ref=e39]:
+          - generic [ref=e40]: Leaf Cyan
+          - generic [ref=e41]: "#05B4DD"
+        - generic [ref=e44]:
+          - generic [ref=e45]: Leaf Blue
+          - generic [ref=e46]: "#0276B5"
+        - generic [ref=e49]:
+          - generic [ref=e50]: Peacock Cyan
+          - generic [ref=e51]: "#06B6D4"
+        - generic [ref=e54]:
+          - generic [ref=e55]: Aqua Mint
+          - generic [ref=e56]: "#5EEAD4"
+        - generic [ref=e59]:
+          - generic [ref=e60]: Bright Teal
+          - generic [ref=e61]: "#2DD4BF"
+        - generic [ref=e64]:
+          - generic [ref=e65]: Link Cyan
+          - generic [ref=e66]: "#0E7490"
+        - generic [ref=e69]:
+          - generic [ref=e70]: Sky 300
+          - generic [ref=e71]: "#7DD3FC"
+    - generic [ref=e72]:
+      - heading "Tertiary (micro-accent) & semantic" [level=2] [ref=e73]
+      - generic [ref=e74]:
+        - generic [ref=e77]:
+          - generic [ref=e78]: Leaf Lavender
+          - generic [ref=e79]: "#9F90C9"
+        - generic [ref=e82]:
+          - generic [ref=e83]: Quiet Lavender
+          - generic [ref=e84]: "#C4B5FD"
+        - generic [ref=e87]:
+          - generic [ref=e88]: Success
+          - generic [ref=e89]: "#34D399"
+        - generic [ref=e92]:
+          - generic [ref=e93]: Warning Pink
+          - generic [ref=e94]: "#F9A8D4"
+        - generic [ref=e97]:
+          - generic [ref=e98]: Danger
+          - generic [ref=e99]: "#F87171"
+    - generic [ref=e100]:
+      - heading "Neutrals & text ramp" [level=2] [ref=e101]
+      - generic [ref=e102]:
+        - generic [ref=e105]:
+          - generic [ref=e106]: Cool Paper
+          - generic [ref=e107]: "#FAFBFC"
+        - generic [ref=e110]:
+          - generic [ref=e111]: Peacock Tint
+          - generic [ref=e112]: "#F1F7FA"
+        - generic [ref=e115]:
+          - generic [ref=e116]: Hairline
+          - generic [ref=e117]: "#E5ECF1"
+        - generic [ref=e120]:
+          - generic [ref=e121]: Text Body
+          - generic [ref=e122]: "#2A4F5F"
+        - generic [ref=e125]:
+          - generic [ref=e126]: Text Secondary
+          - generic [ref=e127]: "#4A6B7A"
+        - generic [ref=e130]:
+          - generic [ref=e131]: Text Meta
+          - generic [ref=e132]: "#6B8A98"
+    - generic [ref=e133]:
+      - heading "Signature gradients" [level=2] [ref=e134]
+      - generic [ref=e135]:
+        - generic [ref=e136]: Primary CTA · peacock → cyan
+        - generic [ref=e137]: Headline · navy → peacock → cyan
+        - generic [ref=e138]: Violet CTA (course-enroll only)
+        - generic [ref=e139]: Card tint · teal
+    - generic [ref=e140]:
+      - heading "Typography" [level=2] [ref=e141]
+      - generic [ref=e142]:
+        - generic [ref=e143]: Display · Plus Jakarta Sans 72
+        - generic [ref=e144]: Headline H1 · 48
+        - generic [ref=e145]: Section H2 · 36
+        - generic [ref=e146]: Card title H3 · 24
+        - generic [ref=e147]: Lead · 20 / 1.6 — hero body and subheads, set for comfortable reading.
+        - generic [ref=e148]: Body · Inter 16 / 1.6. A documentation framework you can use on Monday. Clear examples, no fluff. Built by someone still in the chair.
+        - generic [ref=e149]: Eyebrow · Write it Right series
+        - generic [ref=e150]: "\"Quote · Playfair italic, used rarely.\""
+    - generic [ref=e151]:
+      - heading "Components" [level=2] [ref=e152]
+      - generic [ref=e153]:
+        - button "Get the course" [ref=e154] [cursor=pointer]
+        - button "Browse resources" [ref=e155] [cursor=pointer]
+        - generic [ref=e156]: ✓
+        - generic [ref=e157]: New in the shop
+      - generic [ref=e158]:
+        - generic [ref=e159]:
+          - generic [ref=e160]: SOAP notes, section by section
+          - generic [ref=e161]: A documentation framework you can use on Monday. Clear examples, no fluff.
+          - button "Start the course" [ref=e163] [cursor=pointer]
+        - generic [ref=e164]:
+          - generic [ref=e165]: Newsletter
+          - generic [ref=e166]: The Modern Therapist
+          - textbox "you@practice.com" [ref=e167]
+    - generic [ref=e168]:
+      - heading "Tinted shadows (never grey)" [level=2] [ref=e169]
+      - generic [ref=e170]:
+        - generic [ref=e171]: card
+        - generic [ref=e172]: cta glow
+        - generic [ref=e173]: cyan glow
+        - generic [ref=e174]: violet glow
+  - generic [ref=e176]:
+    - paragraph [ref=e177]: Dark register · data-theme="dark"
+    - heading "Calm Authority" [level=1] [ref=e178]
+    - paragraph [ref=e179]: The same tokens flipped onto a deep peacock backdrop. Navy carries the authority; the teal/cyan light keeps it composed rather than cold.
+    - generic [ref=e180]:
+      - heading "Headline & type on dark" [level=2] [ref=e181]
+      - generic [ref=e182]: Smart tools for modern therapists
+      - generic [ref=e183]: Lead · 20 / 1.6 on the dark register.
+      - generic [ref=e184]: Body · Inter 16 / 1.6. White-on-deep-peacock, links shift to sky.
+      - generic [ref=e185]: Eyebrow · brighter sky on dark
+    - generic [ref=e186]:
+      - heading "Components on dark" [level=2] [ref=e187]
+      - generic [ref=e188]:
+        - button "Get the course" [ref=e189] [cursor=pointer]
+        - button "Browse resources" [ref=e190] [cursor=pointer]
+        - generic [ref=e191]: ✓
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - generic [ref=e194]: SOAP notes, section by section
+          - generic [ref=e195]: A documentation framework you can use on Monday. Clear examples, no fluff.
+          - button "Start the course" [ref=e197] [cursor=pointer]
+        - generic [ref=e198]:
+          - generic [ref=e199]: Newsletter
+          - generic [ref=e200]: The Modern Therapist
+          - textbox "you@practice.com" [ref=e201]

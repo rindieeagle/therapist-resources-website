@@ -1,0 +1,237 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - navigation [ref=e5]:
+      - generic [ref=e6]:
+        - link "Therapist Resources Logo Therapist Resources" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]:
+            - img "Therapist Resources Logo" [ref=e9]
+            - generic [ref=e10]: Therapist Resources
+        - generic [ref=e11]:
+          - link "Home" [ref=e12] [cursor=pointer]:
+            - /url: /
+          - link "Courses" [ref=e13] [cursor=pointer]:
+            - /url: /courses
+          - link "Web Apps" [ref=e14] [cursor=pointer]:
+            - /url: /web-apps
+          - link "Blog" [ref=e15] [cursor=pointer]:
+            - /url: /blog/
+          - link "Shop" [ref=e16] [cursor=pointer]:
+            - /url: https://reagleeagle.gumroad.com/?section=SoACiIzAf7Uk2VwpGfH5Xg%3D%3D
+          - link "Contact" [ref=e17] [cursor=pointer]:
+            - /url: https://rindieme.formaloo.me/contact
+        - button "Switch to dark mode" [ref=e18] [cursor=pointer]:
+          - img [ref=e19]
+  - main [ref=e21]:
+    - generic [ref=e24]:
+      - link "Write it Right Course Bundle is now available" [ref=e25] [cursor=pointer]:
+        - /url: https://goldenthread.therapistresources.com
+        - text: Write it Right Course Bundle is now available
+      - heading "Smart Tools for the Modern Therapist" [level=1] [ref=e27]:
+        - generic [ref=e28]: Smart Tools
+        - generic [ref=e29]: for the Modern Therapist
+      - paragraph [ref=e30]: Audit-ready documentation, ethics-first AI workflows, and clinical templates. Built by a clinician with 10+ years in private practice, for therapists who want their paperwork to hold up and their evenings back.
+      - generic [ref=e31]:
+        - button "Browse Resources →" [ref=e32] [cursor=pointer]
+        - button "View Courses" [ref=e33] [cursor=pointer]
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: 10+
+          - generic [ref=e37]: Years in private practice
+        - generic [ref=e38]:
+          - generic [ref=e39]: 4-course
+          - generic [ref=e40]: Write it Right documentation series
+        - generic [ref=e41]:
+          - generic [ref=e42]: Bi-monthly
+          - generic [ref=e43]: The Modern Therapist newsletter
+    - generic [ref=e48]:
+      - img "Rindie Eagle - Professional Therapist" [ref=e52]
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - heading "Rindie Eagle" [level=1] [ref=e55]
+          - paragraph [ref=e56]: (MA, LPCC)
+        - paragraph [ref=e57]: Therapist + Tech Nerd
+        - paragraph [ref=e58]: Bridging the gap between traditional therapy and modern technology to create innovative resources that make a real difference in clinical practice.
+        - generic [ref=e59]:
+          - button "Explore Resources" [ref=e60] [cursor=pointer]
+          - button "View Courses" [ref=e61] [cursor=pointer]
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - heading "My Journey" [level=2] [ref=e67]
+          - paragraph [ref=e68]: From the Navy, to the IT field, to Therapy… It's been a variable smorgasbord of experiences to draw from in order to help others.
+        - generic [ref=e69]:
+          - img [ref=e70]
+          - blockquote [ref=e73]:
+            - paragraph [ref=e74]: "\"Follow your heart, but take your brain with you.\""
+            - text: — Alfred Adler
+        - paragraph [ref=e75]: This quote perfectly encapsulates my approach to therapy and resource development. Combining empathy with evidence-based practices to create tools that truly serve clinicians and their clients.
+      - generic [ref=e76]:
+        - generic [ref=e77]:
+          - heading "Join the Modern Therapist" [level=2] [ref=e78]
+          - paragraph [ref=e79]: Bi-monthly field notes on AI, tech, and workflows that actually reduce your workload and generate income.
+          - paragraph [ref=e80]: Get 5 prompts for creating psychoeducational handouts for clients - FREE!
+        - generic [ref=e84]:
+          - textbox "First Name" [ref=e86]
+          - textbox "Last Name" [ref=e88]
+          - textbox "Email Address" [ref=e90]
+          - textbox [ref=e92]
+          - button "Join and Send those prompts my way!" [ref=e94] [cursor=pointer]
+    - generic [ref=e96]:
+      - generic [ref=e97]:
+        - heading "Professional Resources" [level=2] [ref=e98]
+        - paragraph [ref=e99]: Everything designed to be used immediately, with no prep time required.
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - img [ref=e103]
+          - heading "Courses" [level=3] [ref=e106]
+          - generic [ref=e107]:
+            - text: "Ready-to-use courses designed for therapists. Includes:"
+            - list [ref=e108]:
+              - listitem [ref=e109]: Motivation Course
+              - listitem [ref=e110]: Sleep Hygiene 101 Course
+              - listitem [ref=e111]: Befriending Your Nervous System Course
+            - paragraph [ref=e112]: Each course is crafted to integrate seamlessly into your therapeutic practice.
+          - link "Learn More →" [ref=e113] [cursor=pointer]:
+            - /url: /courses
+            - generic [ref=e114]: Learn More →
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - heading "Web Apps" [level=3] [ref=e119]
+          - generic [ref=e120]:
+            - text: "Interactive tools built for therapists. Features:"
+            - list [ref=e121]:
+              - listitem [ref=e122]: Behavioral Definition Builder (part of Golden Thread Therapist Resources)
+              - listitem [ref=e123]: More tools coming soon
+            - paragraph [ref=e124]: Designed for immediate use in your practice. The Behavioral Definition Builder is nearly complete and ready to transform how you work with clients.
+          - link "Learn More →" [ref=e125] [cursor=pointer]:
+            - /url: /web-apps
+            - generic [ref=e126]: Learn More →
+      - generic [ref=e127]:
+        - paragraph [ref=e128]: Ready to Use, Right Away
+        - paragraph [ref=e129]: Download, print, and implement in your practice today
+    - generic [ref=e131]:
+      - generic [ref=e132]:
+        - generic [ref=e133]: 2026 Roadmap
+        - heading "Write it Right" [level=2] [ref=e134]
+        - paragraph [ref=e135]: Clinical Documentation Series
+        - paragraph [ref=e136]: Five courses that build on each other to give you a complete clinical documentation skill set.
+      - generic [ref=e139]:
+        - generic [ref=e143]:
+          - generic [ref=e144]:
+            - img [ref=e146]
+            - generic [ref=e154]:
+              - img [ref=e155]
+              - text: Available Now
+          - heading "The Golden Thread & Medical Necessity Course" [level=3] [ref=e158]
+          - paragraph [ref=e159]: Establish the foundation of defensible documentation. Tie assessment, goals, and interventions into one continuous golden thread that demonstrates medical necessity.
+          - link "Start the Course" [ref=e160] [cursor=pointer]:
+            - /url: https://foundations.therapistresources.com
+            - text: Start the Course
+            - generic [ref=e161]: →
+        - generic [ref=e165]:
+          - generic [ref=e166]:
+            - img [ref=e168]
+            - generic [ref=e171]:
+              - img [ref=e172]
+              - text: Available Now
+          - heading "SOAP Notes Course" [level=3] [ref=e175]
+          - paragraph [ref=e176]: Master the art of writing effective SOAP notes. Clear, concise, and clinically sound documentation that saves you time.
+          - link "Start the Course" [ref=e177] [cursor=pointer]:
+            - /url: https://soap.therapistresources.com
+            - text: Start the Course
+            - generic [ref=e178]: →
+        - generic [ref=e182]:
+          - generic [ref=e183]:
+            - img [ref=e185]
+            - generic [ref=e189]:
+              - img [ref=e190]
+              - text: Available Now
+          - heading "Treatment Planning Course" [level=3] [ref=e193]
+          - paragraph [ref=e194]: Build treatment plans that are individualized, measurable, and audit-ready. Connect goals to interventions with confidence.
+          - link "Start the Course" [ref=e195] [cursor=pointer]:
+            - /url: https://tp.therapistresources.com
+            - text: Start the Course
+            - generic [ref=e196]: →
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - img [ref=e203]
+            - generic [ref=e209]:
+              - img [ref=e210]
+              - text: Available Now
+          - heading "Diagnostic Assessment Course" [level=3] [ref=e213]
+          - paragraph [ref=e214]: Conduct and document thorough diagnostic assessments. From clinical interviews to differential diagnosis and written formulation.
+          - link "Start the Course" [ref=e215] [cursor=pointer]:
+            - /url: https://da.therapistresources.com
+            - text: Start the Course
+            - generic [ref=e216]: →
+        - generic [ref=e220]:
+          - generic [ref=e221]:
+            - img [ref=e223]
+            - generic [ref=e227]:
+              - img [ref=e228]
+              - text: Available Now
+          - heading "Discharge & Treatment Summary Course" [level=3] [ref=e231]
+          - paragraph [ref=e232]: Close cases with well-documented discharge and treatment summaries that communicate outcomes and support continuity of care.
+          - link "Start the Course" [ref=e233] [cursor=pointer]:
+            - /url: https://discharge.therapistresources.com
+            - text: Start the Course
+            - generic [ref=e234]: →
+      - generic [ref=e235]:
+        - paragraph [ref=e236]: The Complete Clinical Documentation Toolkit
+        - paragraph [ref=e237]: From diagnostic assessments to discharge summaries. Complete the series to document with clarity and confidence.
+    - generic [ref=e241]:
+      - generic [ref=e242]: All five courses · Available now
+      - heading "Complete the series. Document with confidence." [level=2] [ref=e243]
+      - paragraph [ref=e244]: The Write it Right bundle takes you from  intake to discharge, all based on the golden-thread framework. Build audit-ready notes that hold up, and get your evenings back.
+      - generic [ref=e245]:
+        - link "Get the Write it Right Bundle" [ref=e246] [cursor=pointer]:
+          - /url: https://goldenthread.therapistresources.com
+          - text: Get the Write it Right Bundle
+          - generic [ref=e247]: →
+        - button "Browse the courses" [ref=e248] [cursor=pointer]
+  - contentinfo [ref=e249]:
+    - generic [ref=e250]:
+      - generic [ref=e251]:
+        - img "Therapist Resources" [ref=e254]
+        - generic [ref=e255]:
+          - heading "Quick Links" [level=3] [ref=e256]
+          - navigation [ref=e257]:
+            - link "Home" [ref=e258] [cursor=pointer]:
+              - /url: "#home"
+            - link "Resources" [ref=e259] [cursor=pointer]:
+              - /url: "#resources"
+            - link "Courses" [ref=e260] [cursor=pointer]:
+              - /url: "#courses"
+            - link "Blog" [ref=e261] [cursor=pointer]:
+              - /url: /blog/
+        - generic [ref=e262]:
+          - heading "Connect" [level=3] [ref=e263]
+          - generic [ref=e264]:
+            - link [ref=e265] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/rindieeagle
+              - img [ref=e266]
+            - link [ref=e270] [cursor=pointer]:
+              - /url: https://www.facebook.com/rindieresources
+              - img [ref=e271]
+            - link [ref=e273] [cursor=pointer]:
+              - /url: https://rindieme.formaloo.me/contact
+              - img [ref=e274]
+          - paragraph [ref=e277]: rindie@therapistresources.com
+      - generic [ref=e278]:
+        - paragraph [ref=e279]:
+          - generic [ref=e280]: © 2026 Therapist Resources & Encouragement Ink.
+          - generic [ref=e281]:
+            - generic [ref=e282]: Made with
+            - img [ref=e283]
+            - generic [ref=e285]: for therapists everywhere.
+        - paragraph [ref=e286]: All rights reserved. Professional resources designed by Rindie Eagle MA, LPCC
+        - generic [ref=e287]:
+          - link "Privacy Policy" [ref=e288] [cursor=pointer]:
+            - /url: https://reagleeagle.com/privacy
+          - link "Terms and Conditions" [ref=e289] [cursor=pointer]:
+            - /url: https://reagleeagle.com/terms
+          - link "Cookie Policy" [ref=e290] [cursor=pointer]:
+            - /url: https://reagleeagle.com/cookies
+  - region "Notifications (F8)":
+    - list

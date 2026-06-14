@@ -10,8 +10,8 @@ const milestones = [
     icon: Waypoints,
     status: 'done',
     link: 'https://foundations.therapistresources.com',
-    gradient: 'from-amber-400 to-orange-500',
-    glow: 'shadow-amber-500/20',
+    gradient: 'from-[#001C3F] to-[#1B5A7E]',
+    glow: 'shadow-cyan-500/20',
   },
   {
     title: 'SOAP Notes Course',
@@ -20,8 +20,8 @@ const milestones = [
     icon: BookOpen,
     status: 'done',
     link: 'https://soap.therapistresources.com',
-    gradient: 'from-emerald-400 to-teal-500',
-    glow: 'shadow-emerald-500/20',
+    gradient: 'from-[#1B5A7E] to-[#0E7490]',
+    glow: 'shadow-cyan-500/20',
   },
   {
     title: 'Treatment Planning Course',
@@ -30,7 +30,7 @@ const milestones = [
     icon: ClipboardList,
     status: 'done',
     link: 'https://tp.therapistresources.com',
-    gradient: 'from-primary to-sky-500',
+    gradient: 'from-[#0E7490] to-[#06B6D4]',
     glow: 'shadow-cyan-500/20',
   },
   {
@@ -40,8 +40,8 @@ const milestones = [
     icon: FileSearch,
     status: 'done',
     link: 'https://da.therapistresources.com',
-    gradient: 'from-violet-400 to-indigo-500',
-    glow: 'shadow-violet-500/20',
+    gradient: 'from-[#0276B5] to-[#05B4DD]',
+    glow: 'shadow-cyan-500/20',
   },
   {
     title: 'Discharge & Treatment Summary Course',
@@ -50,8 +50,8 @@ const milestones = [
     icon: FileText,
     status: 'done',
     link: 'https://discharge.therapistresources.com',
-    gradient: 'from-fuchsia-400 to-pink-500',
-    glow: 'shadow-fuchsia-500/20',
+    gradient: 'from-[#64C5C9] to-[#9F90C9]',
+    glow: 'shadow-cyan-500/20',
   },
 ];
 
@@ -74,7 +74,7 @@ const ProjectRoadmap = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 px-4 relative overflow-hidden">
+    <section id="courses" ref={sectionRef} className="py-20 px-4 relative overflow-hidden">
       {/* Decorative background accents */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -111,7 +111,7 @@ const ProjectRoadmap = () => {
               initial={{ scaleY: 0 }}
               animate={isVisible ? { scaleY: 1 } : { scaleY: 0 }}
               transition={{ duration: 1.2, delay: 0.3 }}
-              className="h-full w-full bg-gradient-to-b from-amber-500/50 via-primary/50 to-pink-500/50 origin-top"
+              className="h-full w-full bg-gradient-to-b from-[#001C3F]/50 via-primary/50 to-[#9F90C9]/50 origin-top"
             />
           </div>
 
@@ -132,7 +132,7 @@ const ProjectRoadmap = () => {
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
                   className={`relative rounded-2xl p-6 md:p-8 border transition-all duration-300 group ${
                     isDone
-                      ? 'glass-strong border-emerald-500/30 shadow-lg shadow-emerald-500/10'
+                      ? 'glass-strong border-[#06B6D4]/30 shadow-lg shadow-cyan-500/10'
                       : 'glass hover:bg-accent hover:border-border'
                   }`}
                 >
@@ -145,7 +145,7 @@ const ProjectRoadmap = () => {
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       {isDone ? (
-                        <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400">
+                        <span className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300">
                           <CheckCircle2 className="w-3.5 h-3.5" />
                           Available Now
                         </span>
@@ -170,7 +170,7 @@ const ProjectRoadmap = () => {
                       href={milestone.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold shadow-lg hover:shadow-emerald-500/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+                      className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
                     >
                       Start the Course
                       <span aria-hidden="true">&rarr;</span>
@@ -208,7 +208,7 @@ const ProjectRoadmap = () => {
                     }}
                     className={`hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 rounded-full border-2 items-center justify-center ${
                       isDone
-                        ? 'bg-emerald-500 border-emerald-300 shadow-lg shadow-emerald-500/40'
+                        ? 'bg-[#06B6D4] border-[#7DD3FC] shadow-lg shadow-cyan-500/40'
                         : 'bg-muted border-border'
                     }`}
                   >
@@ -236,7 +236,7 @@ const ProjectRoadmap = () => {
             The Complete Clinical Documentation Toolkit
           </p>
           <p className="text-foreground/70">
-            From SOAP notes to discharge summaries. Finish the series and document with clarity and confidence.
+            From diagnostic assessments to discharge summaries. Complete the series to document with clarity and confidence.
           </p>
         </motion.div>
       </div>

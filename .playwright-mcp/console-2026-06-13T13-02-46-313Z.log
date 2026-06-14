@@ -1,0 +1,42 @@
+[     278ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://chimpstatic.com/mcjs-connected/js/users/6a56fdf5ad057aa9d119505c9/d27ea7b9fcc7366b3dbd77b8a.js:0
+[     306ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/chunk-G52XTN3B.js?v=a02a22ed:21579
+[     337ms] [ERROR] Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s <ul> p 
+    at ul
+    at p
+    at div
+    at MotionComponent (http://localhost:3000/node_modules/.vite/deps/framer-motion.js?v=36db1707:6578:40)
+    at div
+    at div
+    at section
+    at ResourcesShowcase (http://localhost:3000/src/components/ResourcesShowcase.jsx:24:37)
+    at HomePage
+    at RenderedRoute (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4146:5)
+    at Routes (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4617:5)
+    at main
+    at div
+    at App
+    at ThemeProvider (http://localhost:3000/src/lib/theme.jsx:31:33)
+    at Router (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4560:15)
+    at BrowserRouter (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:5309:5) @ http://localhost:3000/:343
+[     337ms] [ERROR] Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s <p> p 
+    at p
+    at p
+    at div
+    at MotionComponent (http://localhost:3000/node_modules/.vite/deps/framer-motion.js?v=36db1707:6578:40)
+    at div
+    at div
+    at section
+    at ResourcesShowcase (http://localhost:3000/src/components/ResourcesShowcase.jsx:24:37)
+    at HomePage
+    at RenderedRoute (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4146:5)
+    at Routes (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4617:5)
+    at main
+    at div
+    at App
+    at ThemeProvider (http://localhost:3000/src/lib/theme.jsx:31:33)
+    at Router (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4560:15)
+    at BrowserRouter (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:5309:5) @ http://localhost:3000/:343
+[     346ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4451
+[     346ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4451
+[     642ms] [ERROR] Fetch error from :  @ http://localhost:3000/:343
+[   14914ms] [ERROR] Fetch error from :  @ http://localhost:3000/:343
