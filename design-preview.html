@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Therapist Resources — Design System Preview</title>
+  <!-- Pulls the REAL production tokens. Nothing here is reinvented. -->
+  <link rel="stylesheet" href="src/styles/colors_and_type.css" />
+  <style>
+    /* Preview-only scaffolding (pv- prefix), so it never collides with brand tokens. */
+    .pv-page { font-family: var(--tr-font-body); color: var(--tr-text-80); min-height: 100vh; }
+    .pv-light { background: var(--tr-bg-base); background-image: var(--tr-bg-radials); }
+    .pv-dark  { background: #0F3A52; background-image:
+        radial-gradient(at 0% 0%, rgba(56,189,248,0.16) 0, transparent 55%),
+        radial-gradient(at 100% 100%, rgba(14,116,144,0.18) 0, transparent 55%); }
+    .pv-wrap { max-width: 1120px; margin: 0 auto; padding: 64px 32px 96px; }
+    .pv-register-tag { font-family: var(--tr-font-body); font-size: 13px; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--tr-text-60); }
+    .pv-northstar { font-family: var(--tr-font-display); font-weight: 800;
+      font-size: clamp(28px, 4vw, 44px); line-height: 1.1; letter-spacing: -.02em;
+      color: var(--tr-text); margin: 6px 0 4px; }
+    .pv-sub { color: var(--tr-text-70); font-size: 16px; max-width: 60ch; }
+    .pv-section { margin-top: 56px; }
+    .pv-section > h2 { font-family: var(--tr-font-display); font-weight: 700; font-size: 22px;
+      color: var(--tr-text); margin: 0 0 18px; letter-spacing: -.01em; }
+    .pv-grid { display: grid; gap: 14px; }
+    .pv-swatches { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .pv-swatch { border-radius: 14px; overflow: hidden; border: 1px solid var(--tr-border);
+      background: var(--tr-bg-paper); box-shadow: var(--tr-shadow-soft); }
+    .pv-chip { height: 72px; }
+    .pv-swatch .pv-meta { padding: 10px 12px; }
+    .pv-name { font-size: 13px; font-weight: 600; color: var(--tr-text-90); }
+    .pv-hex { font-family: var(--tr-font-mono); font-size: 12px; color: var(--tr-text-60); }
+    .pv-grad-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 14px; }
+    .pv-grad { height: 76px; border-radius: 14px; display: flex; align-items: flex-end; padding: 10px 12px;
+      color: #fff; font-size: 12px; font-weight: 600; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+    .pv-type-row { display: flex; flex-direction: column; gap: 14px; }
+    .pv-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .pv-card-demo { max-width: 360px; }
+    .pv-shadow-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap: 22px; }
+    .pv-shadow-box { height: 84px; border-radius: 16px; background: var(--tr-bg-paper);
+      display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--tr-text-70); }
+    .pv-divider { height: 1px; background: var(--tr-border); margin: 0; border: 0; }
+    .pv-badge { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px;
+      border-radius: 9999px; background: var(--tr-grad-primary); color: #fff; font-size: 15px; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== LIGHT REGISTER: "Ink & Aurora" ===================== -->
+  <div class="pv-page pv-light">
+    <div class="pv-wrap">
+      <p class="pv-register-tag">Light register · default</p>
+      <h1 class="pv-northstar">Ink &amp; Aurora</h1>
+      <p class="pv-sub">Deep peacock ink on paper, lit from the corners by teal and cyan radial blooms, with frosted-glass cards floating above the wash. Rendered live from <code>colors_and_type.css</code>.</p>
+
+      <!-- Headline gradient (signature) -->
+      <section class="pv-section">
+        <h2>Signature headline gradient</h2>
+        <div class="tr-display tr-grad-text" style="max-width: 18ch;">Smart tools for modern therapists</div>
+      </section>
+
+      <!-- Primary colors -->
+      <section class="pv-section">
+        <h2>Primary</h2>
+        <div class="pv-grid pv-swatches">
+          <div class="pv-swatch"><div class="pv-chip" style="background:#1B5A7E"></div><div class="pv-meta"><div class="pv-name">Peacock</div><div class="pv-hex">#1B5A7E</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#001C3F"></div><div class="pv-meta"><div class="pv-name">Trunk Navy</div><div class="pv-hex">#001C3F</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#0F2A36"></div><div class="pv-meta"><div class="pv-name">Deep Peacock Ink</div><div class="pv-hex">#0F2A36</div></div></div>
+        </div>
+      </section>
+
+      <!-- Secondary colors -->
+      <section class="pv-section">
+        <h2>Secondary — the light ramp</h2>
+        <div class="pv-grid pv-swatches">
+          <div class="pv-swatch"><div class="pv-chip" style="background:#64C5C9"></div><div class="pv-meta"><div class="pv-name">Leaf Teal</div><div class="pv-hex">#64C5C9</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#05B4DD"></div><div class="pv-meta"><div class="pv-name">Leaf Cyan</div><div class="pv-hex">#05B4DD</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#0276B5"></div><div class="pv-meta"><div class="pv-name">Leaf Blue</div><div class="pv-hex">#0276B5</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#06B6D4"></div><div class="pv-meta"><div class="pv-name">Peacock Cyan</div><div class="pv-hex">#06B6D4</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#5EEAD4"></div><div class="pv-meta"><div class="pv-name">Aqua Mint</div><div class="pv-hex">#5EEAD4</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#2DD4BF"></div><div class="pv-meta"><div class="pv-name">Bright Teal</div><div class="pv-hex">#2DD4BF</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#0E7490"></div><div class="pv-meta"><div class="pv-name">Link Cyan</div><div class="pv-hex">#0E7490</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#7DD3FC"></div><div class="pv-meta"><div class="pv-name">Sky 300</div><div class="pv-hex">#7DD3FC</div></div></div>
+        </div>
+      </section>
+
+      <!-- Tertiary + semantic -->
+      <section class="pv-section">
+        <h2>Tertiary (micro-accent) &amp; semantic</h2>
+        <div class="pv-grid pv-swatches">
+          <div class="pv-swatch"><div class="pv-chip" style="background:#9F90C9"></div><div class="pv-meta"><div class="pv-name">Leaf Lavender</div><div class="pv-hex">#9F90C9</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#C4B5FD"></div><div class="pv-meta"><div class="pv-name">Quiet Lavender</div><div class="pv-hex">#C4B5FD</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#34D399"></div><div class="pv-meta"><div class="pv-name">Success</div><div class="pv-hex">#34D399</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#F9A8D4"></div><div class="pv-meta"><div class="pv-name">Warning Pink</div><div class="pv-hex">#F9A8D4</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#F87171"></div><div class="pv-meta"><div class="pv-name">Danger</div><div class="pv-hex">#F87171</div></div></div>
+        </div>
+      </section>
+
+      <!-- Neutrals -->
+      <section class="pv-section">
+        <h2>Neutrals &amp; text ramp</h2>
+        <div class="pv-grid pv-swatches">
+          <div class="pv-swatch"><div class="pv-chip" style="background:#FAFBFC"></div><div class="pv-meta"><div class="pv-name">Cool Paper</div><div class="pv-hex">#FAFBFC</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#F1F7FA"></div><div class="pv-meta"><div class="pv-name">Peacock Tint</div><div class="pv-hex">#F1F7FA</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#E5ECF1"></div><div class="pv-meta"><div class="pv-name">Hairline</div><div class="pv-hex">#E5ECF1</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#2A4F5F"></div><div class="pv-meta"><div class="pv-name">Text Body</div><div class="pv-hex">#2A4F5F</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#4A6B7A"></div><div class="pv-meta"><div class="pv-name">Text Secondary</div><div class="pv-hex">#4A6B7A</div></div></div>
+          <div class="pv-swatch"><div class="pv-chip" style="background:#6B8A98"></div><div class="pv-meta"><div class="pv-name">Text Meta</div><div class="pv-hex">#6B8A98</div></div></div>
+        </div>
+      </section>
+
+      <!-- Gradients -->
+      <section class="pv-section">
+        <h2>Signature gradients</h2>
+        <div class="pv-grad-row">
+          <div class="pv-grad" style="background:linear-gradient(90deg,#1B5A7E 0%,#0E7490 60%,#0284C7 100%)">Primary CTA · peacock → cyan</div>
+          <div class="pv-grad" style="background:linear-gradient(90deg,#001C3F 0%,#1B5A7E 45%,#0E7490 75%,#06B6D4 100%)">Headline · navy → peacock → cyan</div>
+          <div class="pv-grad" style="background:linear-gradient(90deg,#9F90C9 0%,#6E5DAA 100%)">Violet CTA (course-enroll only)</div>
+          <div class="pv-grad" style="background:linear-gradient(135deg,rgba(45,212,191,.4) 0%,rgba(56,189,248,.4) 100%);color:#0F2A36;text-shadow:none">Card tint · teal</div>
+        </div>
+      </section>
+
+      <!-- Typography -->
+      <section class="pv-section">
+        <h2>Typography</h2>
+        <div class="pv-type-row">
+          <div class="tr-display">Display · Plus Jakarta Sans 72</div>
+          <div class="tr-h1">Headline H1 · 48</div>
+          <div class="tr-h2">Section H2 · 36</div>
+          <div class="tr-h3">Card title H3 · 24</div>
+          <div class="tr-lead">Lead · 20 / 1.6 — hero body and subheads, set for comfortable reading.</div>
+          <div class="tr-body">Body · Inter 16 / 1.6. A documentation framework you can use on Monday. Clear examples, no fluff. Built by someone still in the chair.</div>
+          <div class="tr-eyebrow">Eyebrow · Write it Right series</div>
+          <div class="tr-quote">"Quote · Playfair italic, used rarely."</div>
+        </div>
+      </section>
+
+      <!-- Components -->
+      <section class="pv-section">
+        <h2>Components</h2>
+        <div class="pv-row" style="margin-bottom:20px">
+          <button class="tr-btn tr-btn--primary">Get the course</button>
+          <button class="tr-btn tr-btn--ghost">Browse resources</button>
+          <span class="pv-badge">✓</span>
+          <span class="tr-eyebrow">New in the shop</span>
+        </div>
+        <div class="pv-row">
+          <div class="tr-glass pv-card-demo" style="padding:24px">
+            <div class="tr-h3" style="margin-bottom:8px">SOAP notes, section by section</div>
+            <div class="tr-body">A documentation framework you can use on Monday. Clear examples, no fluff.</div>
+            <div style="margin-top:16px"><button class="tr-btn tr-btn--primary">Start the course</button></div>
+          </div>
+          <div class="tr-glass-strong pv-card-demo" style="padding:24px;border-radius:24px">
+            <div class="tr-eyebrow" style="margin-bottom:8px">Newsletter</div>
+            <div class="tr-h3" style="margin-bottom:12px">The Modern Therapist</div>
+            <input type="email" placeholder="you@practice.com" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--tr-border);background:#fff;color:var(--tr-ink);font-size:16px" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Shadows -->
+      <section class="pv-section">
+        <h2>Tinted shadows (never grey)</h2>
+        <div class="pv-shadow-row">
+          <div class="pv-shadow-box" style="box-shadow:var(--tr-shadow-card)">card</div>
+          <div class="pv-shadow-box" style="box-shadow:var(--tr-shadow-cta)">cta glow</div>
+          <div class="pv-shadow-box" style="box-shadow:var(--tr-shadow-cyan)">cyan glow</div>
+          <div class="pv-shadow-box" style="box-shadow:var(--tr-shadow-violet)">violet glow</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ===================== DARK REGISTER: "Calm Authority" ===================== -->
+  <div class="pv-page pv-dark" data-theme="dark">
+    <div class="pv-wrap">
+      <p class="pv-register-tag" style="color:var(--tr-text-60)">Dark register · data-theme="dark"</p>
+      <h1 class="pv-northstar">Calm Authority</h1>
+      <p class="pv-sub">The same tokens flipped onto a deep peacock backdrop. Navy carries the authority; the teal/cyan light keeps it composed rather than cold.</p>
+
+      <section class="pv-section">
+        <h2>Headline &amp; type on dark</h2>
+        <div class="tr-display tr-grad-text" style="max-width:18ch">Smart tools for modern therapists</div>
+        <div class="tr-lead" style="margin-top:16px">Lead · 20 / 1.6 on the dark register.</div>
+        <div class="tr-body" style="margin-top:8px">Body · Inter 16 / 1.6. White-on-deep-peacock, links shift to sky.</div>
+        <div class="tr-eyebrow" style="margin-top:8px">Eyebrow · brighter sky on dark</div>
+      </section>
+
+      <section class="pv-section">
+        <h2>Components on dark</h2>
+        <div class="pv-row" style="margin-bottom:20px">
+          <button class="tr-btn tr-btn--primary">Get the course</button>
+          <button class="tr-btn tr-btn--ghost">Browse resources</button>
+          <span class="pv-badge">✓</span>
+        </div>
+        <div class="pv-row">
+          <div class="tr-glass pv-card-demo" style="padding:24px">
+            <div class="tr-h3" style="margin-bottom:8px">SOAP notes, section by section</div>
+            <div class="tr-body">A documentation framework you can use on Monday. Clear examples, no fluff.</div>
+            <div style="margin-top:16px"><button class="tr-btn tr-btn--primary">Start the course</button></div>
+          </div>
+          <div class="tr-glass-strong pv-card-demo" style="padding:24px;border-radius:24px">
+            <div class="tr-eyebrow" style="margin-bottom:8px">Newsletter</div>
+            <div class="tr-h3" style="margin-bottom:12px">The Modern Therapist</div>
+            <input type="email" placeholder="you@practice.com" style="width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--tr-border);background:var(--tr-surface);color:var(--tr-ink);font-size:16px" />
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>

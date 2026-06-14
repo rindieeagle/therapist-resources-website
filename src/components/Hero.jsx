@@ -117,7 +117,7 @@ const Hero = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.3 }}
-                  className="text-2xl md:text-3xl italic tr-grad-text font-medium"
+                  className="text-2xl md:text-3xl italic text-primary font-medium"
                 >
                   Therapist + Tech Nerd
                 </motion.p>
@@ -139,15 +139,9 @@ const Hero = () => {
                 >
                   <button
                     className="px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
-                    onClick={() => document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.querySelector('#story')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    Explore Resources
-                  </button>
-                  <button
-                    className="px-6 sm:px-8 py-3 bg-card text-foreground rounded-full font-semibold border border-border hover:bg-accent hover:border-border hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
-                    onClick={() => document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    View Courses
+                    Read my story
                   </button>
                 </motion.div>
               </motion.div>

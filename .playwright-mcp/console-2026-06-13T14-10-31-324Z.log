@@ -1,0 +1,16 @@
+[      51ms] [ERROR] TypeError: Failed to fetch
+    at window.fetch (http://localhost:3000/:377:23)
+    at rd (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:233:391)
+    at Ml (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:386:1035)
+    at xQ (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:897:108)
+    at zQ (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:897:436)
+    at FQ.flush (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:905:403)
+    at k.flush (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:924:478)
+    at DP.T (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:927:182)
+    at https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:871:126
+    at https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:870:417 @ http://localhost:3000/:343
+[     166ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://chimpstatic.com/mcjs-connected/js/users/6a56fdf5ad057aa9d119505c9/d27ea7b9fcc7366b3dbd77b8a.js:0
+[     187ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/chunk-G52XTN3B.js?v=5fba2d5d:21579
+[     214ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=5fba2d5d:4451
+[     214ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=5fba2d5d:4451
+[    5357ms] [ERROR] Fetch error from :  @ http://localhost:3000/:343

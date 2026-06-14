@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-13",
+  "title": "Design System: Therapist Resources",
+  "extensions": {
+    "colorMeta": {
+      "peacock": { "role": "primary", "displayName": "Peacock", "canonical": "#1B5A7E", "tonalRamp": ["#06222F", "#0C3346", "#12455E", "#1B5A7E", "#2E7197", "#5491B0", "#8AB6CC", "#C3DBE6"] },
+      "trunk-navy": { "role": "primary", "displayName": "Trunk Navy", "canonical": "#001C3F", "tonalRamp": ["#000A17", "#00132B", "#001C3F", "#093A63", "#1A5C8E", "#3E83B5", "#7DAED2", "#C0D8EC"] },
+      "leaf-cyan": { "role": "secondary", "displayName": "Leaf Cyan", "canonical": "#05B4DD", "tonalRamp": ["#02343F", "#03566A", "#048FAF", "#05B4DD", "#3FC6E6", "#74D6EE", "#A6E5F5", "#D3F2FA"] },
+      "peacock-cyan": { "role": "secondary", "displayName": "Peacock Cyan", "canonical": "#06B6D4", "tonalRamp": ["#04323B", "#055466", "#068FA6", "#06B6D4", "#3DCBE2", "#73DAEC", "#A6E8F4", "#D3F4FA"] },
+      "aqua-mint": { "role": "secondary", "displayName": "Aqua Mint", "canonical": "#5EEAD4", "tonalRamp": ["#0C453C", "#127A6A", "#1FAE97", "#2DD4BF", "#5EEAD4", "#8FF1E1", "#B8F6EC", "#DCFBF6"] },
+      "link-cyan": { "role": "secondary", "displayName": "Link Cyan", "canonical": "#0E7490", "tonalRamp": ["#052E3A", "#083F50", "#0B5A70", "#0E7490", "#1593B5", "#3FB0CF", "#7CCDE2", "#BEE6F1"] },
+      "leaf-lavender": { "role": "tertiary", "displayName": "Leaf Lavender", "canonical": "#9F90C9", "tonalRamp": ["#2E2748", "#453A6B", "#5E4F8F", "#7C6BB0", "#9F90C9", "#C4B5FD", "#D8CFFE", "#ECE7FF"] },
+      "deep-peacock-ink": { "role": "neutral", "displayName": "Deep Peacock Ink", "canonical": "#0F2A36", "tonalRamp": ["#0F2A36", "#1B3D4D", "#2A4F5F", "#4A6B7A", "#6B8A98", "#8FA6B2", "#CBD9E2", "#E5ECF1"] },
+      "cool-paper": { "role": "neutral", "displayName": "Cool Paper", "canonical": "#FAFBFC", "tonalRamp": ["#0F3A52", "#1B3D4D", "#2A4F5F", "#6B8A98", "#CBD9E2", "#E5ECF1", "#F1F7FA", "#FFFFFF"] },
+      "deep-peacock-bg": { "role": "neutral", "displayName": "Deep Peacock (dark base)", "canonical": "#0F3A52", "tonalRamp": ["#081E2B", "#0C2C3F", "#0F3A52", "#155068", "#1F6B86", "#3E8AA6", "#74B2C9", "#B8DAE6"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero h1 only, clamp 40-72px. The one place type goes large." },
+      "headline": { "displayName": "Headline", "purpose": "Page titles, clamp 32-48px." },
+      "title": { "displayName": "Title", "purpose": "Section and card headings (h2/h3)." },
+      "lead": { "displayName": "Lead", "purpose": "Hero body and subheads, 20px." },
+      "body": { "displayName": "Body", "purpose": "Base paragraph, 16px / 1.6, measure 65-75ch." },
+      "label": { "displayName": "Label / Eyebrow", "purpose": "12px uppercase, +0.07em tracking; Aqua Mint on light, Sky 300 on dark." },
+      "quote": { "displayName": "Quote", "purpose": "Rare Playfair Display italic pull-quote." }
+    },
+    "shadows": [
+      { "name": "card", "value": "0 25px 50px -12px rgba(0,0,0,0.25)", "purpose": "Resting float for glass cards (deepens to -20px / 0.55 on dark)." },
+      { "name": "cta", "value": "0 10px 25px -5px rgba(6,182,212,0.50)", "purpose": "Peacock-cyan glow under primary CTAs on hover." },
+      { "name": "cyan", "value": "0 10px 25px -5px rgba(56,189,248,0.45)", "purpose": "Sky-cyan accent glow." },
+      { "name": "violet", "value": "0 10px 25px -5px rgba(139,92,246,0.40)", "purpose": "Lavender accent glow (micro-accent only)." },
+      { "name": "soft", "value": "0 10px 30px -15px rgba(0,0,0,0.30)", "purpose": "Diffuse ambient lift." },
+      { "name": "up-glow", "value": "0 -10px 30px -15px rgba(0,0,0,0.30)", "purpose": "Upward glow anchoring the footer." }
+    ],
+    "motion": [
+      { "name": "ease-base", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default easing for state transitions." },
+      { "name": "ease-soft", "value": "cubic-bezier(0.4, 0, 0.6, 1)", "purpose": "Soft easing for ambient pulse loops." },
+      { "name": "dur-fast", "value": "200ms", "purpose": "Button/hover state changes." },
+      { "name": "dur-base", "value": "300ms", "purpose": "Standard transitions." },
+      { "name": "dur-slow", "value": "500ms", "purpose": "Larger reveals." },
+      { "name": "pulse-slow", "value": "4s", "purpose": "Ambient hero pulse." },
+      { "name": "gradient-drift", "value": "15s", "purpose": "Slow background gradient drift." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "1024px" },
+      { "name": "lg", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The brand's signature pill CTA: peacock-to-cyan gradient with a cyan glow on hover.",
+      "html": "<button class=\"ds-btn-primary\">Get the course</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; border: none; cursor: pointer; border-radius: 9999px; font-family: var(--tr-font-body, 'Inter', sans-serif); font-weight: 600; font-size: 16px; color: #FFFFFF; background: var(--tr-grad-primary, linear-gradient(90deg, #1B5A7E 0%, #0E7490 60%, #0284C7 100%)); box-shadow: 0 12px 28px -10px rgba(14,116,144,0.45); transition: transform 200ms cubic-bezier(0.4,0,0.2,1), box-shadow 200ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { transform: scale(1.02); box-shadow: 0 10px 25px -5px rgba(6,182,212,0.50); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #0E7490; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary pill on base glass with a hairline border; lifts to the mid glass tier on hover.",
+      "html": "<button class=\"ds-btn-ghost\">Browse resources</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 28px; cursor: pointer; border-radius: 9999px; font-family: var(--tr-font-body, 'Inter', sans-serif); font-weight: 600; font-size: 16px; color: var(--tr-ink, #0F2A36); background: var(--tr-glass-base, rgba(255,255,255,0.72)); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--tr-glass-border, #E5ECF1); transition: transform 200ms cubic-bezier(0.4,0,0.2,1), background 200ms, border-color 200ms; } .ds-btn-ghost:hover { transform: scale(1.02); background: var(--tr-glass-mid, rgba(255,255,255,0.85)); border-color: var(--tr-glass-border-hi, #CBD9E2); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid #0E7490; outline-offset: 2px; }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Frosted-glass card floating above the radial-bloom backdrop with a tinted shadow.",
+      "html": "<article class=\"ds-card-glass\"><h3 class=\"ds-card-title\">SOAP Notes, section by section</h3><p class=\"ds-card-body\">A documentation framework you can use on Monday. Clear examples, no fluff.</p></article>",
+      "css": ".ds-card-glass { background: var(--tr-glass-base, rgba(255,255,255,0.72)); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--tr-glass-border, #E5ECF1); border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); padding: 24px; max-width: 360px; } .ds-card-title { margin: 0 0 8px; font-family: var(--tr-font-display, 'Plus Jakarta Sans', sans-serif); font-weight: 700; font-size: 24px; line-height: 1.3; color: var(--tr-ink, #0F2A36); } .ds-card-body { margin: 0; font-family: var(--tr-font-body, 'Inter', sans-serif); font-size: 16px; line-height: 1.6; color: var(--tr-text-80, #2A4F5F); }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Unobtrusive paper-white field with a hairline border; visible focus ring for accessibility.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"you@practice.com\" aria-label=\"Email address\" />",
+      "css": ".ds-input { width: 280px; padding: 12px 16px; border-radius: 12px; background: var(--tr-bg-paper, #FFFFFF); border: 1px solid var(--tr-border, #E5ECF1); font-family: var(--tr-font-body, 'Inter', sans-serif); font-size: 16px; color: var(--tr-ink, #0F2A36); transition: border-color 200ms, box-shadow 200ms; } .ds-input::placeholder { color: var(--tr-text-60, #6B8A98); } .ds-input:focus { outline: none; border-color: var(--tr-border-hi, #CBD9E2); box-shadow: 0 0 0 3px rgba(14,116,144,0.25); }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "chip",
+      "refersTo": "eyebrow",
+      "description": "Uppercase tracked kicker in Aqua Mint; the brand's section eyebrow.",
+      "html": "<span class=\"ds-eyebrow\">Write it Right series</span>",
+      "css": ".ds-eyebrow { font-family: var(--tr-font-body, 'Inter', sans-serif); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--tr-teal-300, #5EEAD4); }"
+    },
+    {
+      "name": "Gradient Headline (signature)",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "The single sanctioned gradient-on-text: navy to peacock to cyan, clipped to the headline. One per screen.",
+      "html": "<h2 class=\"ds-headline-grad\">Smart tools for modern therapists</h2>",
+      "css": ".ds-headline-grad { font-family: var(--tr-font-display, 'Plus Jakarta Sans', sans-serif); font-weight: 700; font-size: clamp(32px, 5vw, 48px); line-height: 1.1; letter-spacing: -0.02em; max-width: 16ch; background: var(--tr-grad-headline-light, linear-gradient(90deg, #001C3F 0%, #1B5A7E 45%, #0E7490 75%, #06B6D4 100%)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Ink & Aurora (light, default) · Calm Authority (dark)",
+    "overview": "One identity with two registers. The default light register, Ink & Aurora, is deep peacock ink on paper, lit from the corners by aurora-like teal and cyan radial blooms, with frosted-glass cards floating above the wash. The opt-in dark register, Calm Authority (data-theme=\"dark\"), drops the same system onto a deep peacock backdrop where navy carries the authority and the same teal/cyan light keeps it composed rather than cold. Both registers are first-class and permanent; the dark theme is not a throwaway. The personality is a senior clinician who is both deeply credible and genuinely warm. Authority comes from deep navy and peacock ink, real typographic hierarchy, and generous whitespace. Warmth comes from luminous peacock/cyan light, soft frosted glass, and a quiet, encouraging voice in the copy. A deliberate film-grain texture overlay (0.03 opacity, desktop) is layered over the page as an anti-AI signal.",
+    "keyCharacteristics": [
+      "Navy-led, ink-on-paper, light by default, with a permanent deep-peacock dark register.",
+      "Frosted-glass cards floating above teal/cyan radial blooms.",
+      "Tinted shadows only; grey drop shadows are forbidden.",
+      "A single navy to peacock to cyan headline gradient per screen.",
+      "Lavender lives only as a micro-accent.",
+      "Film-grain 'Non-AI' texture as a signature anti-AI tell.",
+      "Plus Jakarta Sans display over Inter body; Playfair italic for rare pull-quotes."
+    ],
+    "rules": [
+      { "name": "The Lavender Micro-Accent Rule", "body": "Lavender is permitted only as a single eyebrow dot or the course-enroll CTA. It is forbidden as a headline color or a primary CTA color. Its rarity is the point.", "section": "colors" },
+      { "name": "The Tinted-Shadow Rule", "body": "Every shadow is tinted peacock or cyan. Neutral grey drop shadows are forbidden; they read as flat and cheap against this palette.", "section": "colors" },
+      { "name": "The One Gradient Headline Rule", "body": "Exactly one navy-led gradient headline (navy to peacock to cyan) per screen. Two competing gradient headlines are forbidden. Everywhere else, headings are solid Deep Peacock Ink.", "section": "colors" },
+      { "name": "The Two-Family Rule", "body": "Plus Jakarta Sans for display, Inter for body, Playfair italic for the rare quote. No third sans. Never pair two similar sans families.", "section": "typography" },
+      { "name": "The 1.6 Body Rule", "body": "Body line-height is 1.6 and the measure is capped at 65-75ch. This is reading material for busy clinicians; comfort over compactness.", "section": "typography" },
+      { "name": "The Tinted-Glow Rule", "body": "Elevation reads as a tinted peacock/cyan glow plus frosted glass, never a hard neutral-grey drop shadow.", "section": "elevation" },
+      { "name": "The Floating Glass Rule", "body": "Cards float above the radial-bloom backdrop via backdrop-blur and a hairline border. The backdrop is part of the elevation system, not decoration.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do lead each screen with one navy to peacock to cyan gradient headline; keep every other heading solid Deep Peacock Ink (#0F2A36).",
+      "Do float frosted-glass cards above the peacock/cyan radial-bloom backdrop; keep shadows tinted peacock/cyan.",
+      "Do keep the film-grain 'Non-AI' texture overlay (0.03 opacity, desktop); it is a deliberate signal of a human hand.",
+      "Do use pill CTAs with the peacock-to-cyan gradient and a cyan glow on hover.",
+      "Do keep body at 1.6 line-height and a 65-75ch measure, and use Deep Peacock Ink or #2A4F5F for body text, never a light grey.",
+      "Do reinforce every color cue with a label or icon; never encode meaning in color alone.",
+      "Do maintain both registers, light 'Ink & Aurora' default and dark 'Calm Authority' (data-theme=\"dark\"), and test both. Neither may be removed.",
+      "Do honor prefers-reduced-motion (already wired in colors_and_type.css)."
+    ],
+    "donts": [
+      "Don't drift toward sterile clinical / EHR software: no flat institutional blue, no grey data-table chrome, no dense form-first layouts. Credibility must not read as coldness.",
+      "Don't use AI-hype / influencer styling: no loud full-bleed rainbow gradients, no hero-metric template, no 'transformational' energy. Gradient text is reserved for the single brand headline.",
+      "Don't fall into generic wellness / spa: no soft-pastel lotus-and-stones, no vague calm-app imagery. Calm here is earned through order and whitespace.",
+      "Don't ship corporate SaaS template patterns: no endlessly repeated identical icon-heading-text card grids, no tiny tracked uppercase eyebrow over every section, no stock-photo hero.",
+      "Don't use neutral-grey drop shadows; tint them peacock or cyan.",
+      "Don't use lavender as a headline or primary-CTA color; micro-accent only.",
+      "Don't put body text in muted grey on a tinted near-white surface (the contrast trap); stay at #2A4F5F or darker.",
+      "Don't use em dashes or emojis in interface copy, and cap exclamation points at one; the brand voice is a design constraint."
+    ]
+  }
+}

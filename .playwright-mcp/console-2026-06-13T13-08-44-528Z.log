@@ -1,0 +1,227 @@
+[      51ms] [ERROR] TypeError: Failed to fetch
+    at window.fetch (http://localhost:3000/:377:23)
+    at rd (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:233:391)
+    at Ml (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:386:1035)
+    at xQ (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:897:108)
+    at zQ (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:897:436)
+    at FQ.flush (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:905:403)
+    at k.flush (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:924:478)
+    at DP.T (https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:927:182)
+    at https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:871:126
+    at https://www.googletagmanager.com/gtag/js?id=G-QVC5HWYFGL:870:417 @ http://localhost:3000/:343
+[     210ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ https://chimpstatic.com/mcjs-connected/js/users/6a56fdf5ad057aa9d119505c9/d27ea7b9fcc7366b3dbd77b8a.js:0
+[     233ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/chunk-G52XTN3B.js?v=a02a22ed:21579
+[     254ms] [ERROR] Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s <ul> p 
+    at ul
+    at p
+    at div
+    at MotionComponent (http://localhost:3000/node_modules/.vite/deps/framer-motion.js?v=36db1707:6578:40)
+    at div
+    at div
+    at section
+    at ResourcesShowcase (http://localhost:3000/src/components/ResourcesShowcase.jsx:24:37)
+    at HomePage
+    at RenderedRoute (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4146:5)
+    at Routes (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4617:5)
+    at main
+    at div
+    at App
+    at ThemeProvider (http://localhost:3000/src/lib/theme.jsx:31:33)
+    at Router (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4560:15)
+    at BrowserRouter (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:5309:5) @ http://localhost:3000/:343
+[     254ms] [ERROR] Warning: validateDOMNesting(...): %s cannot appear as a descendant of <%s>.%s <p> p 
+    at p
+    at p
+    at div
+    at MotionComponent (http://localhost:3000/node_modules/.vite/deps/framer-motion.js?v=36db1707:6578:40)
+    at div
+    at div
+    at section
+    at ResourcesShowcase (http://localhost:3000/src/components/ResourcesShowcase.jsx:24:37)
+    at HomePage
+    at RenderedRoute (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4146:5)
+    at Routes (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4617:5)
+    at main
+    at div
+    at App
+    at ThemeProvider (http://localhost:3000/src/lib/theme.jsx:31:33)
+    at Router (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4560:15)
+    at BrowserRouter (http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:5309:5) @ http://localhost:3000/:343
+[     261ms] [WARNING] ⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. @ http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4451
+[     261ms] [WARNING] ⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. @ http://localhost:3000/node_modules/.vite/deps/react-router-dom.js?v=3a79e355:4451
+[    5472ms] [ERROR] Fetch error from :  @ http://localhost:3000/:343
+[    6444ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %call-caps-body%c text-transform: uppercase on 45 chars of body text color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %chero-eyebrow-chip%c eyebrow chip (accent-bold) "Write it Right Course Bundle is now avai" above h1 "Smart Toolsfor the Modern Therapist" color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %clow-contrast%c 1.2:1 (need 3:1) — text #000000 on #001c3f color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Purple/violet gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %clow-contrast%c 2.0:1 (need 3:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %clow-contrast%c 2.0:1 (need 4.5:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cline-length%c ~128 chars/line (aim for <80) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 30px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %coverused-font%c Primary font: inter (82% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %coverused-font%c Primary font: plus jakarta sans (18% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cgradient-text%c bg-clip-text + bg-gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[    6445ms] [LOG] %cdark-glow%c Colored glow (rgb(14,116,144)) on dark page color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %call-caps-body%c text-transform: uppercase on 45 chars of body text color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %chero-eyebrow-chip%c eyebrow chip (accent-bold) "Write it Right Course Bundle is now avai" above h1 "Smart Toolsfor the Modern Therapist" color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14738ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %clow-contrast%c 1.2:1 (need 3:1) — text #000000 on #001c3f color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Purple/violet gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %clow-contrast%c 2.0:1 (need 3:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %clow-contrast%c 2.0:1 (need 4.5:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cline-length%c ~128 chars/line (aim for <80) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 30px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %coverused-font%c Primary font: inter (82% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %coverused-font%c Primary font: plus jakarta sans (18% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cgradient-text%c bg-clip-text + bg-gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   14739ms] [LOG] %cdark-glow%c Colored glow (rgb(14,116,144)) on dark page color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30598ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30598ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30598ms] [LOG] %call-caps-body%c text-transform: uppercase on 45 chars of body text color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30598ms] [LOG] %chero-eyebrow-chip%c eyebrow chip (accent-bold) "Write it Right Course Bundle is now avai" above h1 "Smart Toolsfor the Modern Therapist" color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30598ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30598ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %clow-contrast%c 1.2:1 (need 3:1) — text #000000 on #001c3f color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Purple/violet gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %clow-contrast%c 2.0:1 (need 3:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %clow-contrast%c 2.0:1 (need 4.5:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cline-length%c ~128 chars/line (aim for <80) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 30px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %coverused-font%c Primary font: inter (82% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %coverused-font%c Primary font: plus jakarta sans (18% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cgradient-text%c bg-clip-text + bg-gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   30599ms] [LOG] %cdark-glow%c Colored glow (rgb(14,116,144)) on dark page color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41926ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41926ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %call-caps-body%c text-transform: uppercase on 45 chars of body text color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %chero-eyebrow-chip%c eyebrow chip (accent-bold) "Write it Right Course Bundle is now avai" above h1 "Smart Toolsfor the Modern Therapist" color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %clow-contrast%c 1.2:1 (need 3:1) — text #000000 on #001c3f color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Purple/violet gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %clow-contrast%c 2.0:1 (need 3:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %clow-contrast%c 2.0:1 (need 4.5:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cline-length%c ~128 chars/line (aim for <80) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 30px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %coverused-font%c Primary font: inter (82% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %coverused-font%c Primary font: plus jakarta sans (18% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cgradient-text%c bg-clip-text + bg-gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   41927ms] [LOG] %cdark-glow%c Colored glow (rgb(14,116,144)) on dark page color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %call-caps-body%c text-transform: uppercase on 45 chars of body text color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %chero-eyebrow-chip%c eyebrow chip (accent-bold) "Write it Right Course Bundle is now avai" above h1 "Smart Toolsfor the Modern Therapist" color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %clow-contrast%c 1.2:1 (need 3:1) — text #000000 on #001c3f color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Cyan gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Purple/violet gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %cai-color-palette%c Purple/violet gradient background color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51601ms] [LOG] %clow-contrast%c 2.0:1 (need 3:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %clow-contrast%c 2.0:1 (need 4.5:1) — text #0f2c38 on #1b5a7e color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %cline-length%c ~128 chars/line (aim for <80) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 50px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %cgpt-thin-border-wide-shadow%c 1px border + 30px shadow blur color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %coverused-font%c Primary font: inter (82% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %coverused-font%c Primary font: plus jakarta sans (18% of text) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %cgradient-text%c background-clip: text + gradient color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %cgradient-text%c bg-clip-text + bg-gradient (Tailwind) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
+[   51602ms] [LOG] %cdark-glow%c Colored glow (rgb(14,116,144)) on dark page color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js?token=173493a9-535e-48e7-a5ba-776821565317:4410
