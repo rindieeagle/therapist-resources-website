@@ -4,8 +4,9 @@
 //   dist/blog/ + dist/blog/page/N/     paginated index
 //   dist/blog/topic/<tag>/ (+ pages)   topic hub pages
 //   dist/blog/feed.xml                 RSS
-//   dist/sitemap.xml                   full sitemap (owns the file)
-//   dist/llms.txt                      blog section appended
+//   dist/sitemap.xml                   full sitemap incl. image extension (owns the file)
+//   dist/llms.txt                      spec-compliant index (owns the file)
+//   dist/llms-full.txt                 full post text for AI answer engines (owns the file)
 //
 // Reads content/blog/*.json (committed by n8n / tools/migrate-from-wp.js).
 // Fully hermetic: no network access. Any hard error fails the build so a
@@ -17,7 +18,8 @@ import { rewritePostHtml, localImagePath } from './lib/content.js';
 import { detectFaq } from './lib/seo.js';
 import { renderPostPage } from './templates/post-page.js';
 import { renderIndexPage } from './templates/index-page.js';
-import { buildSitemap, buildRss, appendBlogToLlmsTxt } from './lib/feeds.js';
+import { buildSitemap, buildRss, buildLlmsTxt } from './lib/feeds.js';
+import { buildLlmsFull } from './lib/discovery.js';
 
 const POSTS_PER_PAGE = 9;
 const ROOT = process.cwd();
@@ -204,10 +206,12 @@ function main() {
     writeIndexSet({ posts: topicPosts, topics, activeTopic: topic, cssHref, outBase: path.join(DIST, 'blog', 'topic', topic.slug) });
   }
 
-  // Feeds + discovery files.
+  // Feeds + discovery files. build-blog owns sitemap.xml, llms.txt, and
+  // llms-full.txt outright (written after _cardImage resolution above).
   fs.writeFileSync(path.join(DIST, 'sitemap.xml'), buildSitemap({ posts, topicSlugs: topics.map((t) => t.slug), indexPageCount }));
   writePage(path.join(DIST, 'blog', 'feed.xml'), buildRss(posts));
-  appendBlogToLlmsTxt(DIST, posts);
+  fs.writeFileSync(path.join(DIST, 'llms.txt'), buildLlmsTxt({ posts }));
+  fs.writeFileSync(path.join(DIST, 'llms-full.txt'), buildLlmsFull(posts));
 
   console.log(`✓ blog: ${posts.length} post(s), ${topics.length} topic(s), ${indexPageCount} index page(s) → dist/blog/`);
   if (warnings.length) {
