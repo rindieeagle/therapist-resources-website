@@ -1,10 +1,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, Magnet, Puzzle, ArrowRight, Sparkles } from 'lucide-react';
+import { Calculator, Puzzle, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
-import CreditBadge from '@/components/CreditBadge';
 
 const apps = [
   {
@@ -16,16 +15,8 @@ const apps = [
     link: "https://encourage.outgrow.us/caseloadcalc"
   },
   {
-    title: "Attract Your Ideal Client",
-    description: "A comprehensive mini-course and interactive workbook designed to help you clarify your niche and speak directly to the clients you do your best work with.",
-    icon: Magnet,
-    gradient: "from-primary via-sky-500 to-cyan-500",
-    buttonText: "Start Mini-Course",
-    isCourse: true,
-    link: "https://share.minicoursegenerator.com/attract-your-ideal-client-638138860996532035/1"
-  },
-  {
     title: "Behavioral Definition Builder",
+    cardVariant: 0,
     description: "Create clear, objective operational definitions for target behaviors. Essential for functional behavior assessments and treatment planning documentation.",
     icon: Puzzle,
     gradient: "from-primary via-teal-500 to-emerald-500",
@@ -110,7 +101,7 @@ const WebAppsPage = () => {
             className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
           >
             {apps.map((app, index) => {
-              const variant = cardVariants[index % cardVariants.length];
+              const variant = cardVariants[(app.cardVariant ?? index) % cardVariants.length];
               return (
               <motion.div
                 key={index}
@@ -135,7 +126,6 @@ const WebAppsPage = () => {
                   </div>
 
                   <h3 className="text-xl font-bold leading-snug text-foreground mb-2">{app.title}</h3>
-                  {app.isCourse && <div className="mb-3"><CreditBadge /></div>}
                   <p className="text-foreground/80 text-sm leading-relaxed mb-5 flex-grow">
                     {app.description}
                   </p>

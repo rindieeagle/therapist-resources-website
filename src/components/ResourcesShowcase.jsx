@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Users, Briefcase, GraduationCap, Zap } from 'lucide-react'; // Added GraduationCap and Zap
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import CreditBadge from '@/components/CreditBadge';
 
 const ResourcesShowcase = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,7 +51,6 @@ const ResourcesShowcase = () => {
             <li>Befriending Your Nervous System Course</li>
           </ul>
           <p className="mt-2">Each course is crafted to integrate seamlessly into your therapeutic practice.</p>
-          <div className="mt-3"><CreditBadge /></div>
         </>
       ),
       gradient: 'from-teal-500 to-emerald-500',

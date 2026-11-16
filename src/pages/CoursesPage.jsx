@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby, Waypoints, BookOpen, ClipboardList, FileSearch, FileText, Layers } from 'lucide-react';
+import { Clock, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby, Waypoints, BookOpen, ClipboardList, FileSearch, FileText, Layers, Magnet } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
 import CreditBadge from '@/components/CreditBadge';
+import FreeBadge from '@/components/FreeBadge';
 
 const courses = [{
   title: "Write it Right Bundle",
-  description: "Get all four Write it Right documentation courses—SOAP Notes, Treatment Planning, Diagnostic Assessment, and Discharge & Treatment Summary—in one bundle and save $51 versus buying them individually.",
+  description: "Get all four Write it Right documentation courses (SOAP Notes, Treatment Planning, Diagnostic Assessment, and Discharge & Treatment Summary) in one bundle and save $41 versus buying them individually.",
   instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
-  level: "Save $51",
+  level: "Save $41",
   icon: Layers,
   duration: "4 Courses",
   enrollmentLink: "https://goldenthread.therapistresources.com",
@@ -21,7 +22,8 @@ const courses = [{
   level: "Beginner",
   icon: Waypoints,
   duration: "1 Hour",
-  enrollmentLink: "https://foundations.therapistresources.com"
+  enrollmentLink: "https://foundations.therapistresources.com",
+  isFree: true
 }, {
   title: "Write it Right: SOAP Notes",
   description: "Master the art of writing effective SOAP notes. Clear, concise, and clinically sound documentation that saves you time.",
@@ -78,6 +80,15 @@ const courses = [{
   icon: Sparkles,
   duration: "1 Hours",
   enrollmentLink: "https://experts.45d.ai/site/rindie"
+}, {
+  title: "Attract Your Ideal Client",
+  description: "A workbook to help you clarify your niche and describe your services to the clients you want to work with.",
+  instructor: "Rindie Eagle",
+  level: "Workbook",
+  icon: Magnet,
+  enrollmentLink: "https://drive.google.com/file/d/1_lnW1KFYhhN78Xl7hh0qk6vytT6XuJX7/view?usp=drive_link",
+  cta: "Download Workbook",
+  isWorkbook: true
 }, /*{
   title: "Group Therapy Techniques",
   description: "Strategies for facilitating dynamic and effective therapy groups.",
@@ -214,10 +225,11 @@ const CoursesPage = () => {
                 <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${variant.badge} dark:backdrop-blur-sm`}>
                   {course.level}
                 </span>
-                <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold ${variant.accent} dark:backdrop-blur-sm`}>
+                {course.duration && <span className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-semibold ${variant.accent} dark:backdrop-blur-sm`}>
                   <Clock className="h-3 w-3" />
                   {course.duration}
-                </span>
+                </span>}
+                {course.isFree && <FreeBadge />}
               </div>
 
               <div className={`flex h-16 w-16 items-center justify-center rounded-[20px] bg-gradient-to-br ${variant.glyph} text-white shadow-[0_8px_20px_-6px_rgba(14,116,144,0.35)] transition-transform duration-300 group-hover:scale-110 dark:border dark:border-white/30 dark:bg-white/20 dark:bg-none dark:backdrop-blur-md`}>
@@ -227,7 +239,7 @@ const CoursesPage = () => {
 
             <div className="p-5 flex-grow flex flex-col">
               <div className="mb-2 bg-gradient-to-r from-primary to-sky-500 bg-clip-text text-xs font-bold uppercase tracking-[0.06em] text-transparent dark:from-cyan-300 dark:to-sky-200">
-                Instructor: {course.instructor}
+                {course.isWorkbook ? 'Author' : 'Instructor'}: {course.instructor}
               </div>
               <h3 className="text-xl font-bold leading-snug text-foreground mb-2">{course.title}</h3>
               <p className="text-foreground/80 text-sm leading-relaxed mb-5">{course.description}</p>

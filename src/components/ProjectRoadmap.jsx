@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Clock, BookOpen, ClipboardList, FileSearch, FileText, Waypoints } from 'lucide-react';
 import CreditBadge from '@/components/CreditBadge';
+import FreeBadge from '@/components/FreeBadge';
 
 const milestones = [
   {
@@ -11,6 +12,7 @@ const milestones = [
     icon: Waypoints,
     status: 'done',
     link: 'https://foundations.therapistresources.com',
+    isFree: true,
     gradient: 'from-[#001C3F] to-[#1B5A7E]',
     glow: 'shadow-cyan-500/20',
   },
@@ -163,7 +165,10 @@ const ProjectRoadmap = () => {
                     {milestone.title}
                   </h3>
                   <div className="mb-3">
-                    <CreditBadge courseLink={milestone.link} />
+                    <div className="inline-flex flex-wrap items-center gap-2">
+                      <CreditBadge courseLink={milestone.link} />
+                      {milestone.isFree && <FreeBadge />}
+                    </div>
                   </div>
                   <p className="text-foreground/70 leading-relaxed text-sm md:text-base">
                     {milestone.description}
