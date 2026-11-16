@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Calculator, Magnet, Puzzle, ArrowRight, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
+import CreditBadge from '@/components/CreditBadge';
 
 const apps = [
   {
@@ -20,6 +21,7 @@ const apps = [
     icon: Magnet,
     gradient: "from-primary via-sky-500 to-cyan-500",
     buttonText: "Start Mini-Course",
+    isCourse: true,
     link: "https://share.minicoursegenerator.com/attract-your-ideal-client-638138860996532035/1"
   },
   {
@@ -133,6 +135,7 @@ const WebAppsPage = () => {
                   </div>
 
                   <h3 className="text-xl font-bold leading-snug text-foreground mb-2">{app.title}</h3>
+                  {app.isCourse && <div className="mb-3"><CreditBadge /></div>}
                   <p className="text-foreground/80 text-sm leading-relaxed mb-5 flex-grow">
                     {app.description}
                   </p>

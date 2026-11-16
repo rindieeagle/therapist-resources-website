@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import CreditBadge from '@/components/CreditBadge';
 
 const CallToAction = () => {
   const scrollToCourses = () =>
@@ -28,8 +29,10 @@ const CallToAction = () => {
 
           <div className="relative z-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-sky-200">
-              All five courses · Available now
+              All four courses · Available now
             </span>
+
+            <div className="mt-3"><CreditBadge courseLink="https://goldenthread.therapistresources.com" onDark /></div>
 
             <h2 className="mx-auto mt-5 max-w-3xl font-sans text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
               Complete the series. Document with confidence.

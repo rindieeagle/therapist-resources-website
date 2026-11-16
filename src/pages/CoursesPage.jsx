@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, GraduationCap, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby, Waypoints, BookOpen, ClipboardList, FileSearch, FileText, Layers } from 'lucide-react';
+import { Clock, Brain, Heart, Users, ShieldAlert, Sparkles, MessageCircle, Baby, Waypoints, BookOpen, ClipboardList, FileSearch, FileText, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Helmet } from 'react-helmet';
+import CreditBadge from '@/components/CreditBadge';
 
 const courses = [{
   title: "Write it Right Bundle",
@@ -27,7 +28,7 @@ const courses = [{
   instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
   level: "Beginner",
   icon: BookOpen,
-  duration: "2 Hours",
+  duration: "2.5 Hours",
   enrollmentLink: "https://soap.therapistresources.com"
 }, {
   title: "Write it Right: Treatment Planning",
@@ -43,7 +44,7 @@ const courses = [{
   instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
   level: "Beginner",
   icon: FileSearch,
-  duration: "2 Hours",
+  duration: "3.5 Hours",
   enrollmentLink: "https://da.therapistresources.com"
 }, {
   title: "Write it Right: Discharge & Treatment Summary",
@@ -51,7 +52,7 @@ const courses = [{
   instructor: "Rindie Eagle, MA, LPCC & Renee Devine, MS, LMHC",
   level: "Beginner",
   icon: FileText,
-  duration: "1.5 Hours",
+  duration: "2 Hours",
   enrollmentLink: "https://discharge.therapistresources.com"
 }, {
   title: "Sleep Hygiene 101",
@@ -239,8 +240,7 @@ const CoursesPage = () => {
                   {course.cta || "Enroll Now"}
                 </Button>
                 <div className="flex items-center gap-2 border-t border-border pt-3 text-sm font-medium text-foreground/70 dark:border-white/10 dark:text-white/75">
-                  <GraduationCap className="h-4 w-4 text-primary dark:text-cyan-300" />
-                  {course.duration}
+                  <CreditBadge courseLink={course.enrollmentLink} />
                 </div>
               </div>
             </div>

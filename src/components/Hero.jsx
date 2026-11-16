@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import CreditBadge from '@/components/CreditBadge';
 
 const Hero = () => {
   return (
@@ -58,6 +59,7 @@ const Hero = () => {
             <div>
               <div className="font-sans text-3xl font-extrabold text-primary dark:text-sky-300">4-course</div>
               <div className="mt-1 text-sm text-foreground/70 dark:text-white/75">Write it Right documentation series</div>
+              <div className="mt-2"><CreditBadge courseLink="https://goldenthread.therapistresources.com" /></div>
             </div>
             <div>
               <div className="font-sans text-3xl font-extrabold text-cyan-700 dark:text-cyan-400">Bi-monthly</div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail, Heart, Facebook } from 'lucide-react';
 import { useTheme } from '@/lib/theme';
+import { NBCC_APPROVAL_STATEMENT, NBCC_LOGO } from '@/lib/nbcc';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -78,6 +79,11 @@ const Footer = () => {
               rindie@therapistresources.com
             </p>
           </div>
+        </div>
+
+        <div aria-label="NBCC provider approval" className="flex flex-col sm:flex-row items-center gap-5 py-6 border-t border-border">
+          <img src={NBCC_LOGO} alt="NBCC Approved Continuing Education Provider" width="96" height="96" className="h-24 w-24 shrink-0 bg-white object-contain" />
+          <p className="text-sm leading-relaxed text-foreground/80 text-left">{NBCC_APPROVAL_STATEMENT}</p>
         </div>
 
         {/* Bottom Section */}

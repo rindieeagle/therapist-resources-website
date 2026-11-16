@@ -4,6 +4,7 @@
 // structurally, mirror the change here.
 
 import { SITE, escapeHtml } from '../lib/content.js';
+import { NBCC_APPROVAL_STATEMENT, NBCC_LOGO } from '../../../src/lib/nbcc.js';
 
 const GA_ID = 'G-QVC5HWYFGL';
 const SHOP_URL = 'https://reagleeagle.gumroad.com/?section=SoACiIzAf7Uk2VwpGfH5Xg%3D%3D';
@@ -118,6 +119,10 @@ function footerHtml() {
           </div>
           <p class="text-foreground/80 text-sm font-medium drop-shadow-sm">rindie@therapistresources.com</p>
         </div>
+      </div>
+      <div aria-label="NBCC provider approval" class="flex flex-col sm:flex-row items-center gap-5 py-6 border-t border-border">
+        <img src="${NBCC_LOGO}" alt="NBCC Approved Continuing Education Provider" width="96" height="96" class="h-24 w-24 shrink-0 bg-white object-contain" />
+        <p class="text-sm leading-relaxed text-foreground/80 text-left">${escapeHtml(NBCC_APPROVAL_STATEMENT)}</p>
       </div>
       <div class="pt-8 border-t border-border text-center">
         <p class="text-foreground/70 text-sm flex flex-wrap items-center justify-center gap-1 sm:gap-2 font-medium">

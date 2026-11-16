@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Clock, BookOpen, ClipboardList, FileSearch, FileText, Waypoints } from 'lucide-react';
+import CreditBadge from '@/components/CreditBadge';
 
 const milestones = [
   {
@@ -161,6 +162,9 @@ const ProjectRoadmap = () => {
                   <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
                     {milestone.title}
                   </h3>
+                  <div className="mb-3">
+                    <CreditBadge courseLink={milestone.link} />
+                  </div>
                   <p className="text-foreground/70 leading-relaxed text-sm md:text-base">
                     {milestone.description}
                   </p>
