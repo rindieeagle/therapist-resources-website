@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 import CreditBadge from '@/components/CreditBadge';
 
 const CallToAction = () => {
-  const scrollToCourses = () =>
+  const scrollToCourses = (event) => {
+    event.preventDefault();
     document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section id="bundle" className="py-20 px-4 relative">
@@ -52,12 +54,13 @@ const CallToAction = () => {
                 Get the Write it Right Bundle
                 <span aria-hidden="true">→</span>
               </a>
-              <button
+              <a
+                href="#courses"
                 onClick={scrollToCourses}
                 className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-8 py-3.5 text-base font-bold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#001C3F]"
               >
                 Browse the courses
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>

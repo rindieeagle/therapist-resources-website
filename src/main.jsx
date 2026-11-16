@@ -7,7 +7,7 @@ import App from '@/App';
 import { ThemeProvider } from '@/lib/theme';
 import '@/index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const app = (
   <>
     <BrowserRouter>
       <ThemeProvider>
@@ -19,3 +19,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </>
 );
+
+const root = document.getElementById('root');
+const pathname = window.location.pathname.replace(/\/$/, '') || '/';
+if (root.dataset.prerenderRoute === pathname) {
+  ReactDOM.hydrateRoot(root, app);
+} else {
+  ReactDOM.createRoot(root).render(app);
+}

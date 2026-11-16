@@ -111,6 +111,13 @@
     /* Hide content until CSS loads */
     .loading-hidden { visibility: hidden; }
   </style>
+  <noscript>
+    <style>
+      /* Show animation content when there is no JavaScript to reveal it. */
+      #root [style*="opacity:0;"], #root [style$="opacity:0"] { opacity: 1 !important; }
+      #root [style*="transform:"] { transform: none !important; }
+    </style>
+  </noscript>
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/6a56fdf5ad057aa9d119505c9/d27ea7b9fcc7366b3dbd77b8a.js");</script>
 </head>
 

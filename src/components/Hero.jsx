@@ -37,18 +37,20 @@ const Hero = () => {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <button
+            <a
+              href="#resources"
               className="inline-flex items-center rounded-full bg-gradient-to-r from-primary via-cyan-700 to-sky-600 px-7 py-3 text-base font-bold text-white shadow-[0_12px_28px_-10px_rgba(27,90,126,0.55)] transition-transform duration-200 hover:-translate-y-0.5"
-              onClick={() => document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={(event) => { event.preventDefault(); document.querySelector('#resources')?.scrollIntoView({ behavior: 'smooth' }); }}
             >
               Browse Resources →
-            </button>
-            <button
+            </a>
+            <a
+              href="#courses"
               className="inline-flex items-center rounded-full border border-[#CBD9E2] bg-white px-7 py-3 text-base font-bold text-[#001C3F] transition-colors duration-200 hover:border-primary hover:bg-accent dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
-              onClick={() => document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={(event) => { event.preventDefault(); document.querySelector('#courses')?.scrollIntoView({ behavior: 'smooth' }); }}
             >
               View Courses
-            </button>
+            </a>
           </div>
 
           <div className="mt-9 grid gap-5 border-t border-border pt-5 sm:grid-cols-3 dark:border-white/10">
@@ -139,12 +141,13 @@ const Hero = () => {
                   transition={{ duration: 0.4, delay: 0.25 }}
                   className="flex gap-3 sm:gap-4 justify-center md:justify-start flex-wrap"
                 >
-                  <button
+                  <a
+                    href="#story"
                     className="px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-cyan-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 text-sm sm:text-base"
-                    onClick={() => document.querySelector('#story')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={(event) => { event.preventDefault(); document.querySelector('#story')?.scrollIntoView({ behavior: 'smooth' }); }}
                   >
                     Read my story
-                  </button>
+                  </a>
                 </motion.div>
               </motion.div>
             </div>

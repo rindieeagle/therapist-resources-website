@@ -172,10 +172,6 @@ const cardVariants = [
 ];
 
 const CoursesPage = () => {
-  const handleEnrollClick = (link) => {
-    window.open(link, "_blank");
-  };
-
   return <>
     <Helmet>
       <title>Professional Courses | Rindie Eagle</title>
@@ -246,10 +242,12 @@ const CoursesPage = () => {
 
               <div className="mt-auto space-y-4">
                 <Button
+                  asChild
                   className="w-full rounded-xl bg-gradient-to-r from-primary to-sky-600 py-5 text-sm font-bold text-primary-foreground border-0 shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:from-primary/90 hover:to-sky-500 hover:shadow-cyan-500/40"
-                  onClick={() => handleEnrollClick(course.enrollmentLink)}
                 >
-                  {course.cta || "Enroll Now"}
+                  <a href={course.enrollmentLink} target="_blank" rel="noopener noreferrer">
+                    {course.cta || "Enroll Now"}
+                  </a>
                 </Button>
                 <div className="flex items-center gap-2 border-t border-border pt-3 text-sm font-medium text-foreground/70 dark:border-white/10 dark:text-white/75">
                   <CreditBadge courseLink={course.enrollmentLink} />

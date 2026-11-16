@@ -236,6 +236,16 @@ logger.error = (msg, options) => {
 export default defineConfig({
 	customLogger: logger,
 	plugins: [
+		{
+			name: 'prerender-preview-routes',
+			configurePreviewServer(server) {
+				// Match the production .htaccess routes, including trailing slashes.
+				server.middlewares.use((req, res, next) => {
+					req.url = req.url?.replace(/^\/(courses|web-apps)\/?(?=\?|$)/, '/$1.html');
+					next();
+				});
+			},
+		},
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin(), iframeRouteRestorationPlugin(), selectionModePlugin()] : []),
 		react(),
 		addTransformIndexHtml

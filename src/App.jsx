@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Header from '@/components/Header';
 import HomePage from '@/components/HomePage';
@@ -12,11 +12,14 @@ import AnalyticsTracker from '@/components/AnalyticsTracker';
 import { Toaster } from '@/components/ui/toaster';
 
 function App() {
+  const { pathname } = useLocation();
+  const canonical = `https://therapistresources.com${pathname.replace(/\/$/, '') || '/'}`;
   return (
     <>
       <Helmet>
         <title>Therapist Resources - Rindie Eagle (MA, LPCC)</title>
         <meta name="description" content="Professional therapy resources, courses, and digital products designed by Rindie Eagle. From session-ready materials to clinical tools, everything you need with no prep time required." />
+        <link rel="canonical" href={canonical} />
       </Helmet>
       
       <div className="min-h-screen bg-background relative overflow-x-hidden">

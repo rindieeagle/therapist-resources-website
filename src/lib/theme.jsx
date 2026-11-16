@@ -14,20 +14,26 @@ function apply(theme) {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    try {
-      return localStorage.getItem('tr-theme') || 'light';
-    } catch {
-      return 'light';
-    }
-  });
+  // The first browser render must match the light theme used during prerendering.
+  const [theme, setTheme] = useState('light');
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
+    let savedTheme = 'light';
+    try {
+      if (localStorage.getItem('tr-theme') === 'dark') savedTheme = 'dark';
+    } catch {}
+    setTheme(savedTheme);
+    setInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    if (!initialized) return;
     apply(theme);
     try {
       localStorage.setItem('tr-theme', theme);
     } catch {}
-  }, [theme]);
+  }, [theme, initialized]);
 
   const toggle = () => setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
 
