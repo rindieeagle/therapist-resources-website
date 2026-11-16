@@ -46,6 +46,7 @@ const ResourcesShowcase = () => {
         <>
           Ready-to-use courses designed for therapists. Includes:
           <ul className="list-disc list-inside mt-2 text-foreground/70">
+            <li>Write it Right Clinical Documentation Training Series</li>
             <li>Motivation Course</li>
             <li>Sleep Hygiene 101 Course</li>
             <li>Befriending Your Nervous System Course</li>
@@ -64,9 +65,9 @@ const ResourcesShowcase = () => {
           Interactive tools built for therapists. Features:
           <ul className="list-disc list-inside mt-2 text-foreground/70">
             <li>Behavioral Definition Builder (part of Golden Thread Therapist Resources)</li>
-            <li>More tools coming soon</li>
+            <li>Caseload Calculator</li>
           </ul>
-          <p className="mt-2">Designed for immediate use in your practice. The Behavioral Definition Builder is nearly complete and ready to streamline how you work with clients.</p>
+          <p className="mt-2">The Behavioral Definition Builder is complete and ready to use.</p>
         </>
       ),
       gradient: 'from-teal-500 to-primary',
