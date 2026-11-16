@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { parse } from '@babel/parser';
 
 const CLEAN_CONTENT_REGEX = {
   comments: /\/\*[\s\S]*?\*\/|\/\/.*$/gm,
@@ -18,9 +19,6 @@ const CLEAN_CONTENT_REGEX = {
 };
 
 const EXTRACTION_REGEX = {
-  route: /<Route\s+[^>]*>/g,
-  path: /path=["']([^"']+)["']/,
-  element: /element=\{<(\w+)[^}]*\/?\s*>\}/,
   helmet: /<Helmet[^>]*?>([\s\S]*?)<\/Helmet>/i,
   helmetTest: /<Helmet[\s\S]*?<\/Helmet>/i,
   title: /<title[^>]*?>\s*(.*?)\s*<\/title>/i,
@@ -50,35 +48,30 @@ function cleanText(text) {
 function extractRoutes(appJsxPath) {
   if (!fs.existsSync(appJsxPath)) return new Map();
 
-  try {
-    const content = fs.readFileSync(appJsxPath, 'utf8');
-    const routes = new Map();
-    const routeMatches = [...content.matchAll(EXTRACTION_REGEX.route)];
-    
-    for (const match of routeMatches) {
-      const routeTag = match[0];
-      const pathMatch = routeTag.match(EXTRACTION_REGEX.path);
-      const elementMatch = routeTag.match(EXTRACTION_REGEX.element);
-      const isIndex = routeTag.includes('index');
-      
-      if (elementMatch) {
-        const componentName = elementMatch[1];
-        let routePath;
-        
-        if (isIndex) {
-          routePath = '/';
-        } else if (pathMatch) {
-          routePath = pathMatch[1].startsWith('/') ? pathMatch[1] : `/${pathMatch[1]}`;
-        }
-        
-        routes.set(componentName, routePath);
+  const content = fs.readFileSync(appJsxPath, 'utf8');
+  const ast = parse(content, { sourceType: 'module', plugins: ['jsx'] });
+  const routes = new Map();
+
+  // Parse JSX so commented-out routes are excluded from the public index.
+  function visit(node) {
+    if (!node || typeof node !== 'object') return;
+    if (node.type === 'JSXElement' && node.openingElement.name.name === 'Route') {
+      const attributes = node.openingElement.attributes;
+      const routePath = attributes.find(attribute => attribute.name?.name === 'path')?.value?.value;
+      const isIndex = attributes.some(attribute => attribute.name?.name === 'index');
+      const element = attributes.find(attribute => attribute.name?.name === 'element')?.value?.expression;
+      const componentName = element?.openingElement?.name?.name;
+      if (componentName && (isIndex || typeof routePath === 'string')) {
+        routes.set(componentName, isIndex ? '/' : routePath);
       }
     }
-
-    return routes;
-  } catch (error) {
-    return new Map();
+    for (const value of Object.values(node)) {
+      if (Array.isArray(value)) value.forEach(visit);
+      else if (value && typeof value === 'object') visit(value);
+    }
   }
+  visit(ast);
+  return routes;
 }
 
 function findReactFiles(dir) {
@@ -103,9 +96,8 @@ function extractHelmetData(content, filePath, routes) {
   const description = cleanText(descMatch?.[1]);
   
   const fileName = path.basename(filePath, path.extname(filePath));
-  const url = routes.length && routes.has(fileName) 
-    ? routes.get(fileName) 
-    : generateFallbackUrl(fileName);
+  if (!routes.has(fileName)) return null;
+  const url = routes.get(fileName);
   
   return {
     url,
@@ -114,18 +106,13 @@ function extractHelmetData(content, filePath, routes) {
   };
 }
 
-function generateFallbackUrl(fileName) {
-  const cleanName = fileName.replace(/Page$/, '').toLowerCase();
-  return cleanName === 'app' ? '/' : `/${cleanName}`;
-}
-
 function generateLlmsTxt(pages) {
   const sortedPages = pages.sort((a, b) => a.title.localeCompare(b.title));
   const pageEntries = sortedPages.map(page => 
-    `- [${page.title}](${page.url}): ${page.description}`
+    `- [${page.title}](https://therapistresources.com${page.url}): ${page.description}`
   ).join('\n');
   
-  return `## Pages\n${pageEntries}`;
+  return `# Therapist Resources\n\n> Courses, workbooks and clinical tools for therapists.\n\n## Pages\n${pageEntries}\n`;
 }
 
 function ensureDirectoryExists(dirPath) {
@@ -151,7 +138,7 @@ function main() {
   let pages = [];
   
   if (!fs.existsSync(pagesDir)) {
-    pages.push(processPageFile(appJsxPath, []))
+    pages.push(processPageFile(appJsxPath, new Map([['App', '/']])));
     pages = pages.filter(Boolean);
   } else {
     const routes = extractRoutes(appJsxPath);
@@ -160,6 +147,8 @@ function main() {
     pages = reactFiles
       .map(filePath => processPageFile(filePath, routes))
       .filter(Boolean);
+    const home = processPageFile(appJsxPath, new Map([['App', '/']]));
+    if (home) pages.push(home);
   }
 
   if (pages.length === 0) {

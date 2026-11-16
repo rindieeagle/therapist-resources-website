@@ -1,2 +1,8 @@
+# Therapist Resources
+
+> Courses, workbooks and clinical tools for therapists.
+
 ## Pages
-- [Therapy Resources | Rindie Eagle](/resources): Explore a comprehensive collection of therapy resources, handouts, and clinical tools.
+- [Professional Courses | Rindie Eagle](https://therapistresources.com/courses): Enroll in professional development courses for therapists. Expand your clinical skills with expert-led training.
+- [Therapist Resources - Rindie Eagle (MA, LPCC)](https://therapistresources.com/): Professional therapy resources, courses, and digital products designed by Rindie Eagle. From session-ready materials to clinical tools, everything you need with no prep time required.
+- [Web Apps & Tools | Rindie Eagle](https://therapistresources.com/web-apps): Interactive clinical tools and web applications for therapists. Streamline your practice with our Caseload Calculator and Behavioral Definition Builder.
